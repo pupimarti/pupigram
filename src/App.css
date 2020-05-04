@@ -1,16 +1,21 @@
 .light{
-    color: #000;
-    background-color: #fff;
+    color: #333333;
+    background-color: #edefee;
     transition: .3s ease all;
 }
 
 .dark{
-    background-color: #000;
-    color: #fff;
+    background-color: #333333;
+    color: #edefee;
     transition: .3s ease all;
 }
 
-.asd{
-    color:#fff;
-    background: #fff;
+.content-app{
+    width: 935px;
+    max-width: 90vw;
+    margin: 0 auto;
+}
+
+.relleno{
+    height: 100vh;
 }

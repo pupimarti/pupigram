@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import SwitchMode from './components/SwitchMode';
 import NavBar from './components/NavBar';
 import './App.css';
 
@@ -17,9 +16,10 @@ function App() {
   }
   return (
     <div className={mode}>
-      <NavBar/>
-      <h1>Programacionok</h1>
-      <SwitchMode setMode={handleChangeMode} />
+      <div className="content-app">
+        <NavBar setMode={handleChangeMode}/>
+      </div>
+      <div className="relleno"></div>
     </div>
   );
 }

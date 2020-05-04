@@ -1,0 +1,22 @@
+.content-navBar{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+}
+.icon{
+    width: 2em;
+    cursor: pointer;
+}
+
+.dark .icon{
+    filter: invert();
+}
+
+.logo{
+    width: 250px;
+}
+
+.dark .logo{
+    filter: invert();
+}
