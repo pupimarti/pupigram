@@ -16,9 +16,7 @@ function App() {
   }
   return (
     <div className={mode}>
-      <div className="content-app">
         <NavBar setMode={handleChangeMode}/>
-      </div>
       <div className="relleno"></div>
     </div>
   );

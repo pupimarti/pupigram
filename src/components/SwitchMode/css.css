@@ -14,7 +14,7 @@
     height: 33px;
     display: block;
     position: absolute;
-    top:0;
+    top:-4px;
     left:0;
     right: unset;
     background: #f1f1f1;

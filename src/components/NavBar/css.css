@@ -1,22 +1,30 @@
 .content-navBar{
-    width: 100%;
+    background-color: #FFF;
+    border-bottom: #DDD 1px solid;
+}
+.dark .content-navBar{
+    background-color: #111111;
+    border-bottom: #555555 1px solid;
+}
+.navbar{
     display: flex;
     justify-content: space-between;
-
-}
-.icon{
-    width: 2em;
-    cursor: pointer;
-}
-
-.dark .icon{
-    filter: invert();
+    align-items: center;
+    padding: 4px 0;
 }
 
 .logo{
-    width: 250px;
+    display: flex;
 }
 
-.dark .logo{
+.logo img{
+    height: 40px;
+}
+
+.logo .imgs{
+    height: 32px;
+}
+
+.dark .logo .letters{
     filter: invert();
 }
