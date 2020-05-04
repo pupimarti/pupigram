@@ -1,0 +1,33 @@
+.switch-mode{
+    background: #343D58;
+    border-radius: 1000px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    position: relative;
+}
+.switch-mode::after{
+    content:"";
+    width: 30px;
+    height: 30px;
+    display: block;
+    position: absolute;
+    top:-2px;
+    left:0;
+    right: unset;
+    background: #f1f1f1;
+    border-radius: 100px;
+    transition: .3s ease all;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, .2);
+}
+.dark > .switch-mode {
+    background-color: orange;
+}
+.dark > .switch-mode::after{
+    right:0;
+    left: unset;
+}
+.switch-mode > span{
+    font-size: 1.4em;
+}
