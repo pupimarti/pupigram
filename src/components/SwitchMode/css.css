@@ -10,8 +10,8 @@
 }
 .switch-mode::after{
     content:"";
-    width: 26px;
-    height: 26px;
+    width: 2em;
+    height: 2em;
     display: block;
     position: absolute;
     top:-2px;

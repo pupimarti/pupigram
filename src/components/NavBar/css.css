@@ -4,6 +4,7 @@
     width: 100%;
     background-color: #FFF;
     border-bottom: #DDD 1px solid;
+    transition: all .3s ease;
 }
 .dark .content-navBar{
     background-color: #1e1e1e;
@@ -18,14 +19,15 @@
 
 .logo{
     display: flex;
+    transition: all .3s ease;
 }
 
 .logo img{
-    height: 40px;
+    height: 1.9em;
 }
 
 .logo .imgs{
-    height: 32px;
+    height: 1.5em;
 }
 
 .dark .logo .letters{
