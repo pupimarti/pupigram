@@ -3,8 +3,10 @@ import './css.css';
 import account from './account.svg';
 import comment from './chat.svg';
 import heart from '../../img/heart.svg';
+import Comment from './Comment';
 
-export default function Post() {
+export default function Post(props) {
+
     return (
         <div className="content-post">
             <div className="center-post header-post">
@@ -12,8 +14,13 @@ export default function Post() {
                     <img className="img-account" src={account} alt="account" />
                     <p className="user-account">the_user</p>
                 </div>
+                <div className="points" onClick={props.openOptions}>
+                    <div className="point"></div>
+                    <div className="point"></div>
+                    <div className="point"></div>
+                </div>
             </div>
-            <img className="img-post" src="https://instagram.faep9-2.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/s640x640/95615122_966637037124037_4366785655835378528_n.jpg?_nc_ht=instagram.faep9-2.fna.fbcdn.net&_nc_cat=101&_nc_ohc=7wCkPKic1usAX87Sxeh&oh=e10c99d035e92a059c539ea455622efd&oe=5EDB7EAA" alt="postimg"/>
+            <img className="img-post" src="https://instagram.faep9-1.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/s640x640/85167617_661877847898209_1139547952866115949_n.jpg?_nc_ht=instagram.faep9-1.fna.fbcdn.net&_nc_cat=109&_nc_ohc=T5rDv6fOedIAX87rTx7&oh=3fc18a7535d6ce74e93619e0c5d39667&oe=5EDB30BA" alt="postimg"/>
             <div className="center-post actions-post">
                 <img className="icon action" src={heart} alt="heart"/>
                 <img className="icon action" src={comment} alt="comment"/>
@@ -23,6 +30,7 @@ export default function Post() {
                 <p><a href="www.google.com" className="user-account">the_user</a><span className="text-post">{" "} Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</span> </p>
             </div>
             <p className="center-post time-post">HACE 2 HORAS</p>
+            <Comment />
         </div>
     )
 }

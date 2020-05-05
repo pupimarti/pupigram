@@ -27,10 +27,21 @@
     height: 1.9em;
 }
 
+
 .logo .imgs{
     height: 1.5em;
 }
 
 .dark .logo .letters{
     filter: invert();
+}
+
+.letters{
+    display: none;
+}
+
+@media(max-width: 800px){
+    .navbar{
+        justify-content: space-around;
+    }
 }

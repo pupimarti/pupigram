@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import NavBar from './components/NavBar';
 import Post from './components/Post';
+import OptionsPost from './components/OptionsPost';
 import './App.css';
 
 function App() {
@@ -15,16 +16,28 @@ function App() {
       localStorage.setItem('mode', 'light');
     }
   }
+
+  const [optionsPost, setoptionsPost] = useState(false);
+  const handleOpenOptionsPost = () => {
+    setoptionsPost(true);
+  }
+  const handleOpenOptionsPostF = () => {
+    setoptionsPost(false);
+  }
+
   return (
-    <div className={mode}>
+    <div className={optionsPost ? mode + " openModal" : mode}>
         <NavBar setMode={handleChangeMode}/>
       <div className="relleno">
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
+        {optionsPost === true && 
+          <OptionsPost closeOptions={handleOpenOptionsPostF} />
+        }
+        <Post openOptions={handleOpenOptionsPost}/>
+        <Post openOptions={handleOpenOptionsPost}/>
+        <Post openOptions={handleOpenOptionsPost}/>
+        <Post openOptions={handleOpenOptionsPost}/>
+        <Post openOptions={handleOpenOptionsPost}/>
+        <Post openOptions={handleOpenOptionsPost}/>
       </div>
     </div>
   );

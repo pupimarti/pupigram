@@ -1,0 +1,50 @@
+.comment-post{
+    border-top: 1px solid #CCC;
+}
+
+.dark .comment-post{
+    border-top: #525151 1px solid;
+}
+
+.content-comment{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+}
+
+.comment{
+    font-size: 0.7em;
+    border: none;
+    width: 90%;
+    background: none;
+}
+
+.dark .comment{
+    color: #edefee;
+}
+
+.comment:focus{
+    outline: none;
+}
+
+.comment::placeholder{
+    color: #AAA;
+}
+
+.action-comment{
+    background: none;
+    border: 0;
+    font-weight: 700;
+    color: rgba(var(--d69,0,149,246),1);
+}
+
+.disabled{
+    color:rgba(100, 193, 255, 0.8);
+}
+
+@media screen and (max-width:800px){
+    .comment-post{
+        display: none;
+    }
+}
