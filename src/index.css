@@ -5,11 +5,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1,h2,h3,h4,p{
+  margin: 0;
 }
 
 html {
@@ -20,8 +25,18 @@ html {
     font-size: calc(16px + 6 * ((100vw - 320px) / 680));
   }
 }
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 850px) {
   html {
-    font-size: 22px;
+    font-size: 20px;
   }
+}
+
+.dark a{
+  text-decoration: none;
+  color: #edefee;
+}
+
+a{
+  text-decoration: none;
+  color: #333333;
 }

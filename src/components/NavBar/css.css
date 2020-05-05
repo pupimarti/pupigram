@@ -3,8 +3,9 @@
     top:0;
     width: 100%;
     background-color: #FFF;
-    border-bottom: #DDD 1px solid;
-    transition: all .3s ease;
+    border-bottom: #CCC 1px solid;
+    transition: all .3s ease; 
+    z-index: 1;
 }
 .dark .content-navBar{
     background-color: #1e1e1e;

@@ -17,7 +17,7 @@
     filter: invert();
 }
 
-@media (max-width:900px){
+@media (max-width:800px){
     .content-buttons{
         position: fixed;
         bottom: 0;
@@ -27,7 +27,7 @@
         justify-content: space-around;
         padding-top: 5px;
         background-color: #FFF;
-        border-top: #DDD 1px solid;
+        border-top: #CCC 1px solid;
     }
     .dark .content-buttons{
         
