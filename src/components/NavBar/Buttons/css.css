@@ -1,8 +1,37 @@
 .icon{
-    width: 1.8em;
+    width: 1.6em;
+    max-width: 28px;
     cursor: pointer;
+    margin: 0 10px;
+    padding: 5px;
+    transition: all .3s ease;
+    border-radius: 20%;
+}
+
+.icon:hover{
+    background-color: #aaa;
+    filter: invert();
 }
 
 .dark .icon{
     filter: invert();
+}
+
+@media (max-width:900px){
+    .content-buttons{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        display: flex;
+        justify-content: space-around;
+        padding-top: 5px;
+        background-color: #FFF;
+        border-top: #DDD 1px solid;
+    }
+    .dark .content-buttons{
+        
+    background-color: #1e1e1e;
+    border-top: #525151 1px solid;
+    }
 }

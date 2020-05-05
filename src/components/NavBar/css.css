@@ -1,16 +1,19 @@
 .content-navBar{
+    position: fixed;
+    top:0;
+    width: 100%;
     background-color: #FFF;
     border-bottom: #DDD 1px solid;
 }
 .dark .content-navBar{
-    background-color: #111111;
-    border-bottom: #555555 1px solid;
+    background-color: #1e1e1e;
+    border-bottom: #525151 1px solid;
 }
 .navbar{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 4px 0;
+    height: 50px;
 }
 
 .logo{

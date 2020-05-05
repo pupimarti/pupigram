@@ -12,10 +12,12 @@
 
 .content-app{
     width: 935px;
-    max-width: 95vw;
+    max-width: 94vw;
     margin: 0 auto;
 }
 
 .relleno{
-    height: 100vh;
+    padding-top: 40px;
+    height: 300vh;
+    text-align: center;
 }
