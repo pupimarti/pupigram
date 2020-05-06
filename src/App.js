@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import NavBar from './components/NavBar';
-import Post from './components/Post';
+import List from './components/List';
 import OptionsPost from './components/OptionsPost';
 import './App.css';
 
@@ -32,12 +32,7 @@ function App() {
         {optionsPost === true && 
           <OptionsPost closeOptions={handleOpenOptionsPostF} />
         }
-        <Post openOptions={handleOpenOptionsPost}/>
-        <Post openOptions={handleOpenOptionsPost}/>
-        <Post openOptions={handleOpenOptionsPost}/>
-        <Post openOptions={handleOpenOptionsPost}/>
-        <Post openOptions={handleOpenOptionsPost}/>
-        <Post openOptions={handleOpenOptionsPost}/>
+        <List openOptions={handleOpenOptionsPost} />
       </div>
     </div>
   );
