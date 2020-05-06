@@ -48,6 +48,7 @@
 .points{
     cursor: pointer;
     display: flex;
+    padding: 10px;
 }
 
 .point{
@@ -76,10 +77,15 @@
     width: 24px;
     margin: 0 16px 0 0;
     padding: 0;
+    cursor: pointer;
 }
 
 .actions-post .action:hover{
     background: none;
+}
+
+.dark .actions-post .action{
+    filter: invert();
 }
 
 .likes-post{
@@ -101,6 +107,7 @@
     color: #AAA;
     margin-bottom: 8px;
 }
+
 
 @media screen and (max-width: 735px){
     .content-post{

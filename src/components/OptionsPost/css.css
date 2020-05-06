@@ -15,3 +15,24 @@
     align-items: center;
     overflow-y: hidden;
 }
+
+.modal{
+  background-color: #FFF;
+  width: 400px;
+  max-width: 80vw;
+  border-radius: 12px;
+}
+
+.action-modal{
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8em;
+  color: #000;
+  cursor: pointer;
+}
+
+.action-modal-bt{
+  border-top: 1px solid #CCC;
+}
