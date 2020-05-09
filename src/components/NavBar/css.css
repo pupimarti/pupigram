@@ -3,7 +3,7 @@
     top:0;
     width: 100%;
     background-color: #FFF;
-    border-bottom: #CCC 1px solid;
+    border-bottom: #dbdbdb 1px solid;
     transition: all .3s ease; 
     z-index: 1;
 }
@@ -19,25 +19,11 @@
 }
 
 .logo{
-    display: flex;
-    transition: all .3s ease;
+    width: 120px;
 }
 
-.logo img{
-    height: 1.9em;
-}
-
-
-.logo .imgs{
-    height: 1.5em;
-}
-
-.dark .logo .letters{
+.dark .logo{
     filter: invert();
-}
-
-.letters{
-    display: none;
 }
 
 @media(max-width: 800px){

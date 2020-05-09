@@ -1,26 +1,16 @@
 import React from 'react'
-import izq from './izq.png';
-import programac from './programac.png';
-import ok from './ok.png';
-import n from './n.png';
-import der from './der.png';
-import SwitchMode from '../SwitchMode';
+import pupigram from './pupigram.png';
 import Buttons from './Buttons';
+import SwitchMode from '../SwitchMode';
 import './css.css'
 
 export default function NavBar(props) {
     return (
         <div className="content-navBar">
             <div className="content-app navbar">
-                <div className="logo">
-                    <img className="imgs" src={izq} alt="<" />
-                    <img className="letters"src={programac} alt="programac" />
-                    <img className="imgs" src={ok} alt="ok" />
-                    <img className="letters"src={n} alt="n" />
-                    <img className="imgs" src={der} alt="/>" />
-                </div>
-                <Buttons />
+                <img className="logo" src={pupigram} alt="logo" />
                 <SwitchMode setMode={props.setMode} />
+                <Buttons />
             </div>
         </div>
     )

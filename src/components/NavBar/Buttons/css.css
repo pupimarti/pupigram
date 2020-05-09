@@ -1,24 +1,15 @@
 .icon{
-    width: 1.6em;
-    max-width: 28px;
+    width: 1.1em;
+    max-width: 25px;
     cursor: pointer;
-    margin: 0 10px;
+    margin: 0 5px;
     padding: 5px;
     transition: all .3s ease;
     border-radius: 20%;
 }
 
-.icon:hover{
-    background-color: #aaa;
-    filter: invert();
-}
-
 .dark .icon{
     filter: invert();
-}
-
-.dark .icon:hover{
-    filter: brightness(0) invert(1) !important;
 }
 
 @media (max-width:800px){

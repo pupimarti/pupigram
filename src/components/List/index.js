@@ -6,28 +6,22 @@ export default function List(props) {
     return (
         <div>
             <Post 
-            user="perez_juan"
-            img="https://instagram.faep9-2.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/p640x640/96141683_168596981171939_3725750284808077083_n.jpg?_nc_ht=instagram.faep9-2.fna.fbcdn.net&_nc_cat=111&_nc_ohc=CMQmVcF-YuUAX-8YDnX&oh=0ddb6fbc7be175fdc9645859a583d79e&oe=5EDE1306"
-            desc="Lorem Impsum es simplemente el texto de relleno de las imprentas y archivos de texto."
-            likes={364}
+            user="leomessi"
+            img="https://instagram.faep9-2.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/s640x640/96144021_262013868284125_5495302340245040052_n.jpg?_nc_ht=instagram.faep9-2.fna.fbcdn.net&_nc_cat=1&_nc_ohc=Z5B4GNO9PK4AX9AFq5t&oh=e374397f83f37a3fd0eee550073dbce9&oe=5EE1E98A"
+            desc="⚽️🔙⚽️"
+            likes={3132414}
             time="20"
             openOptions={props.openOptions}
+            verify
             />
             <Post 
-            user="mepasoensistemas"
-            img="https://instagram.faep9-1.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/s640x640/85167617_661877847898209_1139547952866115949_n.jpg?_nc_ht=instagram.faep9-1.fna.fbcdn.net&_nc_cat=109&_nc_ohc=T5rDv6fOedIAX87rTx7&oh=3fc18a7535d6ce74e93619e0c5d39667&oe=5EDB30BA"
-            desc="Lorem Impsum es simplemente el texto de relleno de las imprentas y archivos de texto."
-            likes={40}
+            user="thisisbillgates"
+            img="https://instagram.faep9-1.fna.fbcdn.net/v/t51.2885-15/e35/69384304_163375064720121_2197152142992834713_n.jpg?_nc_ht=instagram.faep9-1.fna.fbcdn.net&_nc_cat=109&_nc_ohc=hS_V-5BTBwEAX9u-qhB&oh=29f9064d9bbe1191c9b6b9a50084ece8&oe=5EE0D9B3"
+            desc="Aliko Dangote and I have a lot in common. We both started successful businesses in the late 1970s, and for our second act in life, we both chose to start foundations. Melinda and I are lucky to have him as a partner (and friend!) in our work. Our foundations are working together to improve malnutrition in Nigeria, which could have an impact on all of Africa."
+            likes={205790}
             time="20"
             openOptions={props.openOptions}
-            />
-            <Post 
-            user="anonymus"
-            img="https://instagram.faep9-2.fna.fbcdn.net/v/t51.2885-15/e15/95608259_848161015693313_7026668452420113452_n.jpg?_nc_ht=instagram.faep9-2.fna.fbcdn.net&_nc_cat=105&_nc_ohc=yDSZSC3MjYsAX-NPgGL&oh=a6d8a2cb8b9d5471a66590fc304fe242&oe=5EDB2E0A"
-            desc="Lorem Impsum es simplemente el texto de relleno de las imprentas y archivos de texto."
-            likes={4687}
-            time="20"
-            openOptions={props.openOptions}
+            verify
             />
             
         </div>

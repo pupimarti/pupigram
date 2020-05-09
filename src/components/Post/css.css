@@ -2,7 +2,7 @@
     width: 614px;
     max-width: 100vw !important;
     margin: 0 auto;
-    border: 1px solid #CCC;
+    border: 1px solid #dbdbdb;
     background-color: #FFF;
     border-radius: 3px;
     margin-bottom: 60px;
@@ -28,6 +28,12 @@
 .user-post{
     display: flex;
     align-items: center;
+}
+
+.verify{
+    width: 13px;
+    margin-left: 2px;
+    padding-top: 2px;
 }
 
 .img-account{
