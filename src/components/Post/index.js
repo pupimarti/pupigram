@@ -8,13 +8,22 @@ import verify from "./verify.svg";
 import heart from "./Like/heart-selected.svg";
 
 export default function Post(props) {
+  const [likes, setLikes] = useState(props.likes);
   const [likeImg, setlikeImg] = useState(null);
   const [like, setlike] = useState(null)
   const handleClickLikeImg = () => {
     if (likeImg === null) setlikeImg(true);
     else setlikeImg(!likeImg);
-    setlike(true);
+    handleLikeImg(true);
   };
+
+  const handleLikeImg = (val) => {
+    if(val && !like)
+      setLikes(likes + 1);
+    if(!val && like)
+      setLikes(likes - 1);
+    setlike(val);
+  }
 
   return (
     <div className="content-post">
@@ -57,11 +66,11 @@ export default function Post(props) {
         />
       </div>
       <div className="center-post actions-post">
-        <Like like={like} setlike={setlike} />
+        <Like like={like} setlike={handleLikeImg} />
         <img className="action" src={comment} alt="comment" />
       </div>
       <p className="center-post likes-post">
-        {new Intl.NumberFormat().format(props.likes)} Me gusta
+        {new Intl.NumberFormat().format(likes)} Me gusta
       </p>
       <div className="center-post description-post">
         <p>
