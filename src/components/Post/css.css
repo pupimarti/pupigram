@@ -76,28 +76,28 @@
     filter: brightness(0) invert(1) opacity(60%);
 }
 
-.animation-like{
+.animation-like1{
     display: block;
-    animation: like-img 0.8s linear 1 forwards;
+    animation: like-img1 0.9s linear 1 forwards;
 }
 
-@keyframes like-img {
+@keyframes like-img1 {
     0% {
         -webkit-transform: scale(0);
         -ms-transform: scale(0);
         transform: scale(0);
       }
-      20% {
+      30% {
         -webkit-transform: scale(1.3);
         -ms-transform: scale(1.3);
         transform: scale(1.3);
       }
-      35% {
+      45% {
         -webkit-transform: scale(1);
         -ms-transform: scale(1);
         transform: scale(1);
       }
-      45% {
+      55% {
         -webkit-transform: scale(1.1);
         -ms-transform: scale(1.1);
         transform: scale(1.1);
@@ -111,6 +111,47 @@
         -webkit-transform: scale(0);
         -ms-transform: scale(0);
         transform: scale(0);
+        display: none;
+      }
+  }
+
+
+.animation-like{
+    display: block;
+    animation: like-img 0.9s linear 1 forwards;
+}
+
+@keyframes like-img {
+    0% {
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        transform: scale(0);
+      }
+      30% {
+        -webkit-transform: scale(1.3);
+        -ms-transform: scale(1.3);
+        transform: scale(1.3);
+      }
+      45% {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+      }
+      55% {
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+      }
+      80% {
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+      }
+      100% {
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        transform: scale(0);
+        display: none;
       }
   }
 

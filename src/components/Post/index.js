@@ -8,9 +8,12 @@ import heart from './Like/heart-selected.svg';
 
 export default function Post(props) {
 
-    const [likeImg, setlikeImg] = useState(false)
+    const [likeImg, setlikeImg] = useState(null)
     const handleClickLikeImg = () => {
-        setlikeImg(!likeImg);
+        if(likeImg === null)
+            setlikeImg(true);
+        else
+            setlikeImg(!likeImg);
     }
 
     return (
@@ -27,11 +30,13 @@ export default function Post(props) {
                 </div>
             </div>
             <div className="content-img-post">
-                <img className={likeImg ? "like-img-post animation-like" :"like-img-post"} src={heart} alt="corazon" />
+                {(likeImg !== null) && (likeImg 
+                ?<img className="like-img-post animation-like" src={heart} alt="corazon" />
+                :<img className="like-img-post animation-like1" src={heart} alt="corazon" />)}
                 <img onDoubleClick={handleClickLikeImg} className="img-post" src={props.img} alt="postimg"/>
             </div>
             <div className="center-post actions-post">
-                <Like />
+                <Like likeImg={likeImg}/>
                 <img className="action" src={comment} alt="comment"/>
             </div>
             <p className="center-post likes-post">{props.likes} Me gusta</p>
