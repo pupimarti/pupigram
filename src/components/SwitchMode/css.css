@@ -5,13 +5,14 @@
     cursor: pointer;
     outline: none;
     display: flex;
+    justify-content: space-between;
     position: relative;
     transition: .3s ease all;
 }
 .switch-mode::after{
     content:"";
-    width: 2em;
-    height: 2em;
+    width: 27px;
+    height: 27px;
     display: block;
     position: absolute;
     top:-2px;
@@ -28,6 +29,23 @@
     right:0;
     left: unset;
 }
+
+.sun{
+    margin-left:25px;
+}
+.moon{
+    margin-right: 25px;
+}
+.dark .sun{
+    display: none;
+}
+
+.dark .moon{
+    display: block;
+}
+.moon{
+    display: none;
+}
 .switch-mode > span{
-    font-size: 1.1em;
+    font-size: 15px;
 }

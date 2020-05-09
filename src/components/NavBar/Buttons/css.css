@@ -18,11 +18,12 @@
         bottom: 0;
         left: 0;
         width: 100vw;
+        height: 35px;
         display: flex;
         justify-content: space-around;
         padding-top: 5px;
         background-color: #FFF;
-        border-top: #CCC 1px solid;
+        border-top: #dbdbdb 1px solid;
     }
     
     .dark .content-buttons{
