@@ -5,15 +5,9 @@ import OptionsPost from "./components/OptionsPost";
 import "./App.css";
 
 function App() {
-  const [mode, setMode] = useState(localStorage.getItem("mode") || "light");
+  const [mode, setMode] = useState((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) || false);
   const handleChangeMode = () => {
-    if (mode === "light") {
-      setMode("dark");
-      localStorage.setItem("mode", "dark");
-    } else {
-      setMode("light");
-      localStorage.setItem("mode", "light");
-    }
+    setMode(!mode);
   };
 
   const [optionsPost, setoptionsPost] = useState(false);
@@ -25,7 +19,7 @@ function App() {
   };
 
   return (
-    <div className={optionsPost ? mode + " openModal" : mode}>
+    <div className={mode ? "dark" : ""}>
       <NavBar setMode={handleChangeMode} />
       
       <div className="content-app">

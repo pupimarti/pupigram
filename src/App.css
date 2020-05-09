@@ -33,3 +33,9 @@
         padding-bottom: 60px;
     }
 }
+
+@media screen and (max-width:650px){
+    .app{
+        padding-top: 50px;
+    }
+}
