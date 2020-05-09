@@ -1,6 +1,6 @@
 .content-post{
     width: 614px;
-    max-width: 100vw !important;
+    max-width: 100vw;
     margin: 0 auto;
     border: 1px solid #dbdbdb;
     background-color: #FFF;
@@ -36,13 +36,20 @@
     padding-top: 2px;
 }
 
-.img-account{
+.default-img{
     width: 32px;
     height: 32px;
     padding-right: 10px;
 }
 
-.dark .img-account{
+.img-account{
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.dark .default-img{
     filter: invert();
 }
 

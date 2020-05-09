@@ -18,7 +18,9 @@ export default function Post(props) {
     <div className="content-post">
       <div className="center-post header-post">
         <div className="user-post">
-          <img className="img-account" src={account} alt="account" />
+          {props.user_img 
+          ?<img className="img-account" src={props.user_img} alt="account" />
+          :<img className="default-img" src={account} alt="account" />}
           <p className="user-account">{props.user}</p>
           {props.verify && (
             <img className="verify" src={verify} alt="Verificado" />
