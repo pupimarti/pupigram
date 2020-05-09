@@ -7,11 +7,11 @@
 }
 
 .like{
-    animation: like .5s linear 1 ;
+    animation: like .3s linear 1 ;
 }
 
 .dislike{
-    animation: dislike .5s linear 1;
+    animation: dislike .3s linear 1;
 }
 
 @keyframes dislike {
