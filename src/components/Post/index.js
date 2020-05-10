@@ -4,7 +4,7 @@ import account from "./account.svg";
 import comment from "./chat.svg";
 import Comment from "./Comment";
 import Like from "./Like";
-import verify from "./verify.svg";
+import verify from "../../img/verify.svg";
 import heart from "./Like/heart-selected.svg";
 
 export default function Post(props) {

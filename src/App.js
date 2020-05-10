@@ -21,7 +21,7 @@ function App() {
   }; */
 
   return (
-    <div className={mode ? "dark" : ""}>
+    <div className={mode ? "dark" : "light"}>
       <HashRouter basename='/'>
         <NavBar setMode={handleChangeMode} />
         <div className="content-app">

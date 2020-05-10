@@ -7,13 +7,13 @@ import search from './search.svg';
 import explore from './explore.svg';
 import add from './add.svg';
 import account from './account.svg';
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import './css.css';
 
 export default function Buttons() {
     return (
         <div className="content-buttons">
-            <img className="icon" src={true ? homeSelect : home} alt="Home" />
+            <Link to="/"><img className="icon" src={useLocation().pathname === "/" ? homeSelect : home} alt="Home" /></Link>
             <img className="icon pc" src={direct} alt="Direct" />
             <img className="icon mobile" src={search} alt="Search" />
             <img className="icon mobile" src={add} alt="Add" />
