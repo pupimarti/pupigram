@@ -8,6 +8,10 @@
     border-radius: 20%;
 }
 
+.mobile{
+    display: none;
+}
+
 .dark .icon{
     filter: invert();
 }
@@ -24,6 +28,14 @@
         padding-top: 5px;
         background-color: #FFF;
         border-top: #dbdbdb 1px solid;
+    }
+
+    .mobile{
+        display: block;
+    }
+
+    .pc{
+        display: none;
     }
     
     .dark .content-buttons{

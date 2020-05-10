@@ -28,7 +28,7 @@ function App() {
           <OptionsPost closeOptions={handleOpenOptionsPostF} />
         )}
         <List openOptions={handleOpenOptionsPost} />
-          <p className="footer">© 2020 PUPIGRAM DESARROLLADO POR JUAN A. MARTÍ</p>
+          <p className="footer">© 2020 PUPIGRAM DESARROLLADO POR <a href="www.google.com" >JUAN A. MARTÍ</a></p>
         </div>
       </div>
     </div>

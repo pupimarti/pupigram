@@ -29,6 +29,7 @@
 
 @media(max-width: 800px){
     .navbar{
-        justify-content: space-around;
+        flex-direction: row-reverse;
+        justify-content: space-between;
     }
 }
