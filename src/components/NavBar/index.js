@@ -9,7 +9,7 @@ export default function NavBar(props) {
     return (
         <div className="content-navBar">
             <div className="content-app navbar">
-                <img className="icon mobile" src={direct} alt="direct" />
+                <img className="icon mobile direct" src={direct} alt="direct" />
                 <img className="logo" src={pupigram} alt="logo" />
                 <SwitchMode setMode={props.setMode} />
                 <Buttons />

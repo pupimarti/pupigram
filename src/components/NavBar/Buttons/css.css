@@ -30,6 +30,8 @@
         border-top: #dbdbdb 1px solid;
     }
 
+    .icon{min-width: 23px;}
+
     .mobile{
         display: block;
     }
