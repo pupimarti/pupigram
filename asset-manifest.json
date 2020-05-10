@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/pupigram/static/css/main.2a2ef267.chunk.css",
-    "main.js": "/pupigram/static/js/main.095455cc.chunk.js",
-    "main.js.map": "/pupigram/static/js/main.095455cc.chunk.js.map",
+    "main.css": "/pupigram/static/css/main.9d14dd46.chunk.css",
+    "main.js": "/pupigram/static/js/main.d9bfc7d7.chunk.js",
+    "main.js.map": "/pupigram/static/js/main.d9bfc7d7.chunk.js.map",
     "runtime-main.js": "/pupigram/static/js/runtime-main.1689c465.js",
     "runtime-main.js.map": "/pupigram/static/js/runtime-main.1689c465.js.map",
-    "static/js/2.7f447069.chunk.js": "/pupigram/static/js/2.7f447069.chunk.js",
-    "static/js/2.7f447069.chunk.js.map": "/pupigram/static/js/2.7f447069.chunk.js.map",
+    "static/js/2.a60a4ec1.chunk.js": "/pupigram/static/js/2.a60a4ec1.chunk.js",
+    "static/js/2.a60a4ec1.chunk.js.map": "/pupigram/static/js/2.a60a4ec1.chunk.js.map",
     "index.html": "/pupigram/index.html",
-    "precache-manifest.afe4a100cee181cf0c3b11c883c4c5f3.js": "/pupigram/precache-manifest.afe4a100cee181cf0c3b11c883c4c5f3.js",
+    "precache-manifest.5ee0f85dcc582b1dc776d74311fa3f29.js": "/pupigram/precache-manifest.5ee0f85dcc582b1dc776d74311fa3f29.js",
     "service-worker.js": "/pupigram/service-worker.js",
-    "static/css/main.2a2ef267.chunk.css.map": "/pupigram/static/css/main.2a2ef267.chunk.css.map",
-    "static/js/2.7f447069.chunk.js.LICENSE.txt": "/pupigram/static/js/2.7f447069.chunk.js.LICENSE.txt",
+    "static/css/main.9d14dd46.chunk.css.map": "/pupigram/static/css/main.9d14dd46.chunk.css.map",
+    "static/js/2.a60a4ec1.chunk.js.LICENSE.txt": "/pupigram/static/js/2.a60a4ec1.chunk.js.LICENSE.txt",
     "static/media/account.svg": "/pupigram/static/media/account.91318a8f.svg",
     "static/media/add.svg": "/pupigram/static/media/add.c817e915.svg",
     "static/media/chat.svg": "/pupigram/static/media/chat.0ec68f32.svg",
@@ -21,13 +21,14 @@
     "static/media/heart.svg": "/pupigram/static/media/heart.7746f5e4.svg",
     "static/media/home-select.svg": "/pupigram/static/media/home-select.8b41ca2e.svg",
     "static/media/home.svg": "/pupigram/static/media/home.6f087f95.svg",
+    "static/media/posts.svg": "/pupigram/static/media/posts.98f1578e.svg",
     "static/media/search.svg": "/pupigram/static/media/search.c4127766.svg",
     "static/media/verify.svg": "/pupigram/static/media/verify.c884f427.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.1689c465.js",
-    "static/js/2.7f447069.chunk.js",
-    "static/css/main.2a2ef267.chunk.css",
-    "static/js/main.095455cc.chunk.js"
+    "static/js/2.a60a4ec1.chunk.js",
+    "static/css/main.9d14dd46.chunk.css",
+    "static/js/main.d9bfc7d7.chunk.js"
   ]
 }
