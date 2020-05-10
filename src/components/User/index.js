@@ -14,6 +14,7 @@ export default function User() {
             alt="perfil_picture"
           />
         </div>
+        
         <div className="content-info-user">
           <div className="info-user">
             <h2 className="username-user">leomessi</h2>
@@ -24,18 +25,18 @@ export default function User() {
               <div className="point"></div>
             </div>
           </div>
-          <div className="info-user stats">
+          <div className="info-user stats pc">
             <p className="stats-user">
               <b>585</b> publicaciones
             </p>
             <p className="stats-user">
-              <b>150mmm</b> seguidores
+              <b>150mm</b> seguidores
             </p>
             <p className="stats-user">
               <b>229</b> seguidos
             </p>
           </div>
-          <div>
+          <div className="pc">
             <h4 className="username-name">Leo Messi</h4>
             <p className="description-user">
               Bienvenidos a la cuenta oficial de Instagram de Leo Messi /
@@ -47,6 +48,27 @@ export default function User() {
           </div>
         </div>
       </header>
+      <div className="content-user-description mobile">
+            <h4 className="username-name">Leo Messi</h4>
+            <p className="description-user">
+              Bienvenidos a la cuenta oficial de Instagram de Leo Messi /
+              Welcome to the official Leo Messi Instagram account
+            </p>
+            <a className="web-user" href="www.messi.com">
+              messi.com
+            </a>
+          </div>
+      <div className="info-user stats mobile">
+            <p className="stats-user">
+              <b>585</b><tr/>publicaciones
+            </p>
+            <p className="stats-user">
+              <b>150mm</b><tr/>seguidores
+            </p>
+            <p className="stats-user">
+              <b>229</b><tr/>seguidos
+            </p>
+      </div>
       <section className="posts-user">
         <div className="posts-user-public">
           <div className="content-public">

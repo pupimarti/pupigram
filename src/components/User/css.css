@@ -1,6 +1,7 @@
 .header-user{
     margin: 0 auto;
     display: flex;
+    flex-wrap: wrap;
     margin-bottom: 24px;
 }
 .content-perfil-img{
@@ -61,7 +62,7 @@
     border-top: 1px solid #dbdbdb;
 }
 
-.dark .posts-user{
+.dark .posts-user, .dark .info-user.stats.mobile{
     border-top: #525151 1px solid;
 }
 
@@ -89,5 +90,65 @@
 
 .post-user{
     width: 31%;
+    height: 31%;
     margin-bottom: 3%;
+}
+
+.content-user-description{
+    width: 95%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 800px){        
+    .header-user{
+        align-items: center;
+    }
+    .content-perfil-img{
+        width: 20%;
+    }
+    .perfil-img{
+        width: 77px;
+        height: 77px;
+    }
+    .info-user.stats.mobile{
+        display: flex !important;
+        width: 100%;
+        justify-content: space-around;
+        border-top: 1px solid #dbdbdb;
+        margin-bottom: 0;
+        padding: 10px 0;
+    }
+
+    .stats-user{
+        font-size: 14px;
+        margin: 0;
+        text-align: center;
+        color: #969595;
+    }
+    .stats-user b{
+        color: #2f2f2f;
+    }
+    .dark .stats-user b{
+        color: #dbdbdb;
+    }
+
+    .posts-user{
+        width: 100%;
+    }
+
+    .content-public{
+        border: none !important;
+    }
+    .post-user{
+        width:33%;
+        margin-bottom: 0.5%;
+    }
+
+}
+
+
+@media screen and (max-width:650px){
+    .header-user{
+        padding-top: 24px;
+    }
 }

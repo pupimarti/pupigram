@@ -8,10 +8,6 @@
     border-radius: 20%;
 }
 
-.mobile{
-    display: none;
-}
-
 .dark .icon{
     filter: invert();
 }
@@ -31,14 +27,6 @@
     }
 
     .icon{min-width: 23px;}
-
-    .mobile{
-        display: block;
-    }
-
-    .pc{
-        display: none;
-    }
     
     .dark .content-buttons{
     background-color: #1e1e1e;

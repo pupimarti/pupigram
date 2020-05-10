@@ -21,6 +21,11 @@
     min-height: 100vh;
 }
 
+.mobile{
+    display: none !important;
+}
+
+
 .footer{
     font-size: 0.6em;
     font-weight: 500;
@@ -37,6 +42,14 @@
 @media (max-width:800px){
     .footer{
         padding-bottom: 60px;
+    }
+    
+    .mobile{
+        display: block !important;
+    }
+
+    .pc{
+        display: none !important;
     }
 }
 
