@@ -7,6 +7,7 @@ import search from './search.svg';
 import explore from './explore.svg';
 import add from './add.svg';
 import account from './account.svg';
+import {Link} from 'react-router-dom';
 import './css.css';
 
 export default function Buttons() {
@@ -18,7 +19,7 @@ export default function Buttons() {
             <img className="icon mobile" src={add} alt="Add" />
             <img className="icon pc" src={explore} alt="explore" />
             <img className="icon" src={heart} alt="Notif" />
-            <img className="icon" src={account} alt="Cuenta" />
+            <Link to="/user"><img className="icon" src={account} alt="Cuenta" /></Link>
         </div>
     )
 }
