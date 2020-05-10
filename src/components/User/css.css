@@ -1,6 +1,7 @@
 .header-user{
     margin: 0 auto;
     display: flex;
+    margin-bottom: 24px;
 }
 .content-perfil-img{
     width: 35%;
@@ -42,10 +43,51 @@
     font-weight: 500;
 }
 .description-user{
+    width: 95%;
     font-size:0.8em;
 }
 .web-user{
     font-size:0.8em;
     color:#436686 !important;
     font-weight: bold;
+}
+
+.posts-user{
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-top: 1px solid #dbdbdb;
+}
+
+.dark .posts-user{
+    border-top: #525151 1px solid;
+}
+
+.posts-user-public{
+    width: 100%;
+    margin-top: -1px;
+    font-size:0.7em;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+}
+
+.content-public{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: #525151 1px solid;
+    padding: 10px 0;
+}
+
+.dark .content-public{
+    border-top: 1px solid #dbdbdb;
+}
+
+
+.post-user{
+    width: 31%;
+    margin-bottom: 3%;
 }
