@@ -1,31 +1,33 @@
 {
   "files": {
-    "main.css": "/pupigram/static/css/main.0655f184.chunk.css",
-    "main.js": "/pupigram/static/js/main.995c610e.chunk.js",
-    "main.js.map": "/pupigram/static/js/main.995c610e.chunk.js.map",
+    "main.css": "/pupigram/static/css/main.3ebb5182.chunk.css",
+    "main.js": "/pupigram/static/js/main.44b3dde1.chunk.js",
+    "main.js.map": "/pupigram/static/js/main.44b3dde1.chunk.js.map",
     "runtime-main.js": "/pupigram/static/js/runtime-main.1689c465.js",
     "runtime-main.js.map": "/pupigram/static/js/runtime-main.1689c465.js.map",
-    "static/js/2.84ba40df.chunk.js": "/pupigram/static/js/2.84ba40df.chunk.js",
-    "static/js/2.84ba40df.chunk.js.map": "/pupigram/static/js/2.84ba40df.chunk.js.map",
+    "static/js/2.216ee44a.chunk.js": "/pupigram/static/js/2.216ee44a.chunk.js",
+    "static/js/2.216ee44a.chunk.js.map": "/pupigram/static/js/2.216ee44a.chunk.js.map",
     "index.html": "/pupigram/index.html",
-    "precache-manifest.d20d9da87cab803ad9fa0509d19a7b45.js": "/pupigram/precache-manifest.d20d9da87cab803ad9fa0509d19a7b45.js",
+    "precache-manifest.b9f9e4561a9f6f710fd0ddaa72cf0bdd.js": "/pupigram/precache-manifest.b9f9e4561a9f6f710fd0ddaa72cf0bdd.js",
     "service-worker.js": "/pupigram/service-worker.js",
-    "static/css/main.0655f184.chunk.css.map": "/pupigram/static/css/main.0655f184.chunk.css.map",
-    "static/js/2.84ba40df.chunk.js.LICENSE.txt": "/pupigram/static/js/2.84ba40df.chunk.js.LICENSE.txt",
+    "static/css/main.3ebb5182.chunk.css.map": "/pupigram/static/css/main.3ebb5182.chunk.css.map",
+    "static/js/2.216ee44a.chunk.js.LICENSE.txt": "/pupigram/static/js/2.216ee44a.chunk.js.LICENSE.txt",
     "static/media/account.svg": "/pupigram/static/media/account.91318a8f.svg",
     "static/media/add.svg": "/pupigram/static/media/add.c817e915.svg",
     "static/media/chat.svg": "/pupigram/static/media/chat.0ec68f32.svg",
     "static/media/direct.svg": "/pupigram/static/media/direct.c26fe294.svg",
+    "static/media/explore.svg": "/pupigram/static/media/explore.28b3e5c1.svg",
     "static/media/heart-selected.svg": "/pupigram/static/media/heart-selected.f2610513.svg",
     "static/media/heart.svg": "/pupigram/static/media/heart.7746f5e4.svg",
     "static/media/home-select.svg": "/pupigram/static/media/home-select.8b41ca2e.svg",
     "static/media/home.svg": "/pupigram/static/media/home.6f087f95.svg",
+    "static/media/search.svg": "/pupigram/static/media/search.c4127766.svg",
     "static/media/verify.svg": "/pupigram/static/media/verify.c884f427.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.1689c465.js",
-    "static/js/2.84ba40df.chunk.js",
-    "static/css/main.0655f184.chunk.css",
-    "static/js/main.995c610e.chunk.js"
+    "static/js/2.216ee44a.chunk.js",
+    "static/css/main.3ebb5182.chunk.css",
+    "static/js/main.44b3dde1.chunk.js"
   ]
 }
