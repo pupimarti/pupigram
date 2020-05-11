@@ -79,7 +79,7 @@ export default function Post(props) {
       </div>
       <div className="center-post actions-post">
         <Like like={like} setlike={handleLikeImg} />
-        <img className="action" src={comment} alt="comment" />
+        <Link to={"/posts/" + props.id}><img className="action" src={comment} alt="comment" /></Link>
       </div>
       <p className="center-post likes-post">
         {new Intl.NumberFormat().format(likes)} Me gusta
@@ -129,7 +129,7 @@ export default function Post(props) {
       <p className="center-post time-post">
         <ReactTimeAgo date={new Date(props.time)} locale="es" />
       </p>
-      <Comment send={handleChangeCommentsUser} />
+      <div className="pc"><Comment send={handleChangeCommentsUser} /></div>
     </div>
   );
 }

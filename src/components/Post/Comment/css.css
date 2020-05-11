@@ -43,9 +43,3 @@
 .disabled{
     color:rgba(100, 193, 255, 0.8);
 }
-
-@media screen and (max-width:800px){
-    .comment-post{
-        display: none;
-    }
-}

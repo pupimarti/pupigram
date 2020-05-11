@@ -111,6 +111,7 @@ export default function PostId() {
         />
       </div>
       <div className="content-info-post-id">
+        <div className="mobile"><Comment send={handleChangeCommentsUser} /></div>
         <div className="content-user-post-id center-post-id pc">
           <Link to={"/" + data.user} className="content-img-username">
             <img
@@ -173,7 +174,7 @@ export default function PostId() {
           <p className="time-post mb8 center-post-id">
                 <ReactTimeAgo date={new Date(data.time)} locale="es" />
           </p>
-          <Comment send={handleChangeCommentsUser} />
+          <div className="pc"><Comment send={handleChangeCommentsUser} /></div>
         </div>
       </div>
     </div>
