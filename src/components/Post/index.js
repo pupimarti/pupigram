@@ -6,6 +6,7 @@ import Comment from "./Comment";
 import Like from "./Like";
 import verify from "../../img/verify.svg";
 import heart from "./Like/heart-selected.svg";
+import { Link } from "react-router-dom";
 
 export default function Post(props) {
   const [likes, setLikes] = useState(props.likes);
@@ -28,7 +29,7 @@ export default function Post(props) {
   return (
     <div className="content-post">
       <div className="center-post header-post">
-        <div className="user-post">
+        <Link to={"/" + props.user} className="user-post">
           {props.user_img 
           ?<img className="img-account" src={props.user_img} alt="account" />
           :<img className="default-img" src={account} alt="account" />}
@@ -36,7 +37,7 @@ export default function Post(props) {
           {props.verify && (
             <img className="verify" src={verify} alt="Verificado" />
           )}
-        </div>
+        </Link>
         <div className="points" onClick={props.openOptions}>
           <div className="point"></div>
           <div className="point"></div>

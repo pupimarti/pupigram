@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import verify from "../../img/verify.svg";
-import posts from "./posts.svg";
+import posts_icon from "./posts.svg";
 import users from '../users.json';
+import posts from '../posts.json';
 import {useLocation, Link} from 'react-router-dom';
 import "./css.css";
 
@@ -44,7 +45,7 @@ export default function User() {
           </div>
           <div className="info-user stats pc">
             <p className="stats-user">
-              <b>585</b> publicaciones
+              <b>{data.posts.length}</b> publicaciones
             </p>
             <p className="stats-user">
               <b>150mm</b> seguidores
@@ -58,7 +59,7 @@ export default function User() {
             <p className="description-user">
               {data.desc}
             </p>
-            <a className="web-user" href="www.messi.com">
+            <a className="web-user" href={"https://" + data.web} target="_blank" rel="noopener noreferrer">
               {data.web}
             </a>
           </div>
@@ -69,13 +70,13 @@ export default function User() {
             <p className="description-user">
               {data.desc}
             </p>
-            <a className="web-user" href="www.messi.com">
+            <a className="web-user" href={data.web} target="_blank" rel="noopener noreferrer">
               {data.web}
             </a>
           </div>
       <div className="info-user stats mobile">
             <p className="stats-user">
-              <b>585</b><br/>publicaciones
+              <b>{data.posts.length}</b><br/>publicaciones
             </p>
             <p className="stats-user">
               <b>150mm</b><br/>seguidores
@@ -87,54 +88,18 @@ export default function User() {
       <section className="posts-user">
         <div className="posts-user-public">
           <div className="content-public">
-            <img className="icon" src={posts} alt="Publicaciones" />
+            <img className="icon" src={posts_icon} alt="Publicaciones" />
             <p className="pc">PUBLICACIONES</p>
           </div>
         </div>
-        <img
+        {data.posts && data.posts.map((post) => (
+          <img
+          key={posts[post].id}
           className="post-user"
-          src="https://instagram.faep9-2.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/s640x640/96144021_262013868284125_5495302340245040052_n.jpg?_nc_ht=instagram.faep9-2.fna.fbcdn.net&_nc_cat=1&_nc_ohc=Z5B4GNO9PK4AX9AFq5t&oh=e374397f83f37a3fd0eee550073dbce9&oe=5EE1E98A"
+          src={posts[post].img}
           alt="post"
         />
-
-        <img
-          className="post-user"
-          src="https://instagram.faep9-2.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/s640x640/96144021_262013868284125_5495302340245040052_n.jpg?_nc_ht=instagram.faep9-2.fna.fbcdn.net&_nc_cat=1&_nc_ohc=Z5B4GNO9PK4AX9AFq5t&oh=e374397f83f37a3fd0eee550073dbce9&oe=5EE1E98A"
-          alt="post"
-        />
-
-        <img
-          className="post-user"
-          src="https://instagram.faep9-2.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/s640x640/96144021_262013868284125_5495302340245040052_n.jpg?_nc_ht=instagram.faep9-2.fna.fbcdn.net&_nc_cat=1&_nc_ohc=Z5B4GNO9PK4AX9AFq5t&oh=e374397f83f37a3fd0eee550073dbce9&oe=5EE1E98A"
-          alt="post"
-        />
-        <img
-          className="post-user"
-          src="https://instagram.faep9-2.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/s640x640/96144021_262013868284125_5495302340245040052_n.jpg?_nc_ht=instagram.faep9-2.fna.fbcdn.net&_nc_cat=1&_nc_ohc=Z5B4GNO9PK4AX9AFq5t&oh=e374397f83f37a3fd0eee550073dbce9&oe=5EE1E98A"
-          alt="post"
-        />
-        <img
-          className="post-user"
-          src="https://instagram.faep9-2.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/s640x640/96144021_262013868284125_5495302340245040052_n.jpg?_nc_ht=instagram.faep9-2.fna.fbcdn.net&_nc_cat=1&_nc_ohc=Z5B4GNO9PK4AX9AFq5t&oh=e374397f83f37a3fd0eee550073dbce9&oe=5EE1E98A"
-          alt="post"
-        />
-
-        <img
-          className="post-user"
-          src="https://instagram.faep9-2.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/s640x640/96144021_262013868284125_5495302340245040052_n.jpg?_nc_ht=instagram.faep9-2.fna.fbcdn.net&_nc_cat=1&_nc_ohc=Z5B4GNO9PK4AX9AFq5t&oh=e374397f83f37a3fd0eee550073dbce9&oe=5EE1E98A"
-          alt="post"
-        />
-
-        <img
-          className="post-user"
-          src="https://instagram.faep9-2.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/s640x640/96144021_262013868284125_5495302340245040052_n.jpg?_nc_ht=instagram.faep9-2.fna.fbcdn.net&_nc_cat=1&_nc_ohc=Z5B4GNO9PK4AX9AFq5t&oh=e374397f83f37a3fd0eee550073dbce9&oe=5EE1E98A"
-          alt="post"
-        />
-        <img
-          className="post-user"
-          src="https://instagram.faep9-2.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/s640x640/96144021_262013868284125_5495302340245040052_n.jpg?_nc_ht=instagram.faep9-2.fna.fbcdn.net&_nc_cat=1&_nc_ohc=Z5B4GNO9PK4AX9AFq5t&oh=e374397f83f37a3fd0eee550073dbce9&oe=5EE1E98A"
-          alt="post"
-        />
+        ))}
       </section>
     </div>
   );
