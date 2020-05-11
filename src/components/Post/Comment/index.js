@@ -9,7 +9,9 @@ export default function Comment(props) {
 
     const handleSend = () => {
         props.send(comment);
+        setComment('');
     }
+
     return (
         <div className="comment-post">
                 <div className="center-post content-comment">
