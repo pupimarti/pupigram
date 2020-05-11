@@ -26,7 +26,7 @@ function App() {
         <NavBar setMode={handleChangeMode} />
         <div className="content-app">
           <div className="app">
-            <Route exact path="/user" component={User} />
+            <Route exact path="/:user" component={User} />
             <Route exact path="/" component={List} />
             
             <p className="footer">© 2020 PUPIGRAM DESARROLLADO POR <a href="www.google.com" >JUAN A. MARTÍ</a></p>

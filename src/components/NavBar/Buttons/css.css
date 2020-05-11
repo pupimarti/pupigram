@@ -26,7 +26,10 @@
         border-top: #dbdbdb 1px solid;
     }
 
-    .icon{min-width: 23px;}
+    .icon{
+        width: 25px;
+        max-width: 25px;
+    }
     
     .dark .content-buttons{
     background-color: #1e1e1e;
