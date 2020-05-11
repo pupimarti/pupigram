@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 export default function Post(props) {
   const [likes, setLikes] = useState(props.likes);
   const [likeImg, setlikeImg] = useState(null);
-  const [like, setlike] = useState(null)
+  const [like, setlike] = useState(null);
   const handleClickLikeImg = () => {
     if (likeImg === null) setlikeImg(true);
     else setlikeImg(!likeImg);
@@ -19,20 +19,25 @@ export default function Post(props) {
   };
 
   const handleLikeImg = (val) => {
-    if(val && !like)
-      setLikes(likes + 1);
-    if(!val && like)
-      setLikes(likes - 1);
+    if (val && !like) setLikes(likes + 1);
+    if (!val && like) setLikes(likes - 1);
     setlike(val);
-  }
+  };
+
+  const [showMore, setShowMore] = useState(false);
+  const handleShowMore = () => {
+    setShowMore(!showMore);
+  };
 
   return (
     <div className="content-post">
       <div className="center-post header-post">
         <Link to={"/" + props.user} className="user-post">
-          {props.user_img 
-          ?<img className="img-account" src={props.user_img} alt="account" />
-          :<img className="default-img" src={account} alt="account" />}
+          {props.user_img ? (
+            <img className="img-account" src={props.user_img} alt="account" />
+          ) : (
+            <img className="default-img" src={account} alt="account" />
+          )}
           <p className="user-account">{props.user}</p>
           {props.verify && (
             <img className="verify" src={verify} alt="Verificado" />
@@ -80,8 +85,15 @@ export default function Post(props) {
           </a>
           {props.verify && (
             <img className="verify" src={verify} alt="Verificado" />
-          )}
-          <span className="text-post"> {props.desc}</span>{" "}
+          )}{" "}
+          <span className="text-post"> 
+          {props.desc.length > 100
+          ?showMore
+            ?<span>{props.desc}</span>
+            :
+            <span>{props.desc.substring(0, 100)}... <span className="show-more" onClick={handleShowMore}>más</span></span>
+          :props.desc} 
+          </span>
         </p>
       </div>
       <p className="center-post time-post">HACE {props.time} MINUTOS</p>

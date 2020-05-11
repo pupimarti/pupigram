@@ -207,6 +207,11 @@
     font-size: 0.7em;
 }
 
+.show-more{
+    color: #AAA;
+    cursor: pointer;
+}
+
 .time-post{
     font-size: 0.5em;
     color: #AAA;
