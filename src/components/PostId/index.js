@@ -6,6 +6,8 @@ import heart from "../../img/heart-selected.svg";
 import Comment from '../Post/Comment';
 import Like from '../Post/Like';
 import NoPage from '../NoPage';
+import verify from "../../img/verify.svg";
+import CommentUser from './Comment';
 
 import "./css.css";
 
@@ -63,6 +65,9 @@ export default function PostId() {
               alt="profile_picture"
             />
             <p className="user-account">{data.user}</p>
+            {data.verify && (
+            <img className="verify" src={verify} alt="Verificado" />
+          )}
           </Link>
           <div className="points">
             <div className="point"></div>
@@ -101,6 +106,9 @@ export default function PostId() {
               alt="profile_picture"
             />
             <p className="user-account">{data.user}</p>
+            {data.verify && (
+            <img className="verify" src={verify} alt="Verificado" />
+          )}
           </Link>
           <div className="points">
             <div className="point"></div>
@@ -109,42 +117,30 @@ export default function PostId() {
           </div>
         </div>
         <div className="content-comments-post-id">
-        <div className="content-comment-post-id center-post-id">
-            <div className="content-user-post-id cpi">
-              <Link to={"/" + data.user} className="content-img-username">
-                <img
-                  className="img-account"
-                  src={data.picture_user}
-                  alt="profile_picture"
-                />
-              </Link>
-              <p className="user-account">
-                <Link to={"/" + data.user}>{data.user}</Link>&nbsp;
-                <span>{data.desc}</span>
-              </p>
-            </div>
-              <p className="time-post">
-                <ReactTimeAgo date={new Date(data.time)} locale="es" />
-              </p>
-          </div>
-          <div className="content-comment-post-id center-post-id">
-            <div className="content-user-post-id cpi">
-              <Link to={"/" + data.user} className="content-img-username">
-                <img
-                  className="img-account"
-                  src={data.picture_user}
-                  alt="profile_picture"
-                />
-              </Link>
-              <p className="user-account">
-                <Link to={"/" + data.user}>{data.user}</Link>&nbsp;
-                <span>{data.desc}</span>
-              </p>
-            </div>
-              <p className="time-post">
-                <ReactTimeAgo date={new Date(data.time)} locale="es" />
-              </p>
-          </div>
+          <CommentUser 
+          user={data.user} 
+          picture_user={data.picture_user} 
+          desc={data.desc} 
+          time={data.time} 
+          />
+          <CommentUser 
+          user={data.user} 
+          picture_user={data.picture_user} 
+          desc={data.desc} 
+          time={data.time} 
+          />
+          <CommentUser 
+          user={data.user} 
+          picture_user={data.picture_user} 
+          desc={data.desc} 
+          time={data.time} 
+          />
+          <CommentUser 
+          user={data.user} 
+          picture_user={data.picture_user} 
+          desc={data.desc} 
+          time={data.time} 
+          />
         </div>
         <div className="content-likes-comment-post-id">
           <div className="center-post-id actions-post">
