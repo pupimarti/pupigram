@@ -27,6 +27,13 @@
     filter: invert();
 }
 
+.content-button-navbar{
+    width: 58px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
 @media(max-width: 800px){
     .navbar{
         flex-direction: row-reverse;
