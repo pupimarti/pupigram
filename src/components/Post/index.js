@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./css.css";
 import account from "./account.svg";
-import comment from "./chat.svg";
+import comment from "../../img/chat.svg";
 import Comment from "./Comment";
 import Like from "./Like";
 import verify from "../../img/verify.svg";
@@ -98,7 +98,14 @@ export default function Post(props) {
         </p>
       </div>
       {props.comments && props.comments.length > 0 &&
-        <p className="center-post show-comments-post">Ver los {props.comments.length} comentarios</p>
+        <div className="center-post">
+          <Link to={"/posts/"+props.id} className="show-comments-post">
+            {props.comments.length === 1 
+            ?"Ver "+props.comments.length+" comentario"
+            :"Ver los "+props.comments.length+"  comentarios"
+            }
+          </Link>
+        </div>
       }
       <p className="center-post time-post"><ReactTimeAgo date={new Date(props.time)} locale="es"/></p>
       <Comment />

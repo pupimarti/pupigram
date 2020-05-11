@@ -1,0 +1,17 @@
+.nouser{
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5em;
+    max-width: 85vw;
+    margin: 24px auto;
+}
+
+.nouser-desc{
+    text-align: center;
+    max-width: 90vw;
+    margin: 0 auto;
+}
+
+.nouser-desc a{
+    font-weight: bold;
+}

@@ -214,7 +214,7 @@
 
 .show-comments-post{
     margin-top: 8px;
-    color: #AAA;
+    color: #AAA !important;
     font-size: 0.7em;
 }
 

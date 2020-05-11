@@ -4,6 +4,7 @@ import posts_icon from "./posts.svg";
 import users from '../users.json';
 import posts from '../posts.json';
 import {useLocation, Link} from 'react-router-dom';
+import NoPage from '../NoPage';
 import "./css.css";
 
 export default function User() {
@@ -17,10 +18,7 @@ export default function User() {
   }, [userPath])
 
   if(data === null)
-    return(<div>
-        <p className="nouser">Esta página no está disponible.</p>
-        <p className="nouser-desc">Es posible que el enlace que has seguido sea incorrecto o que se haya eliminado la página. <Link to="/">Volver a Pupigram.</Link></p>
-    </div>)
+    return <NoPage />
   return (
     <div>
       <header className="header-user">

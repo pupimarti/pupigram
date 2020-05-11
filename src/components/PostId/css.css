@@ -1,5 +1,6 @@
 .content-post-id{
     max-width: 90vw;
+    max-height: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -13,18 +14,20 @@
 }
 
 .img-post-id{
+    width: auto;
     max-width: 70%;
-    max-height: 100%;
+    max-height: auto;
 }
 
 .content-info-post-id{
     width: 100%;
     height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
 }
 
 .content-user-post-id{
-    width: 95%;
-    margin: 0 auto;
     padding: 16px 0;
     display: flex;
     justify-content: space-between;
@@ -44,16 +47,22 @@
 }
 
 .content-comments-post-id{
+    width: 100%;
+    min-height: 60%;
+    max-height: 40vh;
+    overflow-y: auto;
+}
+
+.content-comments-post-id, .content-likes-comment-post-id{
     border-top: 1px solid #dbdbdb;
-    overflow: auto;
-    max-height: 60%;
+
 }
 
 .content-comments-post-id::-webkit-scrollbar {
     display: none;
 }
 
-.dark .content-comments-post-id{
+.dark .content-comments-post-id, .dark .content-likes-comment-post-id{
     border-top: 1px solid #525151;
 }
 
@@ -61,6 +70,36 @@
     width: 80%;
 }
 
+.content-comment-post-id{
+    width: 100%;
+}
+
 .content-info-post-id span{
     font-weight: initial;
+}
+
+.content-likes-comment-post-id{
+    width: 100%;
+}
+
+.content-comment-post-id .time-post{
+    width: 80%;
+    margin: 0 0 0 auto;
+}
+
+.center-post-id{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.likes-post-id{
+    font-size: 0.7em;
+}
+
+.mb8{
+    margin-bottom: 8px;
+}
+
+.likes-post-id b{
+    font-weight: 600;
 }
