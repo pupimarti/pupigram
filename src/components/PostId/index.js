@@ -37,9 +37,24 @@ export default function PostId() {
     
   return (
     <div className="content-post-id">
+      <div className="content-user-post-id center-post-id mobile">
+          <Link to={"/" + data.user} className="content-img-username">
+            <img
+              className="img-account"
+              src={data.picture_user}
+              alt="profile_picture"
+            />
+            <p className="user-account">{data.user}</p>
+          </Link>
+          <div className="points">
+            <div className="point"></div>
+            <div className="point"></div>
+            <div className="point"></div>
+          </div>
+        </div>
       <img className="img-post-id" src={data.img} alt="post-img" />
       <div className="content-info-post-id">
-        <div className="content-user-post-id center-post-id">
+        <div className="content-user-post-id center-post-id pc">
           <Link to={"/" + data.user} className="content-img-username">
             <img
               className="img-account"
