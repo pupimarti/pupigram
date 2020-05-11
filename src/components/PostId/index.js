@@ -37,6 +37,13 @@ export default function PostId() {
     
   }, [postId]);
 
+  const getUser = (name) => {
+    for(var u of users)
+        if(u.user === name)
+          return u
+    return null;
+  }
+
   const [likes, setLikes] = useState(0);
   const [likeImg, setlikeImg] = useState(null);
   const [like, setlike] = useState(null);
@@ -120,27 +127,24 @@ export default function PostId() {
           <CommentUser 
           user={data.user} 
           picture_user={data.picture_user} 
-          desc={data.desc} 
+          comment={data.desc} 
           time={data.time} 
+          verify={data.verify}
           />
-          <CommentUser 
-          user={data.user} 
-          picture_user={data.picture_user} 
-          desc={data.desc} 
-          time={data.time} 
-          />
-          <CommentUser 
-          user={data.user} 
-          picture_user={data.picture_user} 
-          desc={data.desc} 
-          time={data.time} 
-          />
-          <CommentUser 
-          user={data.user} 
-          picture_user={data.picture_user} 
-          desc={data.desc} 
-          time={data.time} 
-          />
+          {data.comments && data.comments.map((c, i) => {
+            var userComment = getUser(c.user);
+            if(userComment !== null)
+              return(
+                <CommentUser 
+                key={i}
+                user={userComment.user} 
+                comment={c.comment}
+                picture_user={userComment.picture} 
+                time={c.time} 
+                verify={userComment.verify}
+                />
+            )
+            return null})}
         </div>
         <div className="content-likes-comment-post-id">
           <div className="center-post-id actions-post">
