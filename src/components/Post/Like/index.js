@@ -1,7 +1,7 @@
 import React from 'react';
 import './css.css';
 import heart from '../../../img/heart.svg';
-import heartSelected from './heart-selected.svg';
+import heartSelected from '../../../img/heart-selected.svg';
 
 export default function Like(props) {
     

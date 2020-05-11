@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import ReactTimeAgo from "react-time-ago";
 import comment from "../../img/chat.svg";
+import heart from "../../img/heart-selected.svg";
 import Comment from '../Post/Comment';
+import Like from '../Post/Like';
 import NoPage from '../NoPage';
 
 import "./css.css";
@@ -28,9 +30,25 @@ export default function PostId() {
           post.verify=u.verify
         }
         setData(post);
+        setLikes(post.likes);
     }
     
   }, [postId]);
+
+  const [likes, setLikes] = useState(0);
+  const [likeImg, setlikeImg] = useState(null);
+  const [like, setlike] = useState(null);
+  const handleClickLikeImg = () => {
+    if (likeImg === null) setlikeImg(true);
+    else setlikeImg(!likeImg);
+    handleLikeImg(true);
+  };
+
+  const handleLikeImg = (val) => {
+    if (val && !like) setLikes(likes + 1);
+    if (!val && like) setLikes(likes - 1);
+    setlike(val);
+  };
 
   if (data === null)
     return <NoPage />
@@ -52,7 +70,28 @@ export default function PostId() {
             <div className="point"></div>
           </div>
         </div>
-      <img className="img-post-id" src={data.img} alt="post-img" />
+      <div className="content-img-post-id">
+        {likeImg !== null &&
+          (likeImg ? (
+            <img
+              className="like-img-post animation-like"
+              src={heart}
+              alt="corazon"
+            />
+          ) : (
+            <img
+              className="like-img-post animation-like1"
+              src={heart}
+              alt="corazon"
+            />
+          ))}
+        <img
+          onDoubleClick={handleClickLikeImg}
+          className="img-post-id"
+          src={data.img}
+          alt="postimg"
+        />
+      </div>
       <div className="content-info-post-id">
         <div className="content-user-post-id center-post-id pc">
           <Link to={"/" + data.user} className="content-img-username">
@@ -109,6 +148,7 @@ export default function PostId() {
         </div>
         <div className="content-likes-comment-post-id">
           <div className="center-post-id actions-post">
+            <Like like={like} setlike={handleLikeImg} />
             <img className="action" src={comment} alt="comment" />
           </div>
           <p className="center-post-id mb8 likes-post-id">

@@ -5,7 +5,7 @@ import comment from "../../img/chat.svg";
 import Comment from "./Comment";
 import Like from "./Like";
 import verify from "../../img/verify.svg";
-import heart from "./Like/heart-selected.svg";
+import heart from "../../img/heart-selected.svg";
 import { Link } from "react-router-dom";
 import ReactTimeAgo from 'react-time-ago';
 
