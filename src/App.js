@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import NavBar from "./components/NavBar";
 import List from "./components/List";
 import User from './components/User';
+import PostId from './components/PostId';
 /* import OptionsPost from "./components/OptionsPost"; */
-import { HashRouter, Route } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 import JavascriptTimeAgo from 'javascript-time-ago'
 import es from 'javascript-time-ago/locale/es'
@@ -29,9 +30,11 @@ function App() {
         <NavBar setMode={handleChangeMode} />
         <div className="content-app">
           <div className="app">
-            <Route exact path="/:user" component={User} />
-            <Route exact path="/" component={List} />
-            
+            <Switch>
+              <Route exact path="/posts/:id" component={PostId} />
+              <Route exact path="/:user" component={User} />
+              <Route exact path="/" component={List} />
+            </Switch>
             <p className="footer">© 2020 PUPIGRAM DESARROLLADO POR <a href="www.google.com" >JUAN A. MARTÍ</a></p>
           </div>
         </div>

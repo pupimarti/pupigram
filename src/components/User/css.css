@@ -112,6 +112,11 @@
     margin-bottom: 3%;
 }
 
+.posts-user img{
+    width: 100%;
+    height: 100%;
+}
+
 .content-user-description{
     width: 95%;
     margin: 0 auto;

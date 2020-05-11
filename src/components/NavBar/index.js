@@ -1,7 +1,7 @@
 import React from 'react'
 import pupigram from './pupigram.png';
 import Buttons from './Buttons';
-import SwitchMode from '../SwitchMode';
+import SwitchMode from './SwitchMode';
 import direct from './Buttons/direct.svg';
 import {Link} from 'react-router-dom';
 import './css.css'

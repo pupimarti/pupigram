@@ -93,12 +93,15 @@ export default function User() {
           </div>
         </div>
         {data.posts && data.posts.map((post) => (
-          <img
-          key={posts[post].id}
-          className="post-user"
-          src={posts[post].img}
-          alt="post"
-        />
+          <Link 
+          key={post} 
+          to={"/posts/"+posts[post].id}
+          className="post-user">
+            <img
+            src={posts[post].img}
+            alt="post"
+          />
+          </Link>
         ))}
       </section>
     </div>
