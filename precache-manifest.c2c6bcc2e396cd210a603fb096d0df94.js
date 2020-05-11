@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "24b22176cc7b139076e41899e660d094",
+    "revision": "39c43613b20430f1901526369208d528",
     "url": "/pupigram/index.html"
   },
   {
