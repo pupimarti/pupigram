@@ -200,7 +200,7 @@
 }
 
 .description-post{
-    margin-bottom: 8px;
+    margin-bottom: 0px;
 }
 
 .text-post{
@@ -212,10 +212,18 @@
     cursor: pointer;
 }
 
+.show-comments-post{
+    margin-top: 8px;
+    color: #AAA;
+    font-size: 0.7em;
+}
+
 .time-post{
     font-size: 0.5em;
     color: #AAA;
+    margin-top: 8px;
     margin-bottom: 8px;
+    text-transform: uppercase;
 }
 
 

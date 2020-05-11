@@ -7,6 +7,7 @@ import Like from "./Like";
 import verify from "../../img/verify.svg";
 import heart from "./Like/heart-selected.svg";
 import { Link } from "react-router-dom";
+import ReactTimeAgo from 'react-time-ago';
 
 export default function Post(props) {
   const [likes, setLikes] = useState(props.likes);
@@ -96,7 +97,10 @@ export default function Post(props) {
           </span>
         </p>
       </div>
-      <p className="center-post time-post">HACE {props.time} MINUTOS</p>
+      {props.comments && props.comments.length > 0 &&
+        <p className="center-post show-comments-post">Ver los {props.comments.length} comentarios</p>
+      }
+      <p className="center-post time-post"><ReactTimeAgo date={new Date(props.time)} locale="es"/></p>
       <Comment />
     </div>
   );

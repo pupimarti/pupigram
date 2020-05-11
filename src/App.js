@@ -5,7 +5,10 @@ import User from './components/User';
 /* import OptionsPost from "./components/OptionsPost"; */
 import { HashRouter, Route } from "react-router-dom";
 import "./App.css";
+import JavascriptTimeAgo from 'javascript-time-ago'
+import es from 'javascript-time-ago/locale/es'
 
+JavascriptTimeAgo.locale(es)
 function App() {
   const [mode, setMode] = useState((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) || false);
   const handleChangeMode = () => {

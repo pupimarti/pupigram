@@ -16,6 +16,7 @@ export default function List() {
                 likes={post.likes}
                 time={post.time}
                 verify={post.verify}
+                comments={post.comments}
                 />
             ))}
         </React.Fragment>
