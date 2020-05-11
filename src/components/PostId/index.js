@@ -59,6 +59,12 @@ export default function PostId() {
     setlike(val);
   };
 
+  
+  const [commentsUser, setCommentsUser] = useState([]);
+  const handleChangeCommentsUser = (c) => {
+    setCommentsUser([...commentsUser, c]);
+  };
+
   if (data === null)
     return <NoPage />
     
@@ -145,6 +151,16 @@ export default function PostId() {
                 />
             )
             return null})}
+             {commentsUser.map((c, i) => (
+              <CommentUser 
+                key={i}
+                user={"anonymus"} 
+                comment={c}
+                picture_user={""} 
+                time={new Date()} 
+                verify={false}
+              />
+            ))}
         </div>
         <div className="content-likes-comment-post-id">
           <div className="center-post-id actions-post">
@@ -157,7 +173,7 @@ export default function PostId() {
           <p className="time-post mb8 center-post-id">
                 <ReactTimeAgo date={new Date(data.time)} locale="es" />
           </p>
-          <Comment />
+          <Comment send={handleChangeCommentsUser} />
         </div>
       </div>
     </div>

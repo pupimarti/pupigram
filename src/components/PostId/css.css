@@ -44,6 +44,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
+    padding:4px 0;
 }
 
 .content-img-username{
@@ -60,9 +61,23 @@
 
 @media(max-width: 1000px){
     .content-comments-post-id{
+        max-height: 210px;
+    }
+}
+
+
+@media(max-width: 950px){
+    .content-comments-post-id{
+        max-height: 180px;
+    }
+}
+
+@media(max-width: 880px){
+    .content-comments-post-id{
         max-height: 150px;
     }
 }
+
 
 .content-comments-post-id, .content-likes-comment-post-id{
     border-top: 1px solid #dbdbdb;
@@ -96,7 +111,8 @@
 }
 
 .content-comment-post-id .time-post{
-    margin: 0 0 0 45px;
+    width: 100%;
+    padding-left: 45px;
 }
 
 .center-post-id{

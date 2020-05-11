@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "./css.css";
-import account from "./account.svg";
+import account from "../../img/account.svg";
 import comment from "../../img/chat.svg";
 import Comment from "./Comment";
 import Like from "./Like";
 import verify from "../../img/verify.svg";
 import heart from "../../img/heart-selected.svg";
 import { Link } from "react-router-dom";
-import ReactTimeAgo from 'react-time-ago';
+import ReactTimeAgo from "react-time-ago";
 
 export default function Post(props) {
   const [likes, setLikes] = useState(props.likes);
@@ -28,6 +28,11 @@ export default function Post(props) {
   const [showMore, setShowMore] = useState(false);
   const handleShowMore = () => {
     setShowMore(!showMore);
+  };
+
+  const [commentsUser, setCommentsUser] = useState([]);
+  const handleChangeCommentsUser = (c) => {
+    setCommentsUser([...commentsUser, c]);
   };
 
   return (
@@ -81,34 +86,50 @@ export default function Post(props) {
       </p>
       <div className="center-post description-post">
         <p>
-          <a href="www.google.com" className="user-account">
+          <Link to={"/" + props.user} className="user-account">
             {props.user}
-          </a>
+          </Link>
           {props.verify && (
             <img className="verify" src={verify} alt="Verificado" />
           )}{" "}
-          <span className="text-post"> 
-          {props.desc.length > 100
-          ?showMore
-            ?<span>{props.desc}</span>
-            :
-            <span>{props.desc.substring(0, 100)}... <span className="show-more" onClick={handleShowMore}>más</span></span>
-          :props.desc} 
+          <span className="text-post">
+            {props.desc.length > 100 ? (
+              showMore ? (
+                <span>{props.desc}</span>
+              ) : (
+                <span>
+                  {props.desc.substring(0, 100)}...{" "}
+                  <span className="show-more" onClick={handleShowMore}>
+                    más
+                  </span>
+                </span>
+              )
+            ) : (
+              props.desc
+            )}
           </span>
         </p>
       </div>
-      {props.comments && props.comments.length > 0 &&
+      {props.comments && props.comments.length > 0 && (
         <div className="center-post">
-          <Link to={"/posts/"+props.id} className="show-comments-post">
-            {props.comments.length === 1 
-            ?"Ver "+props.comments.length+" comentario"
-            :"Ver los "+props.comments.length+"  comentarios"
-            }
+          <Link to={"/posts/" + props.id} className="show-comments-post">
+            {props.comments.length === 1
+              ? "Ver " + props.comments.length + " comentario"
+              : "Ver los " + props.comments.length + "  comentarios"}
           </Link>
         </div>
-      }
-      <p className="center-post time-post"><ReactTimeAgo date={new Date(props.time)} locale="es"/></p>
-      <Comment />
+      )}
+      <div className="description-post center-post">
+        {commentsUser.map((c) => (
+          <p>
+            <Link to="/account" className="user-account">anonymus</Link> <span className="text-post">{c}</span>
+          </p>
+        ))}
+      </div>
+      <p className="center-post time-post">
+        <ReactTimeAgo date={new Date(props.time)} locale="es" />
+      </p>
+      <Comment send={handleChangeCommentsUser} />
     </div>
   );
 }

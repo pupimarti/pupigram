@@ -1,25 +1,42 @@
-import React from 'react'
-import home from './home.svg';
-import homeSelect from './home-select.svg';
-import heart from '../../../img/heart.svg';
-import direct from './direct.svg';
-import search from './search.svg';
-import explore from './explore.svg';
-import add from './add.svg';
-import account from './account.svg';
-import {Link, useLocation} from 'react-router-dom';
-import './css.css';
+import React from "react";
+import home from "./home.svg";
+import homeSelect from "./home-select.svg";
+import heart from "../../../img/heart.svg";
+import direct from "./direct.svg";
+import search from "./search.svg";
+import explore from "./explore.svg";
+import exploreSelect from "./explore-select.svg";
+import add from "./add.svg";
+import account from "./account.svg";
+import { Link, useLocation } from "react-router-dom";
+import "./css.css";
 
 export default function Buttons() {
-    return (
-        <div className="content-buttons">
-            <Link to="/"><img className="icon" src={useLocation().pathname === "/" ? homeSelect : home} alt="Home" /></Link>
-            <img className="icon pc" src={direct} alt="Direct" />
-            <img className="icon mobile" src={search} alt="Search" />
-            <img className="icon mobile" src={add} alt="Add" />
-            <img className="icon pc" src={explore} alt="explore" />
-            <img className="icon" src={heart} alt="Notif" />
-            <Link to="/user"><img className="icon" src={account} alt="Cuenta" /></Link>
-        </div>
-    )
+  return (
+    <div className="content-buttons">
+      <Link to="/">
+        <img
+          className="icon"
+          src={useLocation().pathname === "/" ? homeSelect : home}
+          alt="Home"
+        />
+      </Link>
+      <Link to="/direct" className="pc"><img className="icon pc" src={direct} alt="Direct" /></Link>
+      <Link to="/search">
+        <img className="icon mobile" src={search} alt="Search" />
+      </Link>
+      <img className="icon mobile" src={add} alt="Add" />
+      <Link className="pc" to="/explore">
+        <img
+          className="icon pc"
+          src={useLocation().pathname === "/explore" ? exploreSelect : explore}
+          alt="explore"
+        />
+      </Link>
+      <img className="icon" src={heart} alt="Notif" />
+      <Link to="/user">
+        <img className="icon" src={account} alt="Cuenta" />
+      </Link>
+    </div>
+  );
 }

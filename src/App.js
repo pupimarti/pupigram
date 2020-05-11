@@ -8,6 +8,7 @@ import { HashRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 import JavascriptTimeAgo from 'javascript-time-ago'
 import es from 'javascript-time-ago/locale/es'
+import NoPage from './components/NoPage';
 
 JavascriptTimeAgo.locale(es)
 function App() {
@@ -31,6 +32,15 @@ function App() {
         <div className="content-app">
           <div className="app">
             <Switch>
+              <Route exact path="/search">
+                <NoPage construction/>
+              </Route>
+              <Route exact path="/explore">
+                <NoPage construction/>
+              </Route>
+              <Route exact path="/direct">
+                <NoPage construction/>
+              </Route>
               <Route exact path="/posts/:id" component={PostId} />
               <Route exact path="/:user" component={User} />
               <Route exact path="/" component={List} />
