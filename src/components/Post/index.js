@@ -118,7 +118,7 @@ export default function Post(props) {
       )}
       <div className="description-post center-post">
         {commentsUser.map((c) => (
-          <p>
+          <p className="comment-user-post">
             <Link to="/account" className="user-account">anonymus</Link> <span className="text-post">{c}</span>
           </p>
         ))}

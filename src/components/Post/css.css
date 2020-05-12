@@ -226,6 +226,10 @@
     text-transform: uppercase;
 }
 
+.comment-user-post{
+    margin-top: -3px;
+}
+
 
 @media screen and (max-width: 735px){
     .content-post{
