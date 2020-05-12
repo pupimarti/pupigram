@@ -76,7 +76,8 @@ export default function Post(props) {
       </div>
       <div className="center-post actions-post">
         <Like like={like} setlike={handleLikeImg} />
-        <Link to={"/posts/" + props.id}><img className="action" src={comment} alt="comment" /></Link>
+        <Link className="pc" to={"/posts/" + props.id}><img className="action" src={comment} alt="comment" /></Link>
+        <Link className="mobile" to={"/comments/" + props.id}><img className="action" src={comment} alt="comment" /></Link>
       </div>
       <p className="center-post likes-post">
         {new Intl.NumberFormat().format(likes)} Me gusta

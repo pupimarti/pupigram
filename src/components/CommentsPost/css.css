@@ -1,0 +1,11 @@
+.content-comments-user{
+    padding-top: 16px;
+    height: 100vh;
+    position: relative;
+}
+
+.cont-comment-user{
+    width: 100%;
+    position: absolute;
+    bottom: 110px;
+}
