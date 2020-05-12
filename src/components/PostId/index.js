@@ -8,6 +8,7 @@ import Like from '../Post/Like';
 import NoPage from '../NoPage';
 import verify from "../../img/verify.svg";
 import CommentUser from './Comment';
+import Options from '../Post/Options';
 
 import "./css.css";
 
@@ -82,11 +83,7 @@ export default function PostId() {
             <img className="verify" src={verify} alt="Verificado" />
           )}
           </Link>
-          <div className="points">
-            <div className="point"></div>
-            <div className="point"></div>
-            <div className="point"></div>
-          </div>
+          <Options id={data.id}/>
         </div>
       <div className="content-img-post-id">
         {likeImg !== null &&
@@ -124,11 +121,7 @@ export default function PostId() {
             <img className="verify" src={verify} alt="Verificado" />
           )}
           </Link>
-          <div className="points">
-            <div className="point"></div>
-            <div className="point"></div>
-            <div className="point"></div>
-          </div>
+          <Options id={data.id}/>
         </div>
         <div className="content-comments-post-id">
           <CommentUser 

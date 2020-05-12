@@ -1,0 +1,33 @@
+.Modal{
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal{
+    background-color: #FFF;
+    width: 400px;
+    max-width: 80vw;
+    border-radius: 12px;
+  }
+  
+  .action-modal{
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+    color: #000;
+    cursor: pointer;
+  }
+  
+  .action-modal-bt{
+    border-top: 1px solid #CCC;
+  }

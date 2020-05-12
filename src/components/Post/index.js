@@ -8,6 +8,7 @@ import verify from "../../img/verify.svg";
 import heart from "../../img/heart-selected.svg";
 import { Link } from "react-router-dom";
 import ReactTimeAgo from "react-time-ago";
+import Options from './Options';
 
 export default function Post(props) {
   const [likes, setLikes] = useState(props.likes);
@@ -49,11 +50,7 @@ export default function Post(props) {
             <img className="verify" src={verify} alt="Verificado" />
           )}
         </Link>
-        <div className="points" onClick={props.openOptions}>
-          <div className="point"></div>
-          <div className="point"></div>
-          <div className="point"></div>
-        </div>
+        <Options id={props.id}/>
       </div>
       <div className="content-img-post">
         {likeImg !== null &&
