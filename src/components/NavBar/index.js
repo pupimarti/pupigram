@@ -11,7 +11,7 @@ export default function NavBar(props) {
         <div className="content-navBar">
             <div className="content-app navbar">
                 <Link to="/direct" className="content-button-navbar mobile"><img className="icon mobile direct" src={direct} alt="direct" /></Link>
-                <Link to="/" ><img src={pupigram} className="logo" alt="logo" /></Link>
+                <Link to="/" className="c-logo"><img className="logo" src={pupigram} alt="logo" /></Link>
                 <SwitchMode setMode={props.setMode} />
                 <Buttons />
             </div>
