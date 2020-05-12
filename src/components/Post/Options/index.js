@@ -25,11 +25,10 @@ export default function Options(props) {
         <div className="modal">
           <a
             href={
-              "https://wa.me/?text=%20https://pupimarti.github.io/pupigram/posts/" +
+              "whatsapp://send?text=%20https://pupimarti.github.io/pupigram#/posts/" +
               props.id
             }
-            target="_blank"
-            rel="noopener noreferrer"
+            data-action="share/whatsapp/share"
             className="action-modal"
           >
             Compartir
