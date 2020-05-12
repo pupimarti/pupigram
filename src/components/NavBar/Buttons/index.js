@@ -12,12 +12,15 @@ import { Link, useLocation } from "react-router-dom";
 import "./css.css";
 
 export default function Buttons() {
+  const path = useLocation().pathname;
+  if(path.substr(0, 9) === "/comments")
+    return(null)
   return (
     <div className="content-buttons">
       <Link to="/">
         <img
           className="icon"
-          src={useLocation().pathname === "/" ? homeSelect : home}
+          src={path === "/" ? homeSelect : home}
           alt="Home"
         />
       </Link>
@@ -29,7 +32,7 @@ export default function Buttons() {
       <Link className="pc" to="/explore">
         <img
           className="icon pc"
-          src={useLocation().pathname === "/explore" ? exploreSelect : explore}
+          src={path === "/explore" ? exploreSelect : explore}
           alt="explore"
         />
       </Link>

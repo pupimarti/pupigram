@@ -39,19 +39,6 @@
     align-items: center;
 }
 
-
-.content-user-post-id.cpi{
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    padding:4px 0;
-}
-
-.content-img-username{
-    display: flex;
-    align-items: center;
-}
-
 .content-comments-post-id{
     width: 100%;
     height: 100%;
@@ -79,7 +66,6 @@
     }
 }
 
-
 .content-comments-post-id, .content-likes-comment-post-id{
     border-top: 1px solid #dbdbdb;
 
@@ -93,14 +79,6 @@
     border-top: 1px solid #525151;
 }
 
-.content-info-post-id .user-account{
-    width: 80%;
-}
-
-.content-comment-post-id{
-    width: 100%;
-}
-
 .content-info-post-id span{
     font-weight: initial;
 }
@@ -109,11 +87,6 @@
     width: 100%;
     position: absolute;
     bottom: 0;
-}
-
-.content-comment-post-id .time-post{
-    width: 100%;
-    padding-left: 45px;
 }
 
 .center-post-id{
@@ -149,9 +122,6 @@
         display: flex;
         flex-direction: column-reverse;
         position: static;
-    }
-    .content-user-post-id.mobile{
-        display: flex !important;
     }
     .content-likes-comment-post-id{
         position: static;

@@ -1,11 +1,18 @@
 .content-comments-user{
     padding-top: 16px;
-    height: 100vh;
-    position: relative;
+    max-height: 80vh;
+    width: 100%;
+    overflow-y: auto;
 }
 
 .cont-comment-user{
     width: 100%;
-    position: absolute;
-    bottom: 110px;
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    background-color: #FAFAFA;
+}
+
+.dark .cont-comment-user{
+    background-color: #262626;
 }

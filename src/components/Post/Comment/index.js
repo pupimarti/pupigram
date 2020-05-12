@@ -19,6 +19,11 @@ export default function Comment(props) {
     setComment("");
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter')
+      handleSend();
+  }
+
   return (
     <div className="comment-post">
       <div className="center-post content-comment">
@@ -27,6 +32,7 @@ export default function Comment(props) {
           className="comment"
           value={comment}
           onChange={handleChangeComment}
+          onKeyDown={handleKeyDown}
           placeholder="Añade un comentario..."
         ></input>
         <button

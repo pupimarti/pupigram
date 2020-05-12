@@ -1,0 +1,34 @@
+.content-comment-post-id{
+    width: 100%;
+}
+
+.content-comment-post-id .time-post{
+    width: 100%;
+    padding-left: 45px;
+}
+
+.content-user-post-id.cpi{
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding:4px 0;
+}
+
+.content-img-username{
+    display: flex;
+    align-items: center;
+}
+
+.content-user-post-id .user-account{
+    width: 80%;
+}
+
+.content-user-post-id span{
+    font-weight: initial;
+}
+
+@media screen and (max-width: 800px){
+    .content-user-post-id.mobile{
+        display: flex !important;
+    }
+}
