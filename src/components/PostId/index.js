@@ -147,7 +147,7 @@ export default function PostId() {
              {commentsUser.map((c, i) => (
               <CommentUser 
                 key={i}
-                user={"anonymus"} 
+                user={"anónimo"} 
                 comment={c}
                 picture_user={""} 
                 time={new Date()} 
