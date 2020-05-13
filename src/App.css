@@ -18,7 +18,7 @@
 
 .app{
     padding-top: 70px;
-    min-height: 100vh;
+    min-height: calc(100vh - 70px);
 }
 
 .mobile{
@@ -70,5 +70,6 @@
 @media screen and (max-width:650px){
     .app{
         padding-top: 50px;
+        min-height: calc(100vh - 50px);
     }
 }

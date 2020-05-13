@@ -9,7 +9,10 @@ export default function MobileNotif() {
   const [notif, setNotif] = useState(null);
 
   useEffect(() => {
-    if (notif === null) setNotif(getNotif("default"));
+    if (notif === null)
+        setNotif(getNotif("default"));
+    
+    window.scrollBy(0, 0);
   }, [notif]);
 
     return (
