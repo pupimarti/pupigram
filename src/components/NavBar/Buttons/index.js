@@ -1,7 +1,7 @@
 import React from "react";
 import home from "./home.svg";
 import homeSelect from "./home-select.svg";
-import heart from "../../../img/heart.svg";
+import Notif from './notif';
 import direct from "./direct.svg";
 import search from "./search.svg";
 import explore from "./explore.svg";
@@ -36,7 +36,7 @@ export default function Buttons() {
           alt="explore"
         />
       </Link>
-      <img className="icon" src={heart} alt="Notif" />
+      <Notif id={1} />
       <Link to="/user">
         <img className="icon" src={account} alt="Cuenta" />
       </Link>

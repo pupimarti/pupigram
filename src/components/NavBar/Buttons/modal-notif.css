@@ -1,0 +1,45 @@
+.content-heart{
+    position: relative;
+}
+.content-notif::before{
+    content: "";
+    position: absolute;
+    top:-7px;
+    right: 12px;
+    width: 15px;
+    height: 15px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.1);
+    background-color: #FFF;
+    transition: all .3s ease;
+}
+
+.content-notif{
+    position: absolute;
+    top:40px;
+    right:0;
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    border-radius: 5px 0 0 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: #FFF;
+    border: #dbdbdb 1px solid;
+    transition: all .3s ease;
+}
+
+.dark .content-notif, .dark .content-notif::before{
+    background-color: #262626;
+}
+
+.dark .content-notif::before{
+    box-shadow: -2px -2px 2px rgba(255, 255, 255, 0.1);
+}
+.dark .content-notif{
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    border: #525151 1px solid;
+}
