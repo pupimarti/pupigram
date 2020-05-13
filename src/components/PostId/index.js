@@ -9,6 +9,7 @@ import NoPage from '../NoPage';
 import verify from "../../img/verify.svg";
 import CommentUser from './Comment';
 import Options from '../Post/Options';
+import Post from '../Post';
 
 import "./css.css";
 
@@ -68,7 +69,21 @@ export default function PostId() {
 
   if (data === null)
     return <NoPage />
-    
+  
+  if(window.innerWidth <= 800)
+    return(
+      <Post 
+      id={data.id}
+      user_img={data.picture_user}
+      user={data.user}
+      verify={data.verify}
+      img={data.img}
+      desc={data.desc}
+      likes={data.likes}
+      time={data.time}
+      comments={data.comments}
+      />
+    )
   return (
     <div className="content-post-id">
       <div className="content-user-post-id center-post-id mobile">
