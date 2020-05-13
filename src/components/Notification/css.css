@@ -1,0 +1,36 @@
+.notif-select{
+    filter: brightness(0) invert(1) !important;
+}
+
+.content-notification{
+    width: 95%;
+    height: 60px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notif{
+    display: flex;
+    align-items: center;
+}
+
+.msj-notif{
+    font-weight: 400;
+}
+
+.time-notif{
+    font-weight: 400;
+    color: #aaa;
+}
+
+.button{
+    border: none;
+    color: #fff;
+    background-color: #0095f6;
+    padding: 7px 10px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
