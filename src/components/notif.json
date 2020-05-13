@@ -1,10 +1,15 @@
 [
-    {
-        "user":"leomessi",
-        "type":"follow"
-    },
-    {
-        "user":"thisisbillgates",
-        "type":"follow"
-    }
+  {
+    "user": "default",
+    "notif": [
+      {
+        "user": "leomessi",
+        "type": "follow"
+      },
+      {
+        "user": "thisisbillgates",
+        "type": "follow"
+      }
+    ]
+  }
 ]

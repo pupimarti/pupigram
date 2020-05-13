@@ -1,21 +1,26 @@
-import React from 'react';
-import Post from '../Post';
-import data from '../posts.json';
-import users from '../users-min.json';
+import React, {useState, useEffect} from 'react';
+import Post from 'components/Post';
+import getPosts from 'components/services/getPosts';
 import './css.css';
+import getUserMin from 'components/services/getUserMin';
 
 export default function List() {
+
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        if(data === null)
+            setData(getPosts());
+    }, [setData, data])
     
     return (
         <React.Fragment>
             {data && data.map((post) => {
                 var picture_user = "";
                 var verify = false;
-                for(var u of users)
-                    if(u.user === post.user){
-                        picture_user = u.picture;
-                        verify = u.verify;
-                    }
+                const user = getUserMin(post.user);
+                picture_user = user.picture;
+                verify = user.verify;
                 return(
                     <Post 
                     key={post.id}
