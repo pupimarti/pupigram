@@ -11,6 +11,8 @@
     justify-content: center;
 }
 .perfil-img{
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
 }
 .info-user{
@@ -102,6 +104,10 @@
 .content-user-description{
     width: 95%;
     margin: 0 auto;
+}
+
+.text-center{
+    text-align: center;
 }
 
 @media screen and (max-width: 800px){        

@@ -46,10 +46,10 @@ export default function User() {
               <b>{data.posts.length}</b> publicaciones
             </p>
             <p className="stats-user">
-              <b>150mm</b> seguidores
+              <b>{data.followers.length}</b> seguidores
             </p>
             <p className="stats-user">
-              <b>229</b> seguidos
+              <b>{data.follows.length}</b> seguidos
             </p>
           </div>
           <div className="pc">
@@ -77,10 +77,10 @@ export default function User() {
               <b>{data.posts.length}</b><br/>publicaciones
             </p>
             <p className="stats-user">
-              <b>150mm</b><br/>seguidores
+              <b>{data.followers.length}</b><br/>seguidores
             </p>
             <p className="stats-user">
-              <b>229</b><br/>seguidos
+              <b>{data.follows.length}</b><br/>seguidos
             </p>
       </div>
       <section className="posts-user">
@@ -102,6 +102,9 @@ export default function User() {
           </Link>
         ))}
       </section>
+      
+      {data.posts && data.posts.length === 0 &&
+        <p className="text-center">Aún no hay publicaciones subidas.</p>}
     </div>
   );
 }
