@@ -10,6 +10,7 @@ import JavascriptTimeAgo from 'javascript-time-ago'
 import es from 'javascript-time-ago/locale/es'
 import NoPage from './components/NoPage';
 import CommentsPost from './components/CommentsPost';
+import MobileNotif from './components/MobileNotif';
 
 JavascriptTimeAgo.locale(es)
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <div className="content-app">
           <div className="app">
             <Switch>
+              <Route exact path="/notifications" component={MobileNotif}/>
               <Route exact path="/comments/:id" component={CommentsPost}/>
               <Route exact path="/search">
                 <NoPage construction/>

@@ -1,6 +1,17 @@
 .content-heart{
     position: relative;
 }
+
+.notif-select{
+    filter: brightness(0) !important;
+    transition: 0s !important;
+}
+
+.dark .notif-select{
+    filter:  brightness(0) invert(1) !important;
+}
+
+
 .content-notif::before{
     content: "";
     position: absolute;
@@ -40,4 +51,16 @@
 .dark .content-notif{
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
     border: #525151 1px solid;
+}
+
+.divisor-notif{
+    height: 1px;
+    width: 80%;
+    border-radius: 50%;
+    margin: 0 auto;
+    background-color: #dbdbdb;
+}
+
+.dark .divisor-notif{
+    background-color: #525151;
 }
