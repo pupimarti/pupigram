@@ -7,19 +7,21 @@ import getNotif from "components/services/getNotif";
 import { Link } from "react-router-dom";
 
 import "./modal-notif.css";
+import Loading from "components/Loading";
 
 export default function Notif(props) {
   const [open, setOpen] = useState(false);
   const handleSetModal = () => setOpen(!open);
 
-  const [notif, setNotif] = useState(null);
+  const [notif, setNotif] = useState('loading');
 
   const user = props.user;
 
   useEffect(() => {
-    if (notif === null) setNotif(getNotif(user));
+    if (notif === 'loading') setNotif(getNotif(user));
   }, [notif, user]);
 
+  if(notif === 'loading') return <Loading />
   return (
     <div className="content-heart">
       {props.path === "/notifications" ? (
