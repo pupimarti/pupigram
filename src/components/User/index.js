@@ -81,22 +81,7 @@ export default function User() {
           {data.web}
         </a>
       </div>
-      <div className="info-user stats mobile">
-        <p className="stats-user">
-          <b>{data.posts.length}</b>
-          <br />
-          publicaciones
-        </p>
-        <p className="stats-user">
-          <b>{data.followers.length}</b>
-          <br />
-          seguidores
-        </p>
-        <p className="stats-user">
-          <b>{data.follows.length}</b>
-          <br />
-          seguidos
-        </p>
+      <div className="info-user stats mobile">{stats()}
       </div>
       <section className="posts-user">
         <div className="posts-user-public">

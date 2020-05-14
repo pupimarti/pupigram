@@ -130,15 +130,18 @@
         margin-bottom: 0;
         padding: 10px 0;
     }
-
     .stats-user{
         font-size: 14px;
         margin: 0;
         text-align: center;
         color: #969595;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
     .stats-user b{
         color: #2f2f2f;
+        width: 100%;
     }
     .dark .stats-user b{
         color: #dbdbdb;

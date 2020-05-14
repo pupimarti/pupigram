@@ -57,10 +57,13 @@ export default function PostId() {
     setCommentsUser([...commentsUser, c]);
   };
 
+  //lo guardo en un state para que no cambie en cada renderizado
+  const [isMobile] = useState(window.innerWidth <= 800);
+
   if (data === null)
     return <NoPage />
   
-  if(window.innerWidth <= 800)
+  if(isMobile)
     return(
       <Post 
       id={data.id}
