@@ -1,87 +1,102 @@
 import React, { useState, useEffect } from "react";
-import verify from "../../img/verify.svg";
+import verify from "img/verify.svg";
 import posts_icon from "./posts.svg";
-import users from '../users.json';
-import posts from '../posts.json';
-import {useLocation, Link} from 'react-router-dom';
-import NoPage from '../NoPage';
+import { useLocation, Link } from "react-router-dom";
+import NoPage from "../NoPage";
 import "./css.css";
+import getUser from "components/services/getUser";
+import getPost from "components/services/getPost";
 
 export default function User() {
   const userPath = useLocation().pathname.substr(1);
   const [data, setData] = useState(null);
   useEffect(() => {
-    for(var u of users){
-      if(u.user === userPath)
-        setData(u);
-    }
-  }, [userPath])
+      setData(getUser(userPath));
+  }, [userPath]);
 
-  if(data === null)
-    return <NoPage />
+  const stats = () => {
+    if (data !== null) {
+      return (
+        <React.Fragment>
+          <p className="stats-user">
+            <b>{data.posts.length}</b> publicacion
+            {data.posts.length !== 1 && "es"}
+          </p>
+          <p className="stats-user">
+            <b>{data.followers.length}</b> seguidor
+            {data.followers.length !== 1 && "es"}
+          </p>
+          <p className="stats-user">
+            <b>{data.follows.length}</b>{" "}
+            {data.follows.length === 1 ? "seguidor" : "seguidores"}
+          </p>
+        </React.Fragment>
+      );
+    }
+  };
+
+  if (data === null) return <NoPage />;
   return (
     <div>
       <header className="header-user">
         <div className="content-perfil-img">
-          <img
-            className="perfil-img"
-            src={data.picture}
-            alt="perfil_picture"
-          />
+          <img className="perfil-img" src={data.picture} alt="perfil_picture" />
         </div>
         <div className="content-info-user">
           <div className="info-user">
             <h2 className="username-user">{data.user}</h2>
-            {data.verify && 
+            {data.verify && (
               <img className="verify" src={verify} alt="verify" />
-            }
+            )}
             <div className="points">
               <div className="point"></div>
               <div className="point"></div>
               <div className="point"></div>
             </div>
           </div>
-          <div className="info-user stats pc">
-            <p className="stats-user">
-              <b>{data.posts.length}</b> publicaciones
-            </p>
-            <p className="stats-user">
-              <b>{data.followers.length}</b> seguidores
-            </p>
-            <p className="stats-user">
-              <b>{data.follows.length}</b> seguidos
-            </p>
-          </div>
+          <div className="info-user stats pc">{stats()}</div>
           <div className="pc">
             <h4 className="username-name">{data.name}</h4>
-            <p className="description-user">
-              {data.desc}
-            </p>
-            <a className="web-user" href={"https://" + data.web} target="_blank" rel="noopener noreferrer">
+            <p className="description-user">{data.desc}</p>
+            <a
+              className="web-user"
+              href={"https://" + data.web}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {data.web}
             </a>
           </div>
         </div>
       </header>
       <div className="content-user-description mobile">
-            <h4 className="username-name">{data.name}</h4>
-            <p className="description-user">
-              {data.desc}
-            </p>
-            <a className="web-user" href={data.web} target="_blank" rel="noopener noreferrer">
-              {data.web}
-            </a>
-          </div>
+        <h4 className="username-name">{data.name}</h4>
+        <p className="description-user">{data.desc}</p>
+        <a
+          className="web-user"
+          href={data.web}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {data.web}
+        </a>
+      </div>
       <div className="info-user stats mobile">
-            <p className="stats-user">
-              <b>{data.posts.length}</b><br/>publicaciones
-            </p>
-            <p className="stats-user">
-              <b>{data.followers.length}</b><br/>seguidores
-            </p>
-            <p className="stats-user">
-              <b>{data.follows.length}</b><br/>seguidos
-            </p>
+        <p className="stats-user">
+          <b>{data.posts.length}</b>
+          <br />
+          publicaciones
+        </p>
+        <p className="stats-user">
+          <b>{data.followers.length}</b>
+          <br />
+          seguidores
+        </p>
+        <p className="stats-user">
+          <b>{data.follows.length}</b>
+          <br />
+          seguidos
+        </p>
       </div>
       <section className="posts-user">
         <div className="posts-user-public">
@@ -90,21 +105,23 @@ export default function User() {
             <p className="pc">PUBLICACIONES</p>
           </div>
         </div>
-        {data.posts && data.posts.map((post) => (
-          <Link 
-          key={post} 
-          to={"/posts/"+posts[post].id}
-          className="post-user">
-            <img
-            src={posts[post].img}
-            alt="post"
-          />
-          </Link>
-        ))}
+        {data.posts &&
+          data.posts.map((post) => {
+            const img = getPost(post).img;
+            return (
+            <Link
+              key={post}
+              to={"/posts/" + post}
+              className="post-user"
+            >
+              <img src={img} alt="post" />
+            </Link>
+          )})}
       </section>
-      
-      {data.posts && data.posts.length === 0 &&
-        <p className="text-center">Aún no hay publicaciones subidas.</p>}
+
+      {data.posts && data.posts.length === 0 && (
+        <p className="text-center">Aún no hay publicaciones subidas.</p>
+      )}
     </div>
   );
 }

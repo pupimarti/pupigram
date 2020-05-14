@@ -6,7 +6,7 @@
         "name":"Anónimo",
         "desc":"Cuenta por defecto para visitante de Pupigram",
         "web":"pupimarti.github.io/pupigram/#/",
-        "followers":[],
+        "followers":["leomessi","thisisbillgates"],
         "follows":[],
         "posts":[]
     },
@@ -17,8 +17,8 @@
         "name":"Leo Messi",
         "desc":"Bienvenidos a la cuenta oficial de Instagram de Leo Messi / Welcome to the official Leo Messi Instagram account",
         "web":"messi.com",
-        "followers":[1],
-        "follows":[1],
+        "followers":["thisisbillgates"],
+        "follows":["thisisbillgates", "default"],
         "posts":[0]
     },
     {
@@ -28,8 +28,8 @@
         "name":"Bill Gates",
         "desc":"Sharing things I'm learning through my foundation work and other interests.",
         "web":"gatesnot.es/instagram",
-        "followers":[0],
-        "follows":[0],
+        "followers":["leomessi"],
+        "follows":["leomessi", "default"],
         "posts":[1]
     }
 ]

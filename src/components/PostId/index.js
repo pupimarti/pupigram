@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import ReactTimeAgo from "react-time-ago";
-import comment from "../../img/chat.svg";
-import heart from "../../img/heart-selected.svg";
-import Comment from '../Post/Comment';
-import Like from '../Post/Like';
-import NoPage from '../NoPage';
-import verify from "../../img/verify.svg";
+import comment from "img/chat.svg";
+import heart from "img/heart-selected.svg";
+import Comment from 'components/Post/Comment';
+import Like from 'components/Post/Like';
+import NoPage from 'components/NoPage';
+import verify from "img/verify.svg";
 import CommentUser from './Comment';
-import Options from '../Post/Options';
-import Post from '../Post';
+import Options from 'components/Post/Options';
+import Post from 'components/Post';
 
 import "./css.css";
 
-import posts from "../posts.json";
-import users from '../users-min.json';
+import getPost from "components/services/getPost";
+import getUserMin from "components/services/getUserMin";
 
 export default function PostId() {
   const postId = useLocation().pathname.substr(7);
@@ -22,29 +22,19 @@ export default function PostId() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    var post = null;
-    for (var p of posts)
-      if (p.id === parseInt(postId)){
-        post = p;
-      }
+    const post = getPost(parseInt(postId));
+    
     if(post !== null){
-      for(var u of users)
-        if(u.user === post.user){
-          post.picture_user=u.picture
-          post.verify=u.verify
-        }
-        setData(post);
-        setLikes(post.likes);
+      const u = getUserMin(post.user);
+      if(u != null){
+        post.picture_user=u.picture
+        post.verify=u.verify
+      }
+      setData(post);
+      setLikes(post.likes);
     }
     
   }, [postId]);
-
-  const getUser = (name) => {
-    for(var u of users)
-        if(u.user === name)
-          return u
-    return null;
-  }
 
   const [likes, setLikes] = useState(0);
   const [likeImg, setlikeImg] = useState(null);
@@ -146,7 +136,7 @@ export default function PostId() {
           verify={data.verify}
           />
           {data.comments && data.comments.map((c, i) => {
-            var userComment = getUser(c.user);
+            var userComment = getUserMin(c.user);
             if(userComment !== null)
               return(
                 <CommentUser 
