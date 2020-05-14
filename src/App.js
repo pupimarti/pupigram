@@ -3,7 +3,6 @@ import NavBar from "./components/NavBar";
 import List from "./components/List";
 import User from './components/User';
 import PostId from './components/PostId';
-/* import OptionsPost from "./components/OptionsPost"; */
 import { HashRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 import JavascriptTimeAgo from 'javascript-time-ago'
@@ -11,6 +10,7 @@ import es from 'javascript-time-ago/locale/es'
 import NoPage from './components/NoPage';
 import CommentsPost from './components/CommentsPost';
 import MobileNotif from './components/MobileNotif';
+import {AppContextProvider} from 'components/Context/AppContext';
 
 JavascriptTimeAgo.locale(es)
 function App() {
@@ -21,30 +21,32 @@ function App() {
 
   return (
     <div className={mode ? "dark" : "light"}>
-      <HashRouter basename='/'>
-        <NavBar setMode={handleChangeMode} />
-        <div className="content-app">
-          <div className="app">
-            <Switch>
-              <Route exact path="/notifications" component={MobileNotif}/>
-              <Route exact path="/comments/:id" component={CommentsPost}/>
-              <Route exact path="/search">
-                <NoPage construction/>
-              </Route>
-              <Route exact path="/explore">
-                <NoPage construction/>
-              </Route>
-              <Route exact path="/direct">
-                <NoPage construction/>
-              </Route>
-              <Route exact path="/posts/:id" component={PostId} />
-              <Route exact path="/:user" component={User} />
-              <Route exact path="/" component={List} />
-            </Switch>
-            <p className="footer">© 2020 PUPIGRAM DESARROLLADO POR <a href="www.google.com" >JUAN A. MARTÍ</a></p>
+      <AppContextProvider>
+        <HashRouter basename='/'>
+          <NavBar setMode={handleChangeMode} />
+          <div className="content-app">
+            <div className="app">
+              <Switch>
+                <Route exact path="/notifications" component={MobileNotif}/>
+                <Route exact path="/comments/:id" component={CommentsPost}/>
+                <Route exact path="/search">
+                  <NoPage construction/>
+                </Route>
+                <Route exact path="/explore">
+                  <NoPage construction/>
+                </Route>
+                <Route exact path="/direct">
+                  <NoPage construction/>
+                </Route>
+                <Route exact path="/posts/:id" component={PostId} />
+                <Route exact path="/:user" component={User} />
+                <Route exact path="/" component={List} />
+              </Switch>
+              <p className="footer">© 2020 PUPIGRAM DESARROLLADO POR <a href="www.google.com" >JUAN A. MARTÍ</a></p>
+            </div>
           </div>
-        </div>
-      </HashRouter>
+        </HashRouter>
+      </AppContextProvider>
     </div>
   );
 }

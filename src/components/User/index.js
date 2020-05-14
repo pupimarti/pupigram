@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import verify from "img/verify.svg";
 import posts_icon from "./posts.svg";
 import { useLocation, Link } from "react-router-dom";
@@ -7,13 +7,19 @@ import "./css.css";
 import getUser from "components/services/getUser";
 import getPost from "components/services/getPost";
 import Loading from "components/Loading";
+import UserContext from 'components/Context/AppContext';
+import ButtonFollow from 'components/ButtonFollow';
 
 export default function User() {
+
+  const {users} = useContext(UserContext);
+
   const userPath = useLocation().pathname.substr(1);
   const [data, setData] = useState('loading');
+
   useEffect(() => {
-      setData(getUser(userPath));
-  }, [userPath]);
+      setData(getUser(userPath, users));
+  }, [userPath, users]);
 
   
 
@@ -53,11 +59,15 @@ export default function User() {
               <img className="verify" src={verify} alt="verify" />
             )}
             <div className="points">
-              <div className="point"></div>
-              <div className="point"></div>
-              <div className="point"></div>
+                <div className="point"></div>
+                <div className="point"></div>
+                <div className="point"></div>
+              </div>
+            {data.user !== "default" &&
+            <div className="content-follow-points">
+            <ButtonFollow user="default" user_follow={data.user} />
+          </div>}
             </div>
-          </div>
           <div className="info-user stats pc">{stats()}</div>
           <div className="pc">
             <h4 className="username-name">{data.name}</h4>

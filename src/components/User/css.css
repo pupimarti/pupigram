@@ -15,16 +15,24 @@
     height: 150px;
     border-radius: 50%;
 }
+.content-info-user{
+    width:65%;
+}
 .info-user{
     display: flex;
     align-items: center;
     margin-bottom:24px;
 }
+.content-info-user .info-user{
+    flex-wrap: wrap;
+}
+.content-follow-points .button{
+    padding-left: 24px;
+    padding-right: 24px;
+    
+}
 .username-user{
     font-weight: 300;
-}
-.content-info-user{
-    width:65%;
 }
 .info-user .verify{
     width: 20px;
@@ -121,6 +129,14 @@
     .perfil-img{
         width: 77px;
         height: 77px;
+    }
+    .content-follow-points{
+        width: 100%;
+        margin-top: 5px;
+    }
+    .content-follow-points .button{
+        padding-left: 12px;
+        padding-right: 12px;
     }
     .info-user.stats.mobile{
         display: flex !important;

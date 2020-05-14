@@ -52,7 +52,7 @@
   .invisible{
       display: none;
   }
-
+  
 @media (max-width:800px){
     .footer{
         padding-bottom: 60px;
