@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import account from "img/account.svg";
 import verify from "img/verify.svg";
@@ -6,6 +6,9 @@ import ReactTimeAgo from "react-time-ago";
 import "./css.css";
 
 export default function Notification(props) {
+
+  const [follow, setFollow] = useState(false);
+  const handleSetFollow = () => {setFollow(!follow)}
 
   const getMessageNotification = () => {
     switch (props.type) {
@@ -48,7 +51,11 @@ export default function Notification(props) {
           </span>
         </p>
       </div>
-      <button className="button follow">Seguir</button>
+      {follow
+      ?<button onClick={handleSetFollow} className="button unfollow">Siguiendo</button>
+      :<button onClick={handleSetFollow} className="button follow">Seguir</button>
+      }
+      
     </div>
   );
 }

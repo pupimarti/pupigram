@@ -31,8 +31,8 @@ export default function User() {
             {data.followers.length !== 1 && "es"}
           </p>
           <p className="stats-user">
-            <b>{data.follows.length}</b>{" "}
-            {data.follows.length === 1 ? "seguidor" : "seguidores"}
+            <b>{data.follows.length}</b> seguido
+            {data.follows.length !== 1 && "s"}
           </p>
         </React.Fragment>
       );
