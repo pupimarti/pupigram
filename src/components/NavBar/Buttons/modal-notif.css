@@ -79,5 +79,6 @@
 @media screen and (max-width:800px){
     .notif-alert{
         right: 19px;
+        bottom:-3px;
     }
 }

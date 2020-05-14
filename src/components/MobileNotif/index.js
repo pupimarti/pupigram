@@ -4,19 +4,20 @@ import getUserMin from "components/services/getUserMin";
 import getNotif from "components/services/getNotif";
 import Loading from "components/Loading";
 import NotifContext from 'components/Context/AppContext';
-
+import setNotifV from "components/services/setNotif";
 
 export default function MobileNotif() {
     
   const [notif, setNotif] = useState('loading');
 
   
-  const {notifs} = useContext(NotifContext);
-
+  const {notifs, setNotifs} = useContext(NotifContext);
   useEffect(() => {
     if (notif === 'loading')
         setNotif(getNotif("default", notifs));
-  }, [notif, notifs]);
+    else
+      setNotifV(notif, true, notifs, setNotifs);
+  }, [notif, notifs,setNotifs]);
 
   if (notif === 'loading') return <Loading />
     return (

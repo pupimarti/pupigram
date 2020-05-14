@@ -25,6 +25,7 @@
         display: flex;
         justify-content: space-around;
         padding-top: 5px;
+        padding-bottom: 5px;
         background-color: #FFF;
         border-top: #dbdbdb 1px solid;
     }

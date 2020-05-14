@@ -41,6 +41,9 @@ export default function Notif(props) {
       ) : (
         <Link to="/notifications" className="mobile">
           <img className="icon mobile" src={heart} alt="Notifications" />
+          {notif && !notif.visualized &&
+            <div className="notif-alert"></div>
+          }
         </Link>
       )}
       <img
@@ -50,8 +53,9 @@ export default function Notif(props) {
         alt="Notif"
       />
       {notif && !notif.visualized &&
-        <div className="notif-alert"></div>
-      }
+            <div className="notif-alert pc"></div>
+          }
+
       <div className={open ? "content-notif" : "invisible"}>
         {notif &&
           notif.notif.map((n, i) => {
