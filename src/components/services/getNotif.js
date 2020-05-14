@@ -1,10 +1,10 @@
-import notif from 'components/notif.json';
+/* import notif from 'components/notif.json'; */
 
-export default function getNotif(user){
-    var arr_notif = [];
+export default function getNotif(user, notif){
+    var notifs = {};
     for(var n of notif)
         if(n.user === user)
-            arr_notif = n.notif
+            notifs = n
             
-    return arr_notif;
+    return notifs;
 }

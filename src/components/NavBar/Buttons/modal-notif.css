@@ -11,6 +11,16 @@
     filter:  brightness(0) invert(1) !important;
 }
 
+.notif-alert{
+    position: absolute;
+    background-color: #ED4969;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    right: 18px;
+    bottom: 0;
+}
+
 
 .content-notif::before{
     content: "";
@@ -64,4 +74,10 @@
 
 .dark .divisor-notif{
     background-color: #525151;
+}
+
+@media screen and (max-width:800px){
+    .notif-alert{
+        right: 19px;
+    }
 }

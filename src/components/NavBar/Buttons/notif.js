@@ -1,28 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import heart from "img/heart.svg";
 import heartSelect from "img/heart-selected.svg";
 import Notification from "components/Notification";
 import getUserMin from "components/services/getUserMin";
 import getNotif from "components/services/getNotif";
 import { Link } from "react-router-dom";
-
-import "./modal-notif.css";
+import NotifContext from 'components/Context/AppContext';
 import Loading from "components/Loading";
+import "./modal-notif.css";
+import setNotifV from "components/services/setNotif";
 
 export default function Notif(props) {
+  const {notifs, setNotifs} = useContext(NotifContext);
+
   const [open, setOpen] = useState(false);
-  const handleSetModal = () => setOpen(!open);
+  const handleSetModal = () => {
+    setNotifV(notif, true, notifs, setNotifs);
+    setOpen(!open)
+  };
+
 
   const [notif, setNotif] = useState('loading');
 
   const user = props.user;
 
   useEffect(() => {
-    if (notif === 'loading') setNotif(getNotif(user));
-  }, [notif, user]);
+    if (notif === 'loading') setNotif(getNotif(user, notifs));
+  }, [notif, user, notifs]);
 
   if(notif === 'loading') return <Loading />
-  return (
+  if(notif !== null)
+    return (
     <div className="content-heart">
       {props.path === "/notifications" ? (
         <img
@@ -41,9 +49,12 @@ export default function Notif(props) {
         src={open ? heartSelect : heart}
         alt="Notif"
       />
+      {notif && !notif.visualized &&
+        <div className="notif-alert"></div>
+      }
       <div className={open ? "content-notif" : "invisible"}>
         {notif &&
-          notif.map((n, i) => {
+          notif.notif.map((n, i) => {
             return (
               <React.Fragment key={i}>
                 {i > 0 && <div className="divisor-notif"></div>}
