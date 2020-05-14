@@ -6,16 +6,20 @@ import NoPage from "../NoPage";
 import "./css.css";
 import getUser from "components/services/getUser";
 import getPost from "components/services/getPost";
+import Loading from "components/Loading";
 
 export default function User() {
   const userPath = useLocation().pathname.substr(1);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState('loading');
   useEffect(() => {
       setData(getUser(userPath));
   }, [userPath]);
 
+  
+
+  if (data === null) return <NoPage />;
   const stats = () => {
-    if (data !== null) {
+    if (data.posts) {
       return (
         <React.Fragment>
           <p className="stats-user">
@@ -35,7 +39,7 @@ export default function User() {
     }
   };
 
-  if (data === null) return <NoPage />;
+  if (data === 'loading') return <Loading />;
   return (
     <div>
       <header className="header-user">

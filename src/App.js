@@ -18,14 +18,6 @@ function App() {
   const handleChangeMode = () => {
     setMode(!mode);
   };
-/* 
-  const [optionsPost, setoptionsPost] = useState(false);
-  const handleOpenOptionsPost = () => {
-    setoptionsPost(true);
-  };
-  const handleOpenOptionsPostF = () => {
-    setoptionsPost(false);
-  }; */
 
   return (
     <div className={mode ? "dark" : "light"}>

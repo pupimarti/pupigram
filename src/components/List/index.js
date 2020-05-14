@@ -3,16 +3,18 @@ import Post from 'components/Post';
 import getPosts from 'components/services/getPosts';
 import './css.css';
 import getUserMin from 'components/services/getUserMin';
+import Loading from 'components/Loading';
 
 export default function List() {
 
-    const [data, setData] = useState(null);
+    const [data, setData] = useState('loading');
 
     useEffect(() => {
-        if(data === null)
+        if(data === 'loading')
             setData(getPosts());
     }, [setData, data])
     
+    if(data === 'loading') return <Loading />
     return (
         <React.Fragment>
             {data && data.map((post) => {

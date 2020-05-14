@@ -15,11 +15,12 @@ import "./css.css";
 
 import getPost from "components/services/getPost";
 import getUserMin from "components/services/getUserMin";
+import Loading from "components/Loading";
 
 export default function PostId() {
   const postId = useLocation().pathname.substr(7);
 
-  const [data, setData] = useState(null);
+  const [data, setData] = useState('loading');
 
   useEffect(() => {
     const post = getPost(parseInt(postId));
@@ -59,6 +60,9 @@ export default function PostId() {
 
   //lo guardo en un state para que no cambie en cada renderizado
   const [isMobile] = useState(window.innerWidth <= 800);
+
+  if (data === 'loading')
+    return <Loading />
 
   if (data === null)
     return <NoPage />
