@@ -59,9 +59,9 @@ export default function ButtonFollow(props) {
         return <button className="button unfollow"><Loading /></button>
   
     if(follow === true)
-        return <button onClick={handleSetFollow} className="button unfollow">Siguiendo</button>
+        return <button onClick={handleSetFollow} className="button unfollow no-select">Siguiendo</button>
     else{
-        return <button onClick={handleSetFollow} className="button follow">Seguir</button>
+        return <button onClick={handleSetFollow} className="button follow no-select">Seguir</button>
     }
             
 }

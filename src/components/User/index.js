@@ -28,15 +28,15 @@ export default function User() {
     if (data.posts) {
       return (
         <React.Fragment>
-          <p className="stats-user">
+          <p className="stats-user no-select">
             <b>{data.posts.length}</b> publicacion
             {data.posts.length !== 1 && "es"}
           </p>
-          <Link to={"/followers/"+data.user} className="stats-user">
+          <Link to={"/followers/"+data.user} className="stats-user no-select">
             <b>{data.followers.length}</b> seguidor
             {data.followers.length !== 1 && "es"}
           </Link>
-          <Link to={"/follows/"+data.user} className="stats-user">
+          <Link to={"/follows/"+data.user} className="stats-user no-select">
             <b>{data.follows.length}</b> seguido
             {data.follows.length !== 1 && "s"}
           </Link>

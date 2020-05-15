@@ -124,7 +124,7 @@ export default function Post(props) {
           </p>
         ))}
       </div>
-      <p className="center-post time-post">
+      <p className="center-post time-post ">
         <ReactTimeAgo date={new Date(props.time)} locale="es" />
       </p>
       <div className="pc"><Comment send={handleChangeCommentsUser} /></div>
