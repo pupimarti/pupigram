@@ -15,8 +15,10 @@ export default function Comment(props) {
   })
 
   const handleSend = () => {
-    props.send(comment);
-    setComment("");
+    if(comment.length > 0){
+      props.send(comment);
+      setComment("");
+    }
   };
 
   const handleKeyDown = (e) => {
