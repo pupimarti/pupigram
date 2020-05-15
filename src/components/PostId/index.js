@@ -32,12 +32,14 @@ export default function PostId() {
   const [like, setLike] = useState(null);
 
   const addComment = (comment, user, idPost) => {
-    var _post = getPost(idPost, posts);
-    _post.comments.push({
+    var _post = getPost(parseInt(idPost), posts);
+    if(_post !== null){
+      _post.comments.push({
         user,
         comment,
         time: new Date()
     });
+    }
     setPost(_post, posts, setPosts);
 }
 
@@ -50,7 +52,6 @@ const setLike_context = (user, value, idPost) => {
               _post.likes.splice( i, 1 );
       }else
           _post.likes.push(user);
-    
       setPost(_post, posts, setPosts);
     }
 }
@@ -81,7 +82,7 @@ const setLike_context = (user, value, idPost) => {
   const handleLikeImg = (val) => {
     if (val && !like) setLikes(likes + 1);
     if (!val && like) setLikes(likes - 1);
-    setLike_context(val);
+    setLike_context("default", val, postId);
     setLike(val);
   };
 
@@ -191,17 +192,8 @@ const setLike_context = (user, value, idPost) => {
                 verify={userComment.verify}
                 />
             )
-            return null})}
-             {commentsUser.map((c, i) => (
-              <CommentUser 
-                key={i}
-                user={"default"} 
-                comment={c}
-                picture_user={""} 
-                time={new Date()} 
-                verify={false}
-              />
-            ))}
+            return null})
+            }
         </div>
         <div className="content-likes-comment-post-id">
           <div className="center-post-id actions-post">
