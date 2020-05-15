@@ -36,7 +36,7 @@ function App() {
                 <Route exact path="/explore">
                   <NoPage construction/>
                 </Route>
-                <Route exact path="/direct">
+                <Route exact path="/directs">
                   <NoPage construction/>
                 </Route>
                 <Route exact path="/likes/:id">

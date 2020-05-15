@@ -26,15 +26,14 @@ export default function List() {
     }
 
     const setLike = (user, value, idPost) => {
-        var _post = getPost(idPost, posts);
-        if(!value){
-            var i = _post.likes.indexOf(user);
-            if ( i !== -1 ) 
-                _post.likes.splice( i, 1 );
-        }else{
-            _post.likes.push(user);
+        var _post = getPost(parseInt(idPost), posts);
+        if (_post !== null) {
+          var i = _post.likes.indexOf(user);
+          if (!value) {
+            if (i !== -1) _post.likes.splice(i, 1);
+          } else if (i === -1) _post.likes.push(user);
+          setPost(_post, posts, setPosts);
         }
-        setPost(_post, posts, setPosts);
     }
 
     useEffect(() => {
