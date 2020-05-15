@@ -1,10 +1,11 @@
-.light{
+.light, .dark ::selection{
     color: #262626;
     background-color: #FAFAFA;
     transition: .3s ease all;
 }
 
-.dark{
+
+.dark, .light ::selection {
     background-color: #262626;
     color: #edefee;
     transition: .3s ease all;
