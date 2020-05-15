@@ -63,10 +63,9 @@ export default function User() {
                 <div className="point"></div>
                 <div className="point"></div>
               </div>
-            {data.user !== "default" &&
             <div className="content-follow-points">
             <ButtonFollow user="default" user_follow={data.user} />
-          </div>}
+          </div>
             </div>
           <div className="info-user stats pc">{stats()}</div>
           <div className="pc">

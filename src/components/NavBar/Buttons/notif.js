@@ -56,7 +56,7 @@ export default function Notif(props) {
             <div className="notif-alert pc"></div>
           }
 
-      <div className={open ? "content-notif" : "invisible"}>
+      <div className={open ? "content-notif pc" : "invisible"}>
         {notif &&
           notif.notif.map((n, i) => {
             return (
