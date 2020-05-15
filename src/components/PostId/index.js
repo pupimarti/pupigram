@@ -114,7 +114,7 @@ const setLike_context = (user, value, idPost) => {
       time={data.time}
       comments={data.comments}
       addComment={addComment}
-      setLike={setLike}
+      setLike={setLike_context}
       />
     )
   return (
