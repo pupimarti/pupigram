@@ -32,7 +32,7 @@ export default function PostId() {
         post.verify=u.verify
       }
       setData(post);
-      setLikes(post.likes);
+      setLikes(post.likes.length);
     }
     
   }, [postId]);
@@ -172,9 +172,9 @@ export default function PostId() {
             <Like like={like} setlike={handleLikeImg} />
             <img className="action" src={comment} alt="comment" />
           </div>
-          <p className="center-post-id mb8 likes-post-id">
-            Les gusta a <b>{new Intl.NumberFormat().format(data.likes)} personas</b>
-          </p>
+          <Link to={"/likes/"+data.id} className="center-post-id mb8 likes-post-id">
+             Le{likes !== 1 && "s"} gusta a <b>{new Intl.NumberFormat().format(likes)} persona{likes !== 1 && "s"}</b>
+          </Link>
           <p className="time-post mb8 center-post-id">
                 <ReactTimeAgo date={new Date(data.time)} locale="es" />
           </p>

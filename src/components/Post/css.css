@@ -194,6 +194,7 @@
 }
 
 .likes-post{
+    display: block;
     font-size: 0.73em;
     font-weight: 500;
     text-align: start;

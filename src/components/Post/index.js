@@ -11,7 +11,7 @@ import ReactTimeAgo from "react-time-ago";
 import Options from './Options';
 
 export default function Post(props) {
-  const [likes, setLikes] = useState(props.likes);
+  const [likes, setLikes] = useState(props.likes.length);
   const [likeImg, setlikeImg] = useState(null);
   const [like, setlike] = useState(null);
   const handleClickLikeImg = () => {
@@ -79,9 +79,9 @@ export default function Post(props) {
         <Link className="pc" to={"/posts/" + props.id}><img className="action" src={comment} alt="comment" /></Link>
         <Link className="mobile" to={"/comments/" + props.id}><img className="action" src={comment} alt="comment" /></Link>
       </div>
-      <p className="center-post likes-post">
+      <Link to={"/likes/"+props.id}  className="center-post likes-post">
         {new Intl.NumberFormat().format(likes)} Me gusta
-      </p>
+      </Link>
       <div className="center-post description-post">
         <p>
           <Link to={"/" + props.user} className="user-account">

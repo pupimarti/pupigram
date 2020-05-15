@@ -39,6 +39,9 @@ function App() {
                 <Route exact path="/direct">
                   <NoPage construction/>
                 </Route>
+                <Route exact path="/likes/:id">
+                  <ViewFollows likes />
+                </Route>
                 <Route exact path="/posts/:id" component={PostId} />
                 <Route exact path="/follows/:user">
                   <ViewFollows follows />
