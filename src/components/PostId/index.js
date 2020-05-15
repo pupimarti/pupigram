@@ -26,6 +26,11 @@ export default function PostId() {
 
   const {posts, setPosts} = useContext(PostsContext);
 
+  
+  const [likes, setLikes] = useState(0);
+  const [likeImg, setlikeImg] = useState(null);
+  const [like, setLike] = useState(null);
+
   const addComment = (comment, user, idPost) => {
     var _post = getPost(idPost, posts);
     _post.comments.push({
@@ -36,16 +41,18 @@ export default function PostId() {
     setPost(_post, posts, setPosts);
 }
 
-const setLike = (user, value, idPost) => {
-    var _post = getPost(idPost, posts);
-    if(!value){
-        var i = _post.likes.indexOf(user);
-        if ( i !== -1 ) 
-            _post.likes.splice( i, 1 );
-    }else{
-        _post.likes.push(user);
+const setLike_context = (user, value, idPost) => {
+    var _post = getPost(parseInt(idPost), posts);
+    if(_post !== null){
+        if(!value){
+          var i = _post.likes.indexOf(user);
+          if ( i !== -1 ) 
+              _post.likes.splice( i, 1 );
+      }else
+          _post.likes.push(user);
+    
+      setPost(_post, posts, setPosts);
     }
-    setPost(_post, posts, setPosts);
 }
 
 
@@ -59,14 +66,12 @@ const setLike = (user, value, idPost) => {
         post.verify=u.verify
       }
       setData(post);
+      setLike(post.likes.indexOf("default") !== -1);
       setLikes(post.likes.length);
     }
     
-  }, [postId, posts]);
+  }, [postId, posts, setLike]);
 
-  const [likes, setLikes] = useState(0);
-  const [likeImg, setlikeImg] = useState(null);
-  const [like, setlike] = useState(null);
   const handleClickLikeImg = () => {
     if (likeImg === null) setlikeImg(true);
     else setlikeImg(!likeImg);
@@ -76,7 +81,8 @@ const setLike = (user, value, idPost) => {
   const handleLikeImg = (val) => {
     if (val && !like) setLikes(likes + 1);
     if (!val && like) setLikes(likes - 1);
-    setlike(val);
+    setLike_context(val);
+    setLike(val);
   };
 
   

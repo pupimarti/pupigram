@@ -13,7 +13,7 @@ import Options from './Options';
 export default function Post(props) {
   const [likes, setLikes] = useState(props.likes.length);
   const [likeImg, setlikeImg] = useState(null);
-  const [like, setlike] = useState(null);
+  const [like, setlike] = useState(props.likes.indexOf("default") !== -1);
   const handleClickLikeImg = () => {
     if (likeImg === null) setlikeImg(true);
     else setlikeImg(!likeImg);
