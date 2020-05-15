@@ -14,6 +14,8 @@ export default function Notification(props) {
           return "ha comenzado a seguirte."
       case "like":
           return "le ha gustado tu foto."
+      case "name":
+        return ""
       default:
         return "no se ha detectado el tipo de notificación."
     }
@@ -41,11 +43,12 @@ export default function Notification(props) {
           <span className="msj-notif">{getMessageNotification()}</span>
           <span className="time-notif">
             {" "}
+            {props.time && 
             <ReactTimeAgo
-              date={props.time ? new Date(props.time) : new Date()}
+              date={new Date(props.time)}
               timeStyle="twitter"
               locale="es"
-            />
+            />}
           </span>
         </p>
       </div>

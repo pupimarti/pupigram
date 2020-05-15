@@ -32,14 +32,14 @@ export default function User() {
             <b>{data.posts.length}</b> publicacion
             {data.posts.length !== 1 && "es"}
           </p>
-          <p className="stats-user">
+          <Link to={"/followers/"+data.user} className="stats-user">
             <b>{data.followers.length}</b> seguidor
             {data.followers.length !== 1 && "es"}
-          </p>
-          <p className="stats-user">
+          </Link>
+          <Link to={"/follows/"+data.user} className="stats-user">
             <b>{data.follows.length}</b> seguido
             {data.follows.length !== 1 && "s"}
-          </p>
+          </Link>
         </React.Fragment>
       );
     }

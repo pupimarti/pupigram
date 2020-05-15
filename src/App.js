@@ -11,6 +11,7 @@ import NoPage from './components/NoPage';
 import CommentsPost from './components/CommentsPost';
 import MobileNotif from './components/MobileNotif';
 import {AppContextProvider} from 'components/Context/AppContext';
+import ViewFollows from 'components/ViewFollows';
 
 JavascriptTimeAgo.locale(es)
 function App() {
@@ -39,6 +40,12 @@ function App() {
                   <NoPage construction/>
                 </Route>
                 <Route exact path="/posts/:id" component={PostId} />
+                <Route exact path="/follows/:user">
+                  <ViewFollows follows />
+                </Route>
+                <Route exact path="/followers/:user">
+                  <ViewFollows followers />
+                </Route>
                 <Route exact path="/:user" component={User} />
                 <Route exact path="/" component={List} />
               </Switch>
