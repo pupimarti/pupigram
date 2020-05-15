@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./css.css";
-import account from "../../img/account.svg";
-import comment from "../../img/chat.svg";
+import account from "img/account.svg";
+import comment from "img/chat.svg";
 import Comment from "./Comment";
 import Like from "./Like";
-import verify from "../../img/verify.svg";
-import heart from "../../img/heart-selected.svg";
+import verify from "img/verify.svg";
+import heart from "img/heart-selected.svg";
 import { Link } from "react-router-dom";
 import ReactTimeAgo from "react-time-ago";
 import Options from './Options';
@@ -34,6 +34,7 @@ export default function Post(props) {
   const [commentsUser, setCommentsUser] = useState([]);
   const handleChangeCommentsUser = (c) => {
     setCommentsUser([...commentsUser, c]);
+    props.addComment(c, "default", props.id);
   };
 
   return (
@@ -120,7 +121,7 @@ export default function Post(props) {
       <div className="description-post center-post">
         {commentsUser.map((c) => (
           <p className="comment-user-post">
-            <Link to="/account" className="user-account">anonymus</Link> <span className="text-post">{c}</span>
+            <Link to="/default" className="user-account">default</Link> <span className="text-post">{c}</span>
           </p>
         ))}
       </div>

@@ -12,7 +12,7 @@ import ButtonFollow from 'components/ButtonFollow';
 
 export default function User() {
 
-  const {users} = useContext(UserContext);
+  const {users, posts} = useContext(UserContext);
 
   const userPath = useLocation().pathname.substr(1);
   const [data, setData] = useState('loading');
@@ -105,7 +105,7 @@ export default function User() {
         </div>
         {data.posts &&
           data.posts.map((post) => {
-            const img = getPost(post).img;
+            const img = getPost(post, posts).img;
             return (
             <Link
               key={post}

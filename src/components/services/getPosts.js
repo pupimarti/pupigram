@@ -1,6 +1,6 @@
-import posts from 'components/posts.json'
+/* import posts from 'components/posts.json' */
 
-export default function getPosts(user){
+export default function getPosts(posts, user){
     var arr_posts = [];
     for(var p of posts){
         if(user){

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useLocation, Link } from "react-router-dom";
 import ReactTimeAgo from "react-time-ago";
 import comment from "img/chat.svg";
@@ -16,14 +16,17 @@ import "./css.css";
 import getPost from "components/services/getPost";
 import getUserMin from "components/services/getUserMin";
 import Loading from "components/Loading";
+import PostsContext from 'components/Context/AppContext';
 
 export default function PostId() {
   const postId = useLocation().pathname.substr(7);
 
   const [data, setData] = useState('loading');
 
+  const {posts} = useContext(PostsContext);
+
   useEffect(() => {
-    const post = getPost(parseInt(postId));
+    const post = getPost(parseInt(postId), posts);
     
     if(post !== null){
       const u = getUserMin(post.user);
@@ -35,7 +38,7 @@ export default function PostId() {
       setLikes(post.likes.length);
     }
     
-  }, [postId]);
+  }, [postId, posts]);
 
   const [likes, setLikes] = useState(0);
   const [likeImg, setlikeImg] = useState(null);
@@ -159,7 +162,7 @@ export default function PostId() {
              {commentsUser.map((c, i) => (
               <CommentUser 
                 key={i}
-                user={"anónimo"} 
+                user={"default"} 
                 comment={c}
                 picture_user={""} 
                 time={new Date()} 
