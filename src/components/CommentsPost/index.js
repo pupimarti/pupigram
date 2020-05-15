@@ -1,33 +1,42 @@
-import React, { useState, useEffect } from "react";
-import posts from "../posts.json";
+import React, { useState, useEffect, useContext } from "react";
 import users from "../users-min.json";
 import { useLocation } from "react-router-dom";
 import NoPage from "../NoPage";
 import Comment from "../Post/Comment";
 import CommentsUser from "../PostId/Comment";
+import PostsContext from "components/Context/AppContext";
 
 import './css.css'
+import getPost from "components/services/getPost";
+import setPost from "components/services/setPost";
+import getUserMin from "components/services/getUserMin";
 
 export default function CommentsPost() {
   const postId = useLocation().pathname.substr(10);
 
   const [data, setData] = useState(null);
 
+  const {posts, setPosts} = useContext(PostsContext);
+
+  const addComment = (comment, user, idPost) => {
+    var _post = getPost(parseInt(idPost), posts);
+    _post.comments.push({
+        user,
+        comment,
+        time: new Date()
+    });
+    setPost(_post, posts, setPosts);
+}
+
   useEffect(() => {
-    var post = null;
-    for (var p of posts)
-      if (p.id === parseInt(postId)) {
-        post = p;
-      }
+    var post = getPost(parseInt(postId), posts);
     if (post !== null) {
-      for (var u of users)
-        if (u.user === post.user) {
-          post.picture_user = u.picture;
-          post.verify = u.verify;
-        }
+      const usermin = getUserMin(post.user);
+      post.verify = usermin.verify;
+      post.picture_user = usermin.picture;
       setData(post);
     }
-  }, [postId]);
+  }, [postId, posts]);
 
   const getUser = (name) => {
     for (var u of users) if (u.user === name) return u;
@@ -36,6 +45,7 @@ export default function CommentsPost() {
 
   const [commentsUser, setCommentsUser] = useState([]);
   const handleChangeCommentsUser = (c) => {
+    addComment(c, "default", postId);
     setCommentsUser([...commentsUser, c]);
   };
 
@@ -65,16 +75,6 @@ export default function CommentsPost() {
             );
           return null;
         })}
-      {commentsUser.map((c, i) => (
-        <CommentsUser
-          key={i}
-          user={"anónimo"}
-          comment={c}
-          picture_user={""}
-          time={new Date()}
-          verify={false}
-        />
-      ))}
       <div className="cont-comment-user"><Comment send={handleChangeCommentsUser} focus /></div>
     </div>
   );

@@ -25,6 +25,18 @@ export default function List() {
         setPost(_post, posts, setPosts);
     }
 
+    const setLike = (user, value, idPost) => {
+        var _post = getPost(idPost, posts);
+        if(!value){
+            var i = _post.likes.indexOf(user);
+            if ( i !== -1 ) 
+                _post.likes.splice( i, 1 );
+        }else{
+            _post.likes.push(user);
+        }
+        setPost(_post, posts, setPosts);
+    }
+
     useEffect(() => {
         if(data === 'loading')
             setData(getPosts(posts));
@@ -52,6 +64,7 @@ export default function List() {
                     time={post.time}
                     comments={post.comments}
                     addComment={addComment}
+                    setLike={setLike}
                     />
                 )
                 })}

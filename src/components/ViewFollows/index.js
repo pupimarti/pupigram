@@ -9,7 +9,7 @@ import getPost from 'components/services/getPost';
 
 export default function ViewFollows(props) {
 
-    const {users} = useContext(UsersContext);
+    const {users, posts} = useContext(UsersContext);
 
     const [followers, setFollowers] = useState('loading');
 
@@ -29,7 +29,7 @@ export default function ViewFollows(props) {
         if(followers === 'loading'){
             var users_follws = [];
             if(props.likes){
-                const post = getPost(parseInt(userPath));
+                const post = getPost(parseInt(userPath), posts);
                 users_follws = post.likes;
             }else{
                 const user = getUser(userPath, users);
@@ -45,7 +45,7 @@ export default function ViewFollows(props) {
             };
             setFollowers(arr_followers);
         }
-    }, [followers, userPath, users, setFollowers, props])
+    }, [followers, userPath, users, setFollowers, props, posts])
     return(
     <div className="content-viewfollows">
         <h5 className="title-viewfollows">

@@ -17,13 +17,37 @@ import getPost from "components/services/getPost";
 import getUserMin from "components/services/getUserMin";
 import Loading from "components/Loading";
 import PostsContext from 'components/Context/AppContext';
+import setPost from "components/services/setPost";
 
 export default function PostId() {
   const postId = useLocation().pathname.substr(7);
 
   const [data, setData] = useState('loading');
 
-  const {posts} = useContext(PostsContext);
+  const {posts, setPosts} = useContext(PostsContext);
+
+  const addComment = (comment, user, idPost) => {
+    var _post = getPost(idPost, posts);
+    _post.comments.push({
+        user,
+        comment,
+        time: new Date()
+    });
+    setPost(_post, posts, setPosts);
+}
+
+const setLike = (user, value, idPost) => {
+    var _post = getPost(idPost, posts);
+    if(!value){
+        var i = _post.likes.indexOf(user);
+        if ( i !== -1 ) 
+            _post.likes.splice( i, 1 );
+    }else{
+        _post.likes.push(user);
+    }
+    setPost(_post, posts, setPosts);
+}
+
 
   useEffect(() => {
     const post = getPost(parseInt(postId), posts);
@@ -58,6 +82,7 @@ export default function PostId() {
   
   const [commentsUser, setCommentsUser] = useState([]);
   const handleChangeCommentsUser = (c) => {
+    addComment(c, "default", postId);
     setCommentsUser([...commentsUser, c]);
   };
 
@@ -82,6 +107,8 @@ export default function PostId() {
       likes={data.likes}
       time={data.time}
       comments={data.comments}
+      addComment={addComment}
+      setLike={setLike}
       />
     )
   return (

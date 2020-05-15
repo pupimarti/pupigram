@@ -23,6 +23,7 @@ export default function Post(props) {
   const handleLikeImg = (val) => {
     if (val && !like) setLikes(likes + 1);
     if (!val && like) setLikes(likes - 1);
+    props.setLike("default", val, props.id);
     setlike(val);
   };
 
@@ -111,7 +112,12 @@ export default function Post(props) {
       </div>
       {props.comments && props.comments.length > 0 && (
         <div className="center-post">
-          <Link to={"/posts/" + props.id} className="show-comments-post">
+          <Link to={"/posts/" + props.id} className="show-comments-post pc">
+            {props.comments.length === 1
+              ? "Ver " + props.comments.length + " comentario"
+              : "Ver los " + props.comments.length + "  comentarios"}
+          </Link>
+          <Link to={"/comments/" + props.id} className="show-comments-post mobile">
             {props.comments.length === 1
               ? "Ver " + props.comments.length + " comentario"
               : "Ver los " + props.comments.length + "  comentarios"}
@@ -119,8 +125,8 @@ export default function Post(props) {
         </div>
       )}
       <div className="description-post center-post">
-        {commentsUser.map((c) => (
-          <p className="comment-user-post">
+        {commentsUser.map((c,i) => (
+          <p key={i} className="comment-user-post">
             <Link to="/default" className="user-account">default</Link> <span className="text-post">{c}</span>
           </p>
         ))}
