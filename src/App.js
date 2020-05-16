@@ -12,6 +12,7 @@ import CommentsPost from './components/CommentsPost';
 import MobileNotif from './components/MobileNotif';
 import {AppContextProvider} from 'components/Context/AppContext';
 import ViewFollows from 'components/ViewFollows';
+import Directs from 'components/Directs';
 
 JavascriptTimeAgo.locale(es)
 function App() {
@@ -37,7 +38,7 @@ function App() {
                   <NoPage construction/>
                 </Route>
                 <Route exact path="/directs">
-                  <NoPage construction/>
+                  <Directs />
                 </Route>
                 <Route exact path="/likes/:id">
                   <ViewFollows likes />

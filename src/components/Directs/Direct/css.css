@@ -1,0 +1,32 @@
+.content-direct{
+    padding: 8px 16px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.content-direct .default-img, .content-direct .img-account{
+    width: 56px;
+    height: 56px;
+}
+
+.direct-user, .direct-message{
+    font-size: 14px;
+}
+
+.direct-message{
+    color: #AAA;
+}
+
+.unread .direct-user, .unread .direct-message{
+    font-weight: 500;
+}
+
+.direct-unread{
+    position: absolute;
+    background-color: #0095f6;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    right: 0;
+}

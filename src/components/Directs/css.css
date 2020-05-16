@@ -1,0 +1,26 @@
+.content-directs{
+    width: 100%;
+    max-height: 70vh;
+}
+
+.content-directs-header{
+    display: flex;
+    justify-content: flex-end;
+    padding: 12px 0;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.dark .content-directs-header{
+    border-bottom: 1px solid #525151;
+}
+
+.directs-header{
+    width: 55%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.directs-header h5{
+    font-weight: 500;
+}

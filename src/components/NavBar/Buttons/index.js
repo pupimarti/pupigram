@@ -3,6 +3,7 @@ import home from "./home.svg";
 import homeSelect from "./home-select.svg";
 import Notif from "./notif";
 import direct from "./direct.svg";
+import directSelect from './direct-select.svg';
 import search from "./search.svg";
 import explore from "./explore.svg";
 import exploreSelect from "./explore-select.svg";
@@ -31,9 +32,13 @@ export default function Buttons() {
           <img className="icon" src={home} alt="Home" />
         </Link>
       )}
-      <Link to={pathDirect} className="pc">
-        <img className="icon pc" src={direct} alt="Direct" />
-      </Link>
+      {path === pathDirect ? (
+        <img className="icon pc" src={directSelect} alt="Direct" />
+      ) : (
+        <Link to={pathDirect}>
+          <img className="icon pc" src={direct} alt="Direct" />
+        </Link>
+      )}
       <Link to={pathSearch}>
         <img className="icon mobile" src={search} alt="Search" />
       </Link>
