@@ -1,0 +1,17 @@
+.content-icon-direct{
+    position: relative;
+}
+
+.icon-direct-unreads{
+    position: absolute;
+    right: 0;
+    background-color: #ed4956;;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+}

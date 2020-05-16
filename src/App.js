@@ -12,7 +12,7 @@ import CommentsPost from './components/CommentsPost';
 import MobileNotif from './components/MobileNotif';
 import {AppContextProvider} from 'components/Context/AppContext';
 import ViewFollows from 'components/ViewFollows';
-import Directs from 'components/Directs';
+import Directs from 'components/Directs/index';
 
 JavascriptTimeAgo.locale(es)
 function App() {

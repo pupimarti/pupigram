@@ -2,22 +2,35 @@ import React from "react";
 import pupigram from "./pupigram.png";
 import Buttons from "./Buttons";
 import SwitchMode from "./SwitchMode";
-import direct from "./Buttons/direct.svg";
-import { Link } from "react-router-dom";
+import Direct from "./Buttons/directs";
+import { Link, useLocation } from "react-router-dom";
 import "./css.css";
 
 export default function NavBar(props) {
+  const path = useLocation().pathname;
+
+  const pathHome = "/";
+  const pathDirect = "/directs";
+  const pathSearch = "/search";
+  const pathExplore = "/explore";
+  const pathAccount = "/default";
+
   return (
     <div className="content-navBar">
       <div className="content-app navbar no-select">
-        <Link to="/direct" className="content-button-navbar mobile">
-          <img className="icon mobile direct" src={direct} alt="direct" />
-        </Link>
+        <Direct path={path} pathDirect={pathDirect} />
         <Link to="/" className="c-logo">
           <img className="logo" src={pupigram} alt="logo" />
         </Link>
         <SwitchMode setMode={props.setMode} />
-        <Buttons />
+        <Buttons 
+        path={path}
+        pathHome={pathHome}
+        pathDirect={pathDirect}
+        pathSearch={pathSearch}
+        pathExplore={pathExplore}
+        pathAccount={pathAccount}
+        />
       </div>
     </div>
   );

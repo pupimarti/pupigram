@@ -1,27 +1,26 @@
 import React from "react";
 import home from "./home.svg";
 import homeSelect from "./home-select.svg";
-import Notif from "./notif";
-import direct from "./direct.svg";
-import directSelect from './direct-select.svg';
+import Notif from "./notifs/notif";
 import search from "./search.svg";
 import explore from "./explore.svg";
 import exploreSelect from "./explore-select.svg";
 import add from "./add.svg";
 import account from "./account.svg";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Directs from './directs';
 import "./css.css";
 
 
-export default function Buttons() {
-  const path = useLocation().pathname;
+export default function Buttons(props) {
+  const path = props.path;
   if (path.substr(0, 9) === "/comments") return null;
 
-  const pathHome = "/";
-  const pathDirect = "/directs";
-  const pathSearch = "/search";
-  const pathExplore = "/explore";
-  const pathAccount = "/default";
+  const pathHome = props.pathHome;
+  const pathDirect = props.pathDirect;
+  const pathSearch = props.pathSearch;
+  const pathExplore = props.pathExplore;
+  const pathAccount = props.pathAccount;
 
   return (
     <div className="content-buttons">
@@ -32,13 +31,7 @@ export default function Buttons() {
           <img className="icon" src={home} alt="Home" />
         </Link>
       )}
-      {path === pathDirect ? (
-        <img className="icon pc" src={directSelect} alt="Direct" />
-      ) : (
-        <Link to={pathDirect}>
-          <img className="icon pc" src={direct} alt="Direct" />
-        </Link>
-      )}
+      <Directs pc={true} path={path} pathDirect={pathDirect} />
       <Link to={pathSearch}>
         <img className="icon mobile" src={search} alt="Search" />
       </Link>
