@@ -11,5 +11,5 @@ export default function getDirectsUnread(user, directs){
             return cant;
         }
     }
-    return null;
+    return 0;
 }

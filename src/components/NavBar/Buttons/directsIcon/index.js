@@ -17,7 +17,7 @@ export default function DirectsIcon(props) {
 
   return (
     <div className={props.pc ? "content-icon-direct pc" : "content-icon-direct mobile"}>
-        {messages > 0 &&
+        {messages > 0 && props.path !== props.pathDirect &&
         <div className="icon-direct-unreads">
             {messages}
         </div>
