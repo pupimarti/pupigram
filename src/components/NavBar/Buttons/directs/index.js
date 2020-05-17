@@ -1,5 +1,5 @@
 import React from "react";
-import direct from "../direct.svg";
+import direct from "img/direct.svg";
 import directSelect from '../direct-select.svg';
 import { Link } from "react-router-dom";
 import getDirectsUnread from "components/services/getDirectsUnread";

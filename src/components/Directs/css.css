@@ -1,6 +1,18 @@
 .content-directs{
     width: 100%;
-    max-height: 70vh;
+    max-width: 90vw;
+    margin: 0 auto;
+    height: 80vh;
+    border: 1px solid #dbdbdb;
+    display: flex;
+}
+
+.dark .content-directs{
+    border: 1px solid #525151;
+}
+
+.content-list-directs{
+    width: 40%;
 }
 
 .content-directs-header{
@@ -22,5 +34,6 @@
 }
 
 .directs-header h5{
+    font-size: 15px;
     font-weight: 500;
 }
