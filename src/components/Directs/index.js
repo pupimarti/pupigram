@@ -44,18 +44,20 @@ export default function Directs() {
                 </header>
                 {data && data.map((d,i) => {
                     const user = getUserMin(d.user);
-                    return(
-                    <Direct
-                    key={i}
-                    user={user.user}
-                    picture={user.picture}
-                    verify={user.verify}
-                    message={d.messages[0].message}
-                    time={d.messages[0].time}
-                    read={d.read}
-                    onClick={handleSetViewDirect}
-                    />
-                    )
+                    if(user !== null)
+                        return(
+                        <Direct
+                        key={i}
+                        user={user.user}
+                        picture={user.picture}
+                        verify={user.verify}
+                        message={d.messages[0].message}
+                        time={d.messages[0].time}
+                        read={d.read}
+                        onClick={handleSetViewDirect}
+                        />
+                        )
+                return null;
                 })}
             </div>
             <Chat 

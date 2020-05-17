@@ -1,10 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import direct from "img/direct.svg";
 import "./css.css";
 import Comment from "components/Post/Comment";
+import verify from "img/verify.svg";
 
 export default function Chat(props) {
-  console.log(props);
+  
+  const [comments, setComments] = useState([]);
+
+  const handleAddComment = comment => {
+    setComments([...comments, comment]);
+  }
+
   if (props.direct === null) {
     return (
       <div className="content-chat pc">
@@ -36,6 +43,9 @@ export default function Chat(props) {
           alt="user-img"
         />
         <p className="chat-user-name">{props.direct.user.user}</p>
+        {props.direct.user.verify && (
+            <img className="verify" src={verify} alt="Verificado" />
+          )}
       </header>
       <div className="chat-content-messages">
         <div className="content-chat-message">
@@ -46,9 +56,14 @@ export default function Chat(props) {
           />
           <div className="chat-message">{props.direct.messages}</div>
         </div>
+        {comments && comments.map((m) => (
+          <div className="content-chat-message own">
+            <div className="chat-message own">{m}</div>
+          </div>
+        ))}
       </div>
       <div className="chat-content-comment">
-        <Comment message />
+        <Comment send={handleAddComment} message />
       </div>
     </div>
   );

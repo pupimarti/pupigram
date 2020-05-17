@@ -13,6 +13,7 @@
 
 .content-list-directs{
     width: 40%;
+    overflow-y: auto;
 }
 
 .content-directs-header{

@@ -90,11 +90,16 @@
 .chat-content-messages{
     width: 100%;
     height: 80%;
+    overflow-y: auto;
 }
 
 .content-chat-message{
     display: flex;
     align-items: center;
+}
+
+.content-chat-message.own{
+    justify-content: flex-end;
 }
 
 .chat-message{
@@ -103,6 +108,7 @@
     border-radius: 30px;
     border: 1px solid #dbdbdb;
     margin-left: 10px;
+    margin-bottom: 8px;
     max-width: 80%;
 }
 
@@ -110,9 +116,13 @@
     border: 1px solid #525151;
 }
 
+.chat-message.own{
+    margin-right: 10px;
+    background-color: #dbdbdb;
+}
+
 .dark .chat-message.own{
-    background-color: #efefef;
-    color:#525151;
+    background-color: #525151;
 }
 
 .chat-content-comment{
