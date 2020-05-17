@@ -13,6 +13,15 @@ export default function Directs() {
 
   const [data, setData] = useState("loading");
 
+  const [viewDirect, setViewDirect] = useState(null);
+
+  const handleSetViewDirect = (user, messages) => {
+      if(user === null)
+          setViewDirect(null);
+      else
+        setViewDirect({user, messages});
+  }
+
   useEffect(() => {
       if(data === 'loading'){
         const directs = getDirects("default");
@@ -26,7 +35,7 @@ export default function Directs() {
 
     return (
         <div className="content-directs">
-            <div className="content-list-directs">
+            <div className={viewDirect === null ? "content-list-directs" : "content-list-directs viewdirect"}>
                 <header className="content-directs-header">
                     <div className="directs-header">
                         <h5>Direct</h5>
@@ -44,12 +53,14 @@ export default function Directs() {
                     message={d.messages[0].message}
                     time={d.messages[0].time}
                     read={d.read}
+                    onClick={handleSetViewDirect}
                     />
                     )
                 })}
             </div>
             <Chat 
-            user={null}
+            direct={viewDirect}
+            back={handleSetViewDirect}
             />
         </div>
     )

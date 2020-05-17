@@ -3,11 +3,16 @@
     position: relative;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .content-direct .default-img, .content-direct .img-account{
     width: 56px;
     height: 56px;
+}
+
+.direct-user{
+    display: flex;
 }
 
 .direct-user, .direct-message{
@@ -20,6 +25,7 @@
 
 .unread .direct-user, .unread .direct-message{
     font-weight: 500;
+    color: inherit;
 }
 
 .direct-unread{

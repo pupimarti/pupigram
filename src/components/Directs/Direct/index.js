@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import verify from "img/verify.svg";
 import account from "img/account.svg";
@@ -9,8 +8,18 @@ import "./css.css";
 
 export default function Direct(props) {
   return (
-    <div className={props.read ? "content-direct" : "content-direct unread"}>
-      <Link to={"/" + props.user} className="content-img-username">
+    <div
+      onClick={() => {
+        props.onClick({
+            user: props.user,
+            verify: props.verify,
+            picture: props.picture
+        },
+        props.message);
+      }}
+      className={props.read ? "content-direct" : "content-direct unread"}
+    >
+      <div to={"/" + props.user} className="content-img-username">
         {props.picture ? (
           <img
             className="img-account"
@@ -20,16 +29,16 @@ export default function Direct(props) {
         ) : (
           <img className="default-img" src={account} alt="profile_picture" />
         )}
-      </Link>
+      </div>
       <div className="direct-message-time">
-        <p className="direct-user">
-          <Link to={"/" + props.user}>{props.user}</Link>
+        <div className="direct-user">
+          <p to={"/" + props.user}>{props.user}</p>
           {props.verify && " " && (
             <img className="verify" src={verify} alt="Verificado" />
           )}{" "}
-        </p>
+        </div>
         <p className="direct-message">
-          {props.message} • 
+          {props.message} •
           <span className="time-notif">
             {" "}
             {props.time && (

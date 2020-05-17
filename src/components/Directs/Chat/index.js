@@ -1,11 +1,12 @@
 import React from "react";
 import direct from "img/direct.svg";
 import "./css.css";
+import Comment from "components/Post/Comment";
 
 export default function Chat(props) {
-  if (props.user === null) {
+  if (props.direct === null) {
     return (
-      <div className="content-chat">
+      <div className="content-chat pc">
         <div className="content-chat-default">
           <div className="content-chat-logo-default">
             <img className="chat-logo-default" src={direct} alt="Direct" />
@@ -22,9 +23,11 @@ export default function Chat(props) {
   return (
     <div className="content-chat">
       <header className="content-header-chat">
-        <img className="chat-user-img" src={props.img} alt="user-img" />
-        <p className="chat-user-name">{props.user}</p>
+        <div className="chat-back" onClick={() => {props.back(null)}}></div>
+        <img className="chat-user-img" src={props.direct.user.picture} alt="user-img" />
+        <p className="chat-user-name">{props.direct.user.user}</p>
       </header>
+      <div className="chat-content-comment"><Comment message /></div>
     </div>
   );
 }

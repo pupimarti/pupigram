@@ -1,8 +1,8 @@
 .content-directs{
     width: 100%;
-    max-width: 90vw;
+    max-width: 95vw;
     margin: 0 auto;
-    height: 80vh;
+    height: 85vh;
     border: 1px solid #dbdbdb;
     display: flex;
 }
@@ -20,6 +20,7 @@
     justify-content: flex-end;
     padding: 12px 0;
     border-bottom: 1px solid #dbdbdb;
+    height: 32px;
 }
 
 .dark .content-directs-header{
@@ -36,4 +37,18 @@
 .directs-header h5{
     font-size: 15px;
     font-weight: 500;
+}
+
+@media screen and (max-width: 800px){
+    .content-directs{
+        max-width: 100vw;
+        border: none !important;
+    }
+    .content-list-directs{
+        width: 100%;
+    }
+
+    .viewdirect{
+        display: none;
+    }
 }
