@@ -9,6 +9,10 @@ import "./css.css";
 export default function NavBar(props) {
   const path = useLocation().pathname;
 
+  
+  if (path.substr(0, 9) === "/comments") return null;
+
+
   const pathHome = "/";
   const pathDirect = "/directs";
   const pathSearch = "/search";

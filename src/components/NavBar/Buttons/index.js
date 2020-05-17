@@ -14,7 +14,9 @@ import "./css.css";
 
 export default function Buttons(props) {
   const path = props.path;
-  if (path.substr(0, 9) === "/comments" || path.substr(0,8) === "/directs") return null;
+
+  
+  if(path.substr(0,8) === "/directs" && ( window.innerWidth <= 800 )) return null;
 
   const pathHome = props.pathHome;
   const pathDirect = props.pathDirect;

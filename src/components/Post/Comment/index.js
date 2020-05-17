@@ -35,7 +35,7 @@ export default function Comment(props) {
           value={comment}
           onChange={handleChangeComment}
           onKeyDown={handleKeyDown}
-          placeholder="Añade un comentario..."
+          placeholder={props.message ? "Envía un mensaje..." : "Añade un comentario..."}
         ></input>
         <button
           onClick={handleSend}
@@ -44,7 +44,7 @@ export default function Comment(props) {
             comment.length > 0 ? "action-comment" : "action-comment disabled"
           }
         >
-          Publicar
+          {props.message ? "Enviar" : "Publicar"}
         </button>
       </div>
     </div>
