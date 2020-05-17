@@ -1,14 +1,19 @@
-import React from "react";
+import React, {useContext} from "react";
 import direct from "img/direct.svg";
 import directSelect from '../direct-select.svg';
 import { Link } from "react-router-dom";
 import getDirectsUnread from "components/services/getDirectsUnread";
 
-import './css.css'
+import context from 'components/Context/AppContext';
 
-export default function directs(props) {
+import './css.css';
 
-    const messages = getDirectsUnread("default");
+export default function DirectsIcon(props) {
+
+  const {directs} = useContext(context);
+
+  const messages = getDirectsUnread("default", directs);
+
 
   return (
     <div className={props.pc ? "content-icon-direct pc" : "content-icon-direct mobile"}>

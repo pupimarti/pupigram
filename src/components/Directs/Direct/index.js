@@ -32,7 +32,7 @@ export default function Direct(props) {
       </div>
       <div className="direct-message-time">
         <div className="direct-user">
-          <p to={"/" + props.user}>{props.user}</p>
+          <p>{props.user}</p>
           {props.verify && " " && (
             <img className="verify" src={verify} alt="Verificado" />
           )}{" "}

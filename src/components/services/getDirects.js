@@ -1,6 +1,6 @@
-import directs from 'components/directs.json'
+/* import directs from 'components/directs.json' */
 
-export default function getDirects(user){
+export default function getDirects(user, directs){
     for(var u of directs){
         if(u.user === user)
             return u;

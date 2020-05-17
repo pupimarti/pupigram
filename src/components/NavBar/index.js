@@ -2,7 +2,7 @@ import React from "react";
 import pupigram from "./pupigram.png";
 import Buttons from "./Buttons";
 import SwitchMode from "./SwitchMode";
-import Direct from "./Buttons/directs";
+import Direct from "./Buttons/directsIcon";
 import { Link, useLocation } from "react-router-dom";
 import "./css.css";
 

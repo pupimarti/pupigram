@@ -8,7 +8,7 @@ import exploreSelect from "./explore-select.svg";
 import add from "./add.svg";
 import account from "./account.svg";
 import { Link } from "react-router-dom";
-import Directs from './directs';
+import Directs from './directsIcon';
 import "./css.css";
 
 
