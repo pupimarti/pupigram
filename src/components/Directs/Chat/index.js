@@ -5,11 +5,13 @@ import Comment from "components/Post/Comment";
 import verify from "img/verify.svg";
 
 export default function Chat(props) {
+
   
   const [comments, setComments] = useState([]);
 
   const handleAddComment = comment => {
     setComments([...comments, comment]);
+    props.send(props.direct.user.user, comment);
   }
 
   if (props.direct === null) {
@@ -48,16 +50,18 @@ export default function Chat(props) {
           )}
       </header>
       <div className="chat-content-messages">
-        <div className="content-chat-message">
+        {props.direct.messages && props.direct.messages.map((m,i) => (
+          <div key={i} className="content-chat-message">
           <img
             className="chat-user-img"
             src={props.direct.user.picture}
             alt="user-img"
           />
-          <div className="chat-message">{props.direct.messages}</div>
+          <div className="chat-message">{m.message}</div>
         </div>
-        {comments && comments.map((m) => (
-          <div className="content-chat-message own">
+        ))}
+        {comments && comments.map((m, i) => (
+          <div key={i} className="content-chat-message own">
             <div className="chat-message own">{m}</div>
           </div>
         ))}

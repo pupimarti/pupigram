@@ -91,6 +91,7 @@
     width: 100%;
     height: 80%;
     overflow-y: auto;
+    padding-top: 8px;
 }
 
 .content-chat-message{

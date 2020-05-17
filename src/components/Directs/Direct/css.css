@@ -16,6 +16,12 @@
     display: flex;
 }
 
+.verify-directs{
+    width:14px;
+    margin-left: 5px;
+    height: 20px;
+}
+
 .direct-user, .direct-message{
     font-size: 14px;
 }

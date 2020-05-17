@@ -14,8 +14,7 @@ export default function Direct(props) {
             user: props.user,
             verify: props.verify,
             picture: props.picture
-        },
-        props.message);
+        });
       }}
       className={props.read ? "content-direct" : "content-direct unread"}
     >
@@ -34,7 +33,7 @@ export default function Direct(props) {
         <div className="direct-user">
           <p>{props.user}</p>
           {props.verify && " " && (
-            <img className="verify" src={verify} alt="Verificado" />
+            <img className="verify-directs" src={verify} alt="Verificado" />
           )}{" "}
         </div>
         <p className="direct-message">
