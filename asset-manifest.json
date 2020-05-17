@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/pupigram/static/css/main.fe8e9207.chunk.css",
-    "main.js": "/pupigram/static/js/main.81169b31.chunk.js",
-    "main.js.map": "/pupigram/static/js/main.81169b31.chunk.js.map",
+    "main.css": "/pupigram/static/css/main.2d6c6d66.chunk.css",
+    "main.js": "/pupigram/static/js/main.d6ab9473.chunk.js",
+    "main.js.map": "/pupigram/static/js/main.d6ab9473.chunk.js.map",
     "runtime-main.js": "/pupigram/static/js/runtime-main.1689c465.js",
     "runtime-main.js.map": "/pupigram/static/js/runtime-main.1689c465.js.map",
     "static/js/2.df41095a.chunk.js": "/pupigram/static/js/2.df41095a.chunk.js",
     "static/js/2.df41095a.chunk.js.map": "/pupigram/static/js/2.df41095a.chunk.js.map",
     "index.html": "/pupigram/index.html",
-    "precache-manifest.0301cc65d80831edd9c329eb80e77e5b.js": "/pupigram/precache-manifest.0301cc65d80831edd9c329eb80e77e5b.js",
+    "precache-manifest.0d9f436dd0c6588f192b3704a137e7c0.js": "/pupigram/precache-manifest.0d9f436dd0c6588f192b3704a137e7c0.js",
     "service-worker.js": "/pupigram/service-worker.js",
-    "static/css/main.fe8e9207.chunk.css.map": "/pupigram/static/css/main.fe8e9207.chunk.css.map",
+    "static/css/main.2d6c6d66.chunk.css.map": "/pupigram/static/css/main.2d6c6d66.chunk.css.map",
     "static/js/2.df41095a.chunk.js.LICENSE.txt": "/pupigram/static/js/2.df41095a.chunk.js.LICENSE.txt",
     "static/media/account.svg": "/pupigram/static/media/account.91318a8f.svg",
     "static/media/add.svg": "/pupigram/static/media/add.c817e915.svg",
@@ -31,7 +31,7 @@
   "entrypoints": [
     "static/js/runtime-main.1689c465.js",
     "static/js/2.df41095a.chunk.js",
-    "static/css/main.fe8e9207.chunk.css",
-    "static/js/main.81169b31.chunk.js"
+    "static/css/main.2d6c6d66.chunk.css",
+    "static/js/main.d6ab9473.chunk.js"
   ]
 }
