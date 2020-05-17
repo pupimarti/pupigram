@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/pupigram/static/css/main.27fd7848.chunk.css",
-    "main.js": "/pupigram/static/js/main.a6d26a32.chunk.js",
-    "main.js.map": "/pupigram/static/js/main.a6d26a32.chunk.js.map",
+    "main.js": "/pupigram/static/js/main.382788dc.chunk.js",
+    "main.js.map": "/pupigram/static/js/main.382788dc.chunk.js.map",
     "runtime-main.js": "/pupigram/static/js/runtime-main.1689c465.js",
     "runtime-main.js.map": "/pupigram/static/js/runtime-main.1689c465.js.map",
     "static/js/2.792a15b1.chunk.js": "/pupigram/static/js/2.792a15b1.chunk.js",
     "static/js/2.792a15b1.chunk.js.map": "/pupigram/static/js/2.792a15b1.chunk.js.map",
     "index.html": "/pupigram/index.html",
-    "precache-manifest.9942b25f6094b8c70616a5b361c7955e.js": "/pupigram/precache-manifest.9942b25f6094b8c70616a5b361c7955e.js",
+    "precache-manifest.9127306e888e102556da9759efec1588.js": "/pupigram/precache-manifest.9127306e888e102556da9759efec1588.js",
     "service-worker.js": "/pupigram/service-worker.js",
     "static/css/main.27fd7848.chunk.css.map": "/pupigram/static/css/main.27fd7848.chunk.css.map",
     "static/js/2.792a15b1.chunk.js.LICENSE.txt": "/pupigram/static/js/2.792a15b1.chunk.js.LICENSE.txt",
@@ -32,6 +32,6 @@
     "static/js/runtime-main.1689c465.js",
     "static/js/2.792a15b1.chunk.js",
     "static/css/main.27fd7848.chunk.css",
-    "static/js/main.a6d26a32.chunk.js"
+    "static/js/main.382788dc.chunk.js"
   ]
 }
