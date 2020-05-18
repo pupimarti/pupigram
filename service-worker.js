@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/pupigram/precache-manifest.6a518bc9981557677d376d1a8eba036e.js"
+  "/pupigram/precache-manifest.3ee6a22e1bff2fee218cd5b7c4311619.js"
 );
 
 self.addEventListener('message', (event) => {
