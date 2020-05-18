@@ -13,7 +13,7 @@ import Options from './Options';
 export default function Post(props) {
   const [likes, setLikes] = useState(props.likes.length);
   const [likeImg, setlikeImg] = useState(null);
-  const [like, setlike] = useState(props.likes.indexOf("default") !== -1);
+  const [like, setlike] = useState(props.likes.indexOf("default") !== -1 ? 'true' : 'false');
   const handleClickLikeImg = () => {
     if (likeImg === null) setlikeImg(true);
     else setlikeImg(!likeImg);
@@ -21,8 +21,8 @@ export default function Post(props) {
   };
 
   const handleLikeImg = (val) => {
-    if (val && !like) setLikes(likes + 1);
-    if (!val && like) setLikes(likes - 1);
+    if (val && (!like || like === 'false')) setLikes(likes + 1);
+    if (!val && (like || like === 'true')) setLikes(likes - 1);
     props.setLike("default", val, props.id);
     setlike(val);
   };
@@ -78,8 +78,8 @@ export default function Post(props) {
       </div>
       <div className="center-post actions-post">
         <Like like={like} setlike={handleLikeImg} />
-        <Link className="pc" to={"/posts/" + props.id}><img className="action" src={comment} alt="comment" /></Link>
-        <Link className="mobile" to={"/comments/" + props.id}><img className="action" src={comment} alt="comment" /></Link>
+        <Link className="action pc" to={"/posts/" + props.id}><img className="action-c" src={comment} alt="comment" /></Link>
+        <Link className="action mobile" to={"/comments/" + props.id}><img className="action-c" src={comment} alt="comment" /></Link>
       </div>
       <Link to={"/likes/"+props.id}  className="center-post likes-post">
         {new Intl.NumberFormat().format(likes)} Me gusta

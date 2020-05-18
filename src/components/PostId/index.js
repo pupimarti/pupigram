@@ -63,7 +63,7 @@ export default function PostId() {
         post.verify = u.verify;
       }
       setData(post);
-      setLike(post.likes.indexOf("default") !== -1);
+      setLike(post.likes.indexOf("default") !== -1 ? 'true' : 'false');
       setLikes(post.likes.length);
     }
   }, [postId, posts, setLike]);
@@ -75,12 +75,12 @@ export default function PostId() {
   };
 
   const handleLikeImg = (val) => {
-    if (val && !like) setLikes(likes + 1);
-    if (!val && like) setLikes(likes - 1);
+    if (val && (!like || like === 'false')) setLikes(likes + 1);
+    if (!val && (like || like === 'true')) setLikes(likes - 1);
     setLike_context("default", val, postId);
     setLike(val);
   };
-
+  
   const [commentsUser, setCommentsUser] = useState([]);
   const handleChangeCommentsUser = (c) => {
     addComment(c, "default", postId);
