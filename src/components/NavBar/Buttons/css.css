@@ -5,10 +5,22 @@
 .icon{
     width: 1.1em;
     max-width: 25px;
+    max-height: 25px;
     cursor: pointer;
     margin: 0 5px;
     padding: 5px;
     border-radius: 20%;
+}
+
+.icon-account{
+    width: 25px;
+    margin: 5px;
+    border-radius: 50%;
+    border: 1px solid #dbdbdb;
+}
+
+.dark .icon-account{
+    border: 1px solid #525151;
 }
 
 .dark .icon{

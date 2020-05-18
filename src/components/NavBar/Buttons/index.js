@@ -6,14 +6,16 @@ import search from "./search.svg";
 import explore from "./explore.svg";
 import exploreSelect from "./explore-select.svg";
 import add from "./add.svg";
-import account from "./account.svg";
 import { Link } from "react-router-dom";
 import Directs from './directsIcon';
 import "./css.css";
+import getUserMin from "components/services/getUserMin";
 
 
 export default function Buttons(props) {
   const path = props.path;
+
+  const user = getUserMin("default");
 
   
   if(path.substr(0,8) === "/directs" && ( window.innerWidth <= 800 )) return null;
@@ -47,7 +49,7 @@ export default function Buttons(props) {
       </Link>
       <Notif user="default" path={path} />
       <Link to={pathAccount}>
-        <img className="icon" src={account} alt="Cuenta" />
+        <img className="icon-account" src={user.picture} alt="Cuenta" />
       </Link>
     </div>
   );
