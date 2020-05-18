@@ -46,7 +46,7 @@ export default function Directs() {
   if (newChat)
     return (
       <div className="content-directs">
-        <New user="default" setNewChat={setNewChat} setViewDirect={setViewDirect} />
+        <New user="default" setNewChat={setNewChat} setViewDirect={handleSetViewDirect} />
       </div>
     );
 

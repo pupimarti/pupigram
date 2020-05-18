@@ -5,10 +5,17 @@ import account from "img/account.svg";
 import "./css.css";
 
 export default function User(props) {
+
+  var select = false;
+  if(props.select !== null){
+    if(props.select.user === props.user)
+      select = true;
+  }
+
   return (
     <div
       onClick={() => {
-        props.onClick(props.user);
+        props.onClick({user: props.user, picture:props.picture, verify:props.verify});
       }}
       className="content-new-direct-user"
     >
@@ -29,8 +36,8 @@ export default function User(props) {
             <img className="verify-directs" src={verify} alt="Verificado" />
           )}{" "}
         </div>
-      <div className={props.select ? "new-direct-select true" : "new-direct-select"}>
-          {props.select &&
+      <div className={select ? "new-direct-select true" : "new-direct-select"}>
+          {select &&
             <div id="tick-mark"></div>
           }
       </div>

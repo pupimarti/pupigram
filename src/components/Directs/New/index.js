@@ -22,13 +22,20 @@ export default function New(props) {
             }
         }
     }, [follows, props,users])
+
+    const handleSelect = () => {
+        if(select !== null){
+            props.setViewDirect(select);
+            props.setNewChat(false);
+        }
+    }
     
     return (
         <div className="content-new-chat">
         <header className="content-directs-header">
           <div onClick={() => props.setNewChat(false)} className="chat-back"></div>
           <h5>Nuevo mensaje</h5>
-          <button className="action-comment">Siguiente</button>
+          <button onClick={handleSelect} className="action-comment">Siguiente</button>
         </header>
         {follows && follows.map((u,i) => {
             const user = getUserMin(u);
@@ -39,7 +46,7 @@ export default function New(props) {
                 picture={user.picture}
                 verify={user.verify}
                 onClick={setSelect}
-                select={select === u}
+                select={select}
             />)
         })}
         </div>
