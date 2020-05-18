@@ -1,24 +1,22 @@
 {
   "files": {
-    "main.css": "/pupigram/static/css/main.a86218ea.chunk.css",
-    "main.js": "/pupigram/static/js/main.bb9089ce.chunk.js",
-    "main.js.map": "/pupigram/static/js/main.bb9089ce.chunk.js.map",
+    "main.css": "/pupigram/static/css/main.c44b7661.chunk.css",
+    "main.js": "/pupigram/static/js/main.bfb10b09.chunk.js",
+    "main.js.map": "/pupigram/static/js/main.bfb10b09.chunk.js.map",
     "runtime-main.js": "/pupigram/static/js/runtime-main.1689c465.js",
     "runtime-main.js.map": "/pupigram/static/js/runtime-main.1689c465.js.map",
-    "static/js/2.5604fe51.chunk.js": "/pupigram/static/js/2.5604fe51.chunk.js",
-    "static/js/2.5604fe51.chunk.js.map": "/pupigram/static/js/2.5604fe51.chunk.js.map",
+    "static/js/2.a048e468.chunk.js": "/pupigram/static/js/2.a048e468.chunk.js",
+    "static/js/2.a048e468.chunk.js.map": "/pupigram/static/js/2.a048e468.chunk.js.map",
     "index.html": "/pupigram/index.html",
-    "precache-manifest.21b276a44c21a929ec9eb4b9d02e56f6.js": "/pupigram/precache-manifest.21b276a44c21a929ec9eb4b9d02e56f6.js",
+    "precache-manifest.7e31023e3bd7f138dd9c052c68d40dff.js": "/pupigram/precache-manifest.7e31023e3bd7f138dd9c052c68d40dff.js",
     "service-worker.js": "/pupigram/service-worker.js",
-    "static/css/main.a86218ea.chunk.css.map": "/pupigram/static/css/main.a86218ea.chunk.css.map",
-    "static/js/2.5604fe51.chunk.js.LICENSE.txt": "/pupigram/static/js/2.5604fe51.chunk.js.LICENSE.txt",
+    "static/css/main.c44b7661.chunk.css.map": "/pupigram/static/css/main.c44b7661.chunk.css.map",
+    "static/js/2.a048e468.chunk.js.LICENSE.txt": "/pupigram/static/js/2.a048e468.chunk.js.LICENSE.txt",
     "static/media/account.svg": "/pupigram/static/media/account.71672f0b.svg",
     "static/media/add.svg": "/pupigram/static/media/add.c817e915.svg",
     "static/media/chat.svg": "/pupigram/static/media/chat.0ec68f32.svg",
     "static/media/direct-select.svg": "/pupigram/static/media/direct-select.382f1e7d.svg",
     "static/media/direct.svg": "/pupigram/static/media/direct.c26fe294.svg",
-    "static/media/explore-select.svg": "/pupigram/static/media/explore-select.a688007c.svg",
-    "static/media/explore.svg": "/pupigram/static/media/explore.28b3e5c1.svg",
     "static/media/heart-selected.svg": "/pupigram/static/media/heart-selected.f2610513.svg",
     "static/media/heart.svg": "/pupigram/static/media/heart.7746f5e4.svg",
     "static/media/home-select.svg": "/pupigram/static/media/home-select.8b41ca2e.svg",
@@ -30,8 +28,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.1689c465.js",
-    "static/js/2.5604fe51.chunk.js",
-    "static/css/main.a86218ea.chunk.css",
-    "static/js/main.bb9089ce.chunk.js"
+    "static/js/2.a048e468.chunk.js",
+    "static/css/main.c44b7661.chunk.css",
+    "static/js/main.bfb10b09.chunk.js"
   ]
 }
