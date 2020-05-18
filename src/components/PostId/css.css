@@ -29,6 +29,9 @@
 .content-info-post-id{
     width: 100%;
     height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
     position: relative;
 }
 
@@ -43,27 +46,8 @@
     width: 100%;
     height: 100%;
     padding-top: 8px;
-    max-height: 230px;
+    max-height: calc(100% - 220px);
     overflow-y: auto;
-}
-
-@media(max-width: 1000px){
-    .content-comments-post-id{
-        max-height: 210px;
-    }
-}
-
-
-@media(max-width: 950px){
-    .content-comments-post-id{
-        max-height: 180px;
-    }
-}
-
-@media(max-width: 880px){
-    .content-comments-post-id{
-        max-height: 150px;
-    }
 }
 
 .content-comments-post-id, .content-likes-comment-post-id{

@@ -8,12 +8,14 @@ import verify from "img/verify.svg";
 import heart from "img/heart-selected.svg";
 import { Link } from "react-router-dom";
 import ReactTimeAgo from "react-time-ago";
-import Options from './Options';
+import Options from "./Options";
 
 export default function Post(props) {
   const [likes, setLikes] = useState(props.likes.length);
   const [likeImg, setlikeImg] = useState(null);
-  const [like, setlike] = useState(props.likes.indexOf("default") !== -1 ? 'true' : 'false');
+  const [like, setlike] = useState(
+    props.likes.indexOf("default") !== -1 ? "true" : "false"
+  );
   const handleClickLikeImg = () => {
     if (likeImg === null) setlikeImg(true);
     else setlikeImg(!likeImg);
@@ -21,8 +23,8 @@ export default function Post(props) {
   };
 
   const handleLikeImg = (val) => {
-    if (val && (!like || like === 'false')) setLikes(likes + 1);
-    if (!val && (like || like === 'true')) setLikes(likes - 1);
+    if (val && (!like || like === "false")) setLikes(likes + 1);
+    if (!val && (like || like === "true")) setLikes(likes - 1);
     props.setLike("default", val, props.id);
     setlike(val);
   };
@@ -52,7 +54,7 @@ export default function Post(props) {
             <img className="verify" src={verify} alt="Verificado" />
           )}
         </Link>
-        <Options id={props.id}/>
+        <Options id={props.id} />
       </div>
       <div className="content-img-post">
         {likeImg !== null &&
@@ -78,10 +80,14 @@ export default function Post(props) {
       </div>
       <div className="center-post actions-post">
         <Like like={like} setlike={handleLikeImg} />
-        <Link className="action pc" to={"/posts/" + props.id}><img className="action-c" src={comment} alt="comment" /></Link>
-        <Link className="action mobile" to={"/comments/" + props.id}><img className="action-c" src={comment} alt="comment" /></Link>
+        <Link className="action pc" to={"/posts/" + props.id}>
+          <img className="action-c" src={comment} alt="comment" />
+        </Link>
+        <Link className="action mobile" to={"/comments/" + props.id}>
+          <img className="action-c" src={comment} alt="comment" />
+        </Link>
       </div>
-      <Link to={"/likes/"+props.id}  className="center-post likes-post">
+      <Link to={"/likes/" + props.id} className="center-post likes-post">
         {new Intl.NumberFormat().format(likes)} Me gusta
       </Link>
       <div className="center-post description-post">
@@ -117,7 +123,10 @@ export default function Post(props) {
               ? "Ver " + props.comments.length + " comentario"
               : "Ver los " + props.comments.length + "  comentarios"}
           </Link>
-          <Link to={"/comments/" + props.id} className="show-comments-post mobile">
+          <Link
+            to={"/comments/" + props.id}
+            className="show-comments-post mobile"
+          >
             {props.comments.length === 1
               ? "Ver " + props.comments.length + " comentario"
               : "Ver los " + props.comments.length + "  comentarios"}
@@ -125,16 +134,21 @@ export default function Post(props) {
         </div>
       )}
       <div className="description-post center-post">
-        {commentsUser.map((c,i) => (
+        {commentsUser.map((c, i) => (
           <p key={i} className="comment-user-post">
-            <Link to="/default" className="user-account">default</Link> <span className="text-post">{c}</span>
+            <Link to="/default" className="user-account">
+              default
+            </Link>{" "}
+            <span className="text-post">{c}</span>
           </p>
         ))}
       </div>
       <p className="center-post time-post ">
         <ReactTimeAgo date={new Date(props.time)} locale="es" />
       </p>
-      <div className="pc"><Comment send={handleChangeCommentsUser} /></div>
+      <div className="pc">
+        <Comment send={handleChangeCommentsUser} />
+      </div>
     </div>
   );
 }
