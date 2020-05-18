@@ -18,9 +18,9 @@ export default function DirectsIcon(props) {
   return (
     <div className={props.pc ? "content-icon-direct pc" : "content-icon-direct mobile"}>
         {messages > 0 && props.path !== props.pathDirect &&
-        <div className="icon-direct-unreads">
+        <Link to={props.pathDirect} className="icon-direct-unreads">
             {messages}
-        </div>
+        </Link>
         }
       {props.path === props.pathDirect ? (
         <img className="icon" src={directSelect} alt="Direct" />

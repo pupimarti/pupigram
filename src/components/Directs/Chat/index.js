@@ -6,6 +6,7 @@ import verify from "img/verify.svg";
 import getChatUser from 'components/services/getChatUser';
 import sendMessage from 'components/services/sendMessage';
 import Loading from "components/Loading";
+import {Link} from "react-router-dom";
 
 
 export default function Chat(props) {
@@ -58,15 +59,17 @@ export default function Chat(props) {
             props.back(null);
           }}
         ></div>
-        <img
-          className="chat-user-img"
-          src={props.direct.picture}
-          alt="user-img"
-        />
-        <p className="chat-user-name">{props.direct.user}</p>
-        {props.direct.verify && (
-            <img className="verify" src={verify} alt="Verificado" />
-          )}
+        <Link className="content-header-chat" to={"/" + props.direct.user}>
+          <img
+            className="chat-user-img"
+            src={props.direct.picture}
+            alt="user-img"
+          />
+          <p className="chat-user-name">{props.direct.user}</p>
+          {props.direct.verify && (
+              <img className="verify" src={verify} alt="Verificado" />
+            )}
+        </Link>
       </header>
       <div className="chat-content-messages">
         {messages && messages.map((m,i) => (

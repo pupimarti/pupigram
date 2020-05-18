@@ -37,7 +37,9 @@ export default function Direct(props) {
           )}{" "}
         </div>
         <p className="direct-message">
-          {props.message} •
+          {props.message.length > 30
+          ? props.message.substring(0, 30) + "..."
+          : props.message} •
           <span className="time-notif">
             {" "}
             {props.time && (
