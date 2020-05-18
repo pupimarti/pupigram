@@ -5,6 +5,7 @@ import NoPage from 'components/NoPage';
 import Direct from './Direct';
 import newMessage from './newmessage.svg';
 import Chat from './Chat';
+import {Link} from 'react-router-dom';
 
 import './css.css';
 
@@ -46,10 +47,12 @@ export default function Directs() {
         <div className="content-directs">
             <div className={viewDirect === null ? "content-list-directs" : "content-list-directs viewdirect"}>
                 <header className="content-directs-header">
-                    <div className="directs-header">
-                        <h5>Direct</h5>
-                        <img className="icon" src={newMessage} alt="nuevo mensaje" />
-                    </div>
+                    <Link
+                    to="/"
+                    className="chat-back"
+                    ></Link>
+                    <h5>Direct</h5>
+                    <img className="icon" src={newMessage} alt="nuevo mensaje" />
                 </header>
                <div className="content-directs-messages">
                     {data && data.map((d,i) => {

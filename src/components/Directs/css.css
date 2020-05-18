@@ -18,7 +18,8 @@
 
 .content-directs-header{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
     padding: 12px 0;
     border-bottom: 1px solid #dbdbdb;
     height: 32px;
@@ -28,14 +29,8 @@
     border-bottom: 1px solid #525151;
 }
 
-.directs-header{
-    width: 55%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-.directs-header h5{
+.content-directs-header h5{
     font-size: 15px;
     font-weight: 500;
 }

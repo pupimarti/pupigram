@@ -137,4 +137,13 @@
         width: 100%;
         border: 0 !important;
     }
+    .chat-content-comment{
+        position: fixed;
+        bottom: 0;
+        z-index: 100;
+        background-color: #FAFAFA;
+    }
+    .dark .chat-content-comment{
+        background-color: #262626;
+    }
 }
