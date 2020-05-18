@@ -34,6 +34,7 @@ export default function NavBar(props) {
         pathSearch={pathSearch}
         pathExplore={pathExplore}
         pathAccount={pathAccount}
+        setImg={props.setImg}
         />
       </div>
     </div>

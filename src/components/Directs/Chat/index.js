@@ -78,11 +78,13 @@ export default function Chat(props) {
             <div className="chat-message own">{m.message}</div>
           </div>
           :<div key={i} className="content-chat-message">
-          <img
-            className="chat-user-img"
-            src={props.direct.picture}
-            alt="user-img"
-          />
+          <Link to={"/" + props.direct.user}>
+            <img
+              className="chat-user-img"
+              src={props.direct.picture}
+              alt="user-img"
+            />
+          </Link>
           <div className="chat-message">{m.message}</div>
         </div>
         ))}
