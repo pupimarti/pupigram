@@ -36,13 +36,17 @@ function App() {
     <div className={mode ? "dark" : "light"}>
       <AppContextProvider>
         <HashRouter basename="/">
-          <NavBar setImg={handleSetImgNewPost} setMode={handleChangeMode} />
-          <div className="content-app">
-            <div className="app">
-              {newPost !== null ? (
+          {newPost !== null ? (
+            <div className="content-app">
+              <div className="app">
                 <AddPost setImg={handleSetImgNewPost} img={newPost} />
-              ) : (
-                <React.Fragment>
+              </div>
+            </div>
+          ) : (
+            <React.Fragment>
+              <NavBar setImg={handleSetImgNewPost} setMode={handleChangeMode} />
+              <div className="content-app">
+                <div className="app">
                   <Switch>
                     <Route exact path="/addPost" component={AddPost} />
                     <Route
@@ -81,10 +85,10 @@ function App() {
                     © 2020 PUPIGRAM DESARROLLADO POR{" "}
                     <a href="www.google.com">JUAN A. MARTÍ</a>
                   </p>
-                </React.Fragment>
-              )}
-            </div>
-          </div>
+                </div>
+              </div>
+            </React.Fragment>
+          )}
         </HashRouter>
       </AppContextProvider>
     </div>
