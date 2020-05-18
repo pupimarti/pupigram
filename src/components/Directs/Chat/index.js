@@ -28,15 +28,17 @@ export default function Chat(props) {
   if (props.direct === null) {
     return (
       <div className="content-chat pc">
-        <div className="content-chat-default">
-          <div className="content-chat-logo-default">
-            <img className="chat-logo-default" src={direct} alt="Direct" />
+        <div className="content-default">
+          <div className="content-chat-default">
+            <div className="content-chat-logo-default">
+              <img className="chat-logo-default" src={direct} alt="Direct" />
+            </div>
+            <p className="chat-title-default">Tus mensajes</p>
+            <p className="chat-desc-default">
+              Envía fotos y mensajes privados a un amigo o grupo.
+            </p>
+            <button className="button follow">Enviar mensaje</button>
           </div>
-          <p className="chat-title-default">Tus mensajes</p>
-          <p className="chat-desc-default">
-            Envía fotos y mensajes privados a un amigo o grupo.
-          </p>
-          <button className="button follow">Enviar mensaje</button>
         </div>
       </div>
     );
