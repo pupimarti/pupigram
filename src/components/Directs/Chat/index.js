@@ -12,7 +12,7 @@ export default function Chat(props) {
   const [messages, setMessages] = useState(null);
 
   useEffect(() => {
-    if(props.direct !== null && messages === null){
+    if(props.direct !== null){
       const arr_msg = getChatUser("default", props.direct.user, props.directs);
       setMessages(arr_msg);
     }
@@ -47,6 +47,7 @@ export default function Chat(props) {
         <div
           className="chat-back mobile"
           onClick={() => {
+            setMessages(null);
             props.back(null);
           }}
         ></div>
