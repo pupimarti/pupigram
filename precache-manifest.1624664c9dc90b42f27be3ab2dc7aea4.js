@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a26271fb81d257dfeafb9f8001392a12",
+    "revision": "8e6da6f8d85fd282cfea08de0db907ed",
     "url": "/pupigram/index.html"
   },
   {
-    "revision": "c02aa84be2f7e5d52168",
-    "url": "/pupigram/static/css/main.bad90cea.chunk.css"
+    "revision": "91b098a42310bbedbe0a",
+    "url": "/pupigram/static/css/main.cd5c7466.chunk.css"
   },
   {
     "revision": "a823e88e96e8aaba88c8",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pupigram/static/js/2.2be51847.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c02aa84be2f7e5d52168",
+    "revision": "91b098a42310bbedbe0a",
     "url": "/pupigram/static/js/main.ba72ed28.chunk.js"
   },
   {
