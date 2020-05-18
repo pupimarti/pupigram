@@ -14,6 +14,7 @@ import getUserMin from "components/services/getUserMin";
 
 import Context from "components/Context/AppContext";
 import setDirectsRead from "components/services/setDirectsUnread";
+import addDirectChat from "components/services/addDirectChat";
 
 export default function Directs() {
   const [data, setData] = useState("loading");
@@ -31,6 +32,10 @@ export default function Directs() {
       setDirectsRead("default", user.user, directs, setDirects);
     }
   };
+
+  const handleAddChat = (user, user_follow) => {
+      addDirectChat(user, user_follow, directs, setDirects);
+  }
 
   useEffect(() => {
     if (data === "loading") {
@@ -98,6 +103,7 @@ export default function Directs() {
         directs={directs}
         setDirects={setDirects}
         setNewChat={setNewChat}
+        addChat={handleAddChat}
       />
     </div>
   );

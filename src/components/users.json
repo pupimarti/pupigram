@@ -7,7 +7,7 @@
         "desc":"Cuenta por defecto para visitante de Pupigram",
         "web":"pupimarti.github.io/pupigram/#/",
         "followers":["leomessi","thisisbillgates"],
-        "follows":[],
+        "follows":["pupi_marti", "leomessi", "thisisbillgates"],
         "posts":[]
     },
     {
@@ -31,5 +31,16 @@
         "followers":["leomessi"],
         "follows":["leomessi", "default"],
         "posts":[1]
+    },
+    {
+        "user":"pupi_marti",
+        "verify":false,
+        "picture":"https://instagram.faep9-2.fna.fbcdn.net/v/t51.2885-19/s150x150/94827229_3261460413887388_5697470277890342912_n.jpg?_nc_ht=instagram.faep9-2.fna.fbcdn.net&_nc_ohc=6Bh3KT-CMW4AX9WCxul&oh=a6275aa5694918546ffbf1557b19ab23&oe=5EEA7D9F",
+        "name":"Juan A. Marti",
+        "desc":"Desarrollador de Pupigram.",
+        "web":"pupimarti.github.io/pupigram/#/",
+        "followers":["default"],
+        "follows":[],
+        "posts":[2]
     }
 ]

@@ -6,6 +6,7 @@ export default function getChatUser(user, user_follow, directs){
                     return d.messages;
                 }
             }
+            return 'none';
         }
     }
     return null;

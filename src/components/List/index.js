@@ -38,7 +38,11 @@ export default function List() {
 
     useEffect(() => {
         if(data === 'loading')
-            setData(getPosts(posts));
+            var list_posts = getPosts(posts);
+            if(list_posts){
+                const p = list_posts.reverse();
+                setData(p);
+            }
     }, [setData, data, posts])
     
     if(data === 'loading') return <Loading />

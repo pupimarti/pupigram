@@ -3,31 +3,21 @@
         "user":"default",
         "directs":[
             {
+                "user":"pupi_marti",
+                "read":false,
+                "messages":[
+                    {
+                        "message":"¡Gracias por visitar Pupigram!",
+                        "time":"Sun May 17 2020 23:52:41 GMT-0300"
+                    }
+                ]
+            },
+            {
                 "user":"leomessi",
                 "read":false,
                 "messages":[
                     {
-                        "message":"hola mostro",
-                        "time":"Sun May 10 2020 23:52:41 GMT-0300"
-                    }
-                ]
-            },
-            {
-                "user":"default",
-                "read":false,
-                "messages":[
-                    {
-                        "message":"hola cara",
-                        "time":"Sun May 10 2020 23:52:41 GMT-0300"
-                    }
-                ]
-            },
-            {
-                "user":"thisisbillgates",
-                "read":false,
-                "messages":[
-                    {
-                        "message":"hola safas",
+                        "message":"Bienvenido!!",
                         "time":"Sun May 10 2020 23:52:41 GMT-0300"
                     }
                 ]

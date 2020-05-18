@@ -14,7 +14,12 @@ export default function Chat(props) {
   useEffect(() => {
     if(props.direct !== null){
       const arr_msg = getChatUser("default", props.direct.user, props.directs);
-      setMessages(arr_msg);
+      if(arr_msg === 'none'){
+        props.addChat("default", props.direct.user);
+        setMessages([]);
+      }
+      else
+        setMessages(arr_msg);
     }
   }, [messages, props])
 
