@@ -15,6 +15,7 @@ import ViewFollows from 'components/ViewFollows';
 import Directs from 'components/Directs/index';
 
 JavascriptTimeAgo.locale(es)
+
 function App() {
   const [mode, setMode] = useState((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) || false);
   const handleChangeMode = () => {

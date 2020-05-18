@@ -1,18 +1,29 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import direct from "img/direct.svg";
 import "./css.css";
 import Comment from "components/Post/Comment";
 import verify from "img/verify.svg";
+import getChatUser from 'components/services/getChatUser';
+import sendMessage from 'components/services/sendMessage';
+import Loading from "components/Loading";
+
 
 export default function Chat(props) {
+  const [messages, setMessages] = useState(null);
 
-  
-  const [comments, setComments] = useState([]);
+  useEffect(() => {
+    if(props.direct !== null && messages === null){
+      const arr_msg = getChatUser("default", props.direct.user, props.directs);
+      setMessages(arr_msg);
+    }
+  }, [messages, props])
 
-  const handleAddComment = comment => {
-    setComments([...comments, comment]);
-    props.send(props.direct.user.user, comment);
-  }
+  const handleSendMessage = async message => {
+    const chat = sendMessage("default", props.direct.user, message, props.directs, props.setDirects);
+    if(chat)
+      setMessages(null);
+}
+
 
   if (props.direct === null) {
     return (
@@ -41,33 +52,36 @@ export default function Chat(props) {
         ></div>
         <img
           className="chat-user-img"
-          src={props.direct.user.picture}
+          src={props.direct.picture}
           alt="user-img"
         />
-        <p className="chat-user-name">{props.direct.user.user}</p>
-        {props.direct.user.verify && (
+        <p className="chat-user-name">{props.direct.user}</p>
+        {props.direct.verify && (
             <img className="verify" src={verify} alt="Verificado" />
           )}
       </header>
       <div className="chat-content-messages">
-        {props.direct.messages && props.direct.messages.map((m,i) => (
-          <div key={i} className="content-chat-message">
+        {messages && messages.map((m,i) => (
+          m.own 
+          ?<div key={i} className="content-chat-message own">
+            <div className="chat-message own">{m.message}</div>
+          </div>
+          :<div key={i} className="content-chat-message">
           <img
             className="chat-user-img"
-            src={props.direct.user.picture}
+            src={props.direct.picture}
             alt="user-img"
           />
           <div className="chat-message">{m.message}</div>
         </div>
         ))}
-        {comments && comments.map((m, i) => (
-          <div key={i} className="content-chat-message own">
-            <div className="chat-message own">{m}</div>
-          </div>
-        ))}
       </div>
+      {
+        messages === null && 
+        <Loading />
+      }
       <div className="chat-content-comment">
-        <Comment send={handleAddComment} message />
+        <Comment send={handleSendMessage} message />
       </div>
     </div>
   );

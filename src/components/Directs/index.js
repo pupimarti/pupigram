@@ -12,8 +12,6 @@ import getUserMin from 'components/services/getUserMin';
 
 import Context from 'components/Context/AppContext';
 import setDirectsRead from 'components/services/setDirectsUnread';
-import sendMessage from 'components/services/sendMessage';
-import getChatUser from 'components/services/getChatUser';
 
 export default function Directs() {
 
@@ -27,18 +25,14 @@ export default function Directs() {
       if(user === null)
           setViewDirect(null);
       else{
-        const messages = getChatUser("default", user.user, directs);
-        setViewDirect({user, messages});
+        setViewDirect(user);
         setDirectsRead("default", user.user, directs, setDirects);
     }
   }
-  
-  const handleSendMessage = (user, message) => {
-      sendMessage("default", user.user, message, directs, setDirects);
-  }
+
 
   useEffect(() => {
-      if(data === 'loading'){
+    if(data === 'loading'){
         const directs_ = getDirects("default", directs);
         setData(directs_.directs);
       }
@@ -80,7 +74,8 @@ export default function Directs() {
             <Chat 
             direct={viewDirect}
             back={handleSetViewDirect}
-            send={handleSendMessage}
+            directs={directs}
+            setDirects={setDirects}
             />
         </div>
     )
