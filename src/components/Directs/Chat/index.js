@@ -37,7 +37,7 @@ export default function Chat(props) {
             <p className="chat-desc-default">
               Envía fotos y mensajes privados a un amigo o grupo.
             </p>
-            <button className="button follow">Enviar mensaje</button>
+            <button onClick={() => {props.setNewChat(true)}} className="button follow">Enviar mensaje</button>
           </div>
         </div>
       </div>
