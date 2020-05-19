@@ -5,10 +5,10 @@ import comment from "img/chat.svg";
 import Comment from "./Comment";
 import Like from "./Like";
 import verify from "img/verify.svg";
-import heart from "img/heart-selected.svg";
 import { Link } from "react-router-dom";
 import ReactTimeAgo from "react-time-ago";
 import Options from "./Options";
+import Img from './Img';
 
 export default function Post(props) {
   const [likes, setLikes] = useState(props.likes.length);
@@ -56,28 +56,7 @@ export default function Post(props) {
         </Link>
         <Options id={props.id} />
       </div>
-      <div className="content-img-post">
-        {likeImg !== null &&
-          (likeImg ? (
-            <img
-              className="like-img-post animation-like"
-              src={heart}
-              alt="corazon"
-            />
-          ) : (
-            <img
-              className="like-img-post animation-like1"
-              src={heart}
-              alt="corazon"
-            />
-          ))}
-        <img
-          onDoubleClick={handleClickLikeImg}
-          className="img-post"
-          src={props.img}
-          alt="postimg"
-        />
-      </div>
+      <Img likeImg={likeImg} img={props.img} handleClickLikeImg={handleClickLikeImg}/>
       <div className="center-post actions-post">
         <Like like={like} setlike={handleLikeImg} />
         <Link className="action pc" to={"/posts/" + props.id}>
