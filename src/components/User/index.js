@@ -24,13 +24,12 @@ export default function User() {
   }
 
   useEffect(() => {
-      if(data === 'loading' || loadingFollow === true){
         var user = getUser(userPath, users);
         const postsUser = getPosts(posts, user.user);
         user.posts = postsUser;
         setData(user);
         setLoadingFollow(false);
-      }
+      
   }, [userPath, users, posts, data, loadingFollow]);
 
   

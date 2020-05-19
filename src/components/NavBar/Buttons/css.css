@@ -13,8 +13,10 @@
 }
 
 .icon-account{
-    width: 25px;
-    margin: 5px;
+    width: 1.1em;
+    max-width: 25px;
+    max-height: 25px;
+    margin: 5px 10px;
     border-radius: 50%;
     border: 1px solid #dbdbdb;
 }
