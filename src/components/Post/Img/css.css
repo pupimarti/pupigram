@@ -98,33 +98,45 @@
     max-height: 100%;
 }
 
+.carousel .control-dots{
+    padding:0;
+}
+
+.carousel .control-disabled.control-arrow{
+    opacity: 0 !important;
+}
+
 .carousel.carousel-slider .control-arrow{
-    height: 30px;
-    width: 30px;
+    height: 32px;
+    width: 32px;
     border-radius: 50%;
-    background-color: #FFF;
+    background-color: #FAFAFA;
+    opacity: .83;
     margin:15px;
     top:calc(50% - 15px);
-    display: flex;
+    position: absolute;
 }
 
 .carousel .control-prev.control-arrow:before, .carousel .control-next.control-arrow:before{
     content: "";
     width: 8px;
     height: 8px;
-    border-bottom: 2px solid #525151;
-    border-left: 2px solid #525151;
+    border-bottom: 3px solid #525151;
+    border-left: 3px solid #525151;
     border-right: 0;
     border-top: 0;
     transform: rotate(45deg);
-    margin: 0 5px;
+    left:calc(50% - 8px);
+    top: calc(50% - 5px);
+    position: absolute;
 }
 
 .carousel .control-next.control-arrow:before{
-    border-right: 2px solid #525151;
-    border-top: 2px solid #525151;
+    border-right: 3px solid #525151;
+    border-top: 3px solid #525151;
     border-bottom: 0;
     border-left: 0;
+    left:4px;
 }
 
 

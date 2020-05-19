@@ -22,47 +22,16 @@ export default function index(props) {
             alt="corazon"
           />
         ))}
-      <Carousel emulateTouch={true} showThumbs={false} showStatus={false}>
-          <div className="content-img">
+      <Carousel showIndicators={props.img && props.img.length > 1} emulateTouch={true} swipeable={true} showThumbs={false} showStatus={false}>
+          {props.img && props.img.map((img, i) => (
+              <div key={i} className="content-img">
               <img
-                onDoubleClick={props.handleClickLikeImg}
                 className="img-post"
-                src={props.img}
-                alt="postimg"
+                src={img}
+                alt="Imagen de la publicación"
               />
           </div>
-          <div>
-              <img
-                onDoubleClick={props.handleClickLikeImg}
-                className="img-post"
-                src={props.img}
-                alt="postimg"
-              />
-          </div>
-          <div>
-              <img
-                onDoubleClick={props.handleClickLikeImg}
-                className="img-post"
-                src={props.img}
-                alt="postimg"
-              />
-          </div>
-          <div>
-              <img
-                onDoubleClick={props.handleClickLikeImg}
-                className="img-post"
-                src={props.img}
-                alt="postimg"
-              />
-          </div>
-          <div>
-              <img
-                onDoubleClick={props.handleClickLikeImg}
-                className="img-post"
-                src={props.img}
-                alt="postimg"
-              />
-          </div>
+          ))}
       </Carousel>
     </div>
     )
