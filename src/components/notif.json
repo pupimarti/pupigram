@@ -4,6 +4,24 @@
     "visualized": false,
     "notif": [
       {
+        "user": "pupi_marti",
+        "type": "like",
+        "post": 2,
+        "time": "Sun May 19 2020 20:52:41 GMT-0300"
+      },
+        {
+        "user": "leomessi",
+        "type": "like",
+        "post": 2,
+        "time": "Sun May 18 2020 20:52:41 GMT-0300"
+      },
+      {
+        "user": "thisisbillgates",
+        "type": "like",
+        "post": 2,
+        "time": "Sun May 18 2020 20:52:41 GMT-0300"
+      },
+      {
         "user":"pupi_marti",
         "type": "follow",
         "time": "Sun May 17 2020 20:52:41 GMT-0300"

@@ -52,7 +52,10 @@ export default function Notification(props) {
           </span>
         </p>
       </div>
-      <ButtonFollow user="default" user_follow={props.user.user} />
+      {props.type === "like"
+      ?<Link to={"/posts/" + props.post}><img src={props.img} className="img-notification" alt="imagen de la publicacion" /></Link>
+      :<ButtonFollow user="default" user_follow={props.user.user} />
+      }
     </div>
   );
 }

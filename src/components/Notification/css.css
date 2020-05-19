@@ -21,3 +21,9 @@
     font-weight: 400;
     color: #aaa;
 }
+
+.img-notification{
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+}

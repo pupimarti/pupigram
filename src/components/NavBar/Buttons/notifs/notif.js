@@ -9,9 +9,10 @@ import NotifContext from 'components/Context/AppContext';
 import Loading from "components/Loading";
 import "./modal-notif.css";
 import setNotifV from "components/services/setNotif";
+import getImgPost from "components/services/getImgPost";
 
 export default function Notif(props) {
-  const {notifs, setNotifs} = useContext(NotifContext);
+  const {notifs, setNotifs, posts} = useContext(NotifContext);
 
   const [open, setOpen] = useState(false);
   const handleSetModal = () => {
@@ -59,12 +60,18 @@ export default function Notif(props) {
       <div className={open ? "content-notif pc" : "invisible"}>
         {notif &&
           notif.notif.map((n, i) => {
+            var img = "";
+            if(n.type === "like"){
+              img = getImgPost(n.post, posts);
+            }
             return (
               <React.Fragment key={i}>
                 {i > 0 && <div className="divisor-notif"></div>}
                 <Notification
                   type={n.type}
                   time={n.time}
+                  post={n.post}
+                  img={img}
                   user={getUserMin(n.user)}
                 />
               </React.Fragment>

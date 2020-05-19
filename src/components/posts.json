@@ -29,10 +29,10 @@
   },
   {
     "id": 2,
-    "user": "pupi_marti",
-    "img": ["https://instagram.faep9-1.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/p750x750/88202299_226211811849556_7920989428800246821_n.jpg?_nc_ht=instagram.faep9-1.fna.fbcdn.net&_nc_cat=104&_nc_ohc=B9ABBaMuOBkAX-Lasnm&oh=eb67735057e21a0d30dcc06a234e84ba&oe=5EEB0B08"],
-    "desc": "🎸",
-    "likes": ["leomessi"],
+    "user": "default",
+    "img": ["https://i.ibb.co/p1ftX9s/logo.jpg"],
+    "desc": "Hola pupigram!",
+    "likes": ["leomessi", "thisisbillgates", "pupi_marti"],
     "time": "Sun May 17 2020 23:02:41 GMT-0300",
     "comments": [
       {
