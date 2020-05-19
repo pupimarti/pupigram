@@ -1,5 +1,6 @@
 .content-post-id{
     max-width: 90vw;
+    min-height: 450px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
