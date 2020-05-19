@@ -40,7 +40,7 @@
     color: #dbdbdb;
 }
 
-.no-select, img, button {
+.no-select, img, button, .app {
     -webkit-touch-callout: none; /* iOS Safari */
       -webkit-user-select: none; /* Safari */
        -khtml-user-select: none; /* Konqueror HTML */
