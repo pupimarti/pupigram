@@ -1,23 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d9938a8aa037171c833f9beeb1f07113",
+    "revision": "6ab634027a021ced1829ccd9c480aa1c",
     "url": "/pupigram/index.html"
   },
   {
-    "revision": "f0ebf3608bca967ae4c1",
-    "url": "/pupigram/static/css/main.f5039c12.chunk.css"
+    "revision": "abbea524b4d47482f246",
+    "url": "/pupigram/static/css/2.f50f06fd.chunk.css"
   },
   {
-    "revision": "99ceedc159d3b3b12bc5",
-    "url": "/pupigram/static/js/2.586ed254.chunk.js"
+    "revision": "4f7e0867b76f9fe36bbe",
+    "url": "/pupigram/static/css/main.249285b0.chunk.css"
   },
   {
-    "revision": "a1a636632721a402612df3e043dd630d",
-    "url": "/pupigram/static/js/2.586ed254.chunk.js.LICENSE.txt"
+    "revision": "abbea524b4d47482f246",
+    "url": "/pupigram/static/js/2.f1dfc4cf.chunk.js"
   },
   {
-    "revision": "f0ebf3608bca967ae4c1",
-    "url": "/pupigram/static/js/main.e7554bec.chunk.js"
+    "revision": "cb4293a028d0175415ddb31dc1aaaefb",
+    "url": "/pupigram/static/js/2.f1dfc4cf.chunk.js.LICENSE.txt"
+  },
+  {
+    "revision": "4f7e0867b76f9fe36bbe",
+    "url": "/pupigram/static/js/main.f848097a.chunk.js"
   },
   {
     "revision": "abf3d0833c4634d33f39",
