@@ -6,42 +6,10 @@
     filter: none;
 }
 
-.like{
+.like-animation{
   transition: all 0s !important;
-    animation: like .3s linear 1 ;
+    animation: like .5s linear 1 ;
 }
-
-.dislike{
-    animation: dislike .3s linear 1;
-}
-
-@keyframes dislike {
-    0% {
-        -webkit-transform: scale(1);
-        -ms-transform: scale(1);
-        transform: scale(1);
-      }
-      50% {
-        -webkit-transform: scale(1.3);
-        -ms-transform: scale(1.3);
-        transform: scale(1.3);
-      }
-      65% {
-        -webkit-transform: scale(1);
-        -ms-transform: scale(1);
-        transform: scale(1);
-      }
-      90% {
-        -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-        transform: scale(1.1);
-      }
-      100% {
-        -webkit-transform: scale(1);
-        -ms-transform: scale(1);
-        transform: scale(1);
-      }
-  }
 
 @keyframes like {
     0% {
