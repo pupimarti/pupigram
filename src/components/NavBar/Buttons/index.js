@@ -45,7 +45,7 @@ export default function Buttons(props) {
         <img className="icon mobile" src={search} alt="Search" />
       </Link>
       <label htmlFor="file-upload"><img className="icon" src={add} alt="Add" /></label>
-        <input type="file" id="file-upload" className="file" multiple onChange={handleChangeImage}/>
+        <input type="file" id="file-upload" className="invisible" onChange={handleChangeImage}/>
       
       {/* <Link to={pathExplore} className="pc">
         <img

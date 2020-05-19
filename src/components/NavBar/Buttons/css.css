@@ -29,10 +29,6 @@
     filter: invert();
 }
 
-#file-upload{
-    display: none;
-}
-
 @media (max-width:800px){
     .content-buttons{
         position: fixed;
