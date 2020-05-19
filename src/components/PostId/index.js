@@ -18,6 +18,8 @@ import getUserMin from "components/services/getUserMin";
 import Loading from "components/Loading";
 import PostsContext from "components/Context/AppContext";
 import setPost from "components/services/setPost";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
 export default function PostId() {
   const postId = useLocation().pathname.substr(7);
@@ -126,7 +128,7 @@ export default function PostId() {
         </Link>
         <Options id={data.id} />
       </div>
-      <div className="content-img-post-id">
+      <div className="content-img-post-id" onDoubleClick={handleClickLikeImg}>
         {likeImg !== null &&
           (likeImg ? (
             <img
@@ -141,12 +143,17 @@ export default function PostId() {
               alt="corazon"
             />
           ))}
-        <img
-          onDoubleClick={handleClickLikeImg}
-          className="img-post-id"
-          src={data.img}
-          alt="postimg"
-        />
+      <Carousel showIndicators={data.img && data.img.length > 1} emulateTouch={true} swipeable={true} showThumbs={false} showStatus={false}>
+          {data.img && data.img.map((img, i) => (
+              <div key={i} className="content-img">
+              <img
+                className="img-post"
+                src={img}
+                alt="Imagen de la publicación"
+              />
+          </div>
+          ))}
+      </Carousel>
       </div>
       <div className="content-info-post-id">
         <div className="content-user-post-id center-post-id pc">

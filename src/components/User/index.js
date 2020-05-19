@@ -122,7 +122,7 @@ export default function User() {
               to={"/posts/" + post.id}
               className="post-user"
             >
-              <img src={post.img} alt="post" />
+              <img src={post.img[0]} alt="post" />
             </Link>
           )})}
       </section>
