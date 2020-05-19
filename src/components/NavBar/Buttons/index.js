@@ -19,7 +19,9 @@ export default function Buttons(props) {
 
   
   const handleChangeImage = (e) => {
-    const file = URL.createObjectURL(e.target.files[0]);
+    var file = []
+    for(var f = 0; f < e.target.files.length; f++) 
+      file.push(URL.createObjectURL(e.target.files[f]))
     props.setImg(file);
   }
   
@@ -45,7 +47,7 @@ export default function Buttons(props) {
         <img className="icon mobile" src={search} alt="Search" />
       </Link>
       <label htmlFor="file-upload"><img className="icon" src={add} alt="Add" /></label>
-        <input type="file" id="file-upload" className="invisible" onChange={handleChangeImage}/>
+        <input type="file" id="file-upload" multiple className="invisible" onChange={handleChangeImage}/>
       
       {/* <Link to={pathExplore} className="pc">
         <img

@@ -4,6 +4,8 @@ import postsContext from 'components/Context/AppContext';
 import "./css.css";
 import addPost from "components/services/addPost";
 import getUltIdPost from "components/services/getUltIdPost";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
 export default function AddPost(props) {
   const [page, setPage] = useState(0);
@@ -36,7 +38,17 @@ export default function AddPost(props) {
         </button>
       </header>
       {page === 0 ? (
-        <img src={props.img} className="img-post" alt="Imagen a agregar" />
+          <Carousel showIndicators={props.img && props.img.length > 1} emulateTouch={true} swipeable={true} showThumbs={false} showStatus={false}>
+              {props.img && props.img.map((img, i) => (
+                  <div key={i} className="content-img">
+                  <img
+                    className="img-post"
+                    src={img}
+                    alt="Imagen de la publicación"
+                  />
+              </div>
+              ))}
+          </Carousel>
       ) : (
         <div className="content-desc-new-post">
           <img
@@ -52,7 +64,7 @@ export default function AddPost(props) {
           />
           <img
             className="img-post-add-post"
-            src={props.img}
+            src={props.img[0]}
             alt="La imagen del post"
           />
         </div>

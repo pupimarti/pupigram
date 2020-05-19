@@ -23,14 +23,10 @@ function App() {
       window.matchMedia("(prefers-color-scheme: dark)").matches) ||
       false
   );
-  const handleChangeMode = () => {
-    setMode(!mode);
-  };
+  const handleChangeMode = () => setMode(!mode);
 
   const [newPost, setNewPost] = useState(null);
-  const handleSetImgNewPost = (img) => {
-    setNewPost(img);
-  };
+  const handleSetImgNewPost = (img) => setNewPost(img);
 
   return (
     <div className={mode ? "dark" : "light"}>
