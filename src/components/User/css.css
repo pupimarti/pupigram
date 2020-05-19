@@ -68,7 +68,7 @@
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     border-top: 1px solid #dbdbdb;
 }
 
@@ -99,9 +99,13 @@
 
 
 .post-user{
-    width: 31%;
-    height: 31%;
-    margin-bottom: 3%;
+    width: 33%;
+    height: 300px;
+    padding: 1%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .posts-user img{
@@ -172,7 +176,8 @@
     }
     .post-user{
         width:33%;
-        margin-bottom: 0.5%;
+        max-height: 33vw;
+        padding: 1px;
     }
 
 }
