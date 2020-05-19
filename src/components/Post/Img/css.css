@@ -98,6 +98,36 @@
     max-height: 100%;
 }
 
+.carousel.carousel-slider .control-arrow{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: #FFF;
+    margin:15px;
+    top:calc(50% - 15px);
+    display: flex;
+}
+
+.carousel .control-prev.control-arrow:before, .carousel .control-next.control-arrow:before{
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-bottom: 2px solid #525151;
+    border-left: 2px solid #525151;
+    border-right: 0;
+    border-top: 0;
+    transform: rotate(45deg);
+    margin: 0 5px;
+}
+
+.carousel .control-next.control-arrow:before{
+    border-right: 2px solid #525151;
+    border-top: 2px solid #525151;
+    border-bottom: 0;
+    border-left: 0;
+}
+
+
 .carousel .control-dots .dot{
     opacity: 1;
     background: #ffffff;

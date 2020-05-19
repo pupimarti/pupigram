@@ -22,7 +22,7 @@ export default function index(props) {
             alt="corazon"
           />
         ))}
-      <Carousel emulateTouch={true} showThumbs={false}>
+      <Carousel emulateTouch={true} showThumbs={false} showStatus={false}>
           <div className="content-img">
               <img
                 onDoubleClick={props.handleClickLikeImg}
