@@ -25,6 +25,6 @@ npm start
 
 ### Preview
 PC
-![Web en PC](https://ibb.co/dbVC2fg)
+![Web en PC](https://i.ibb.co/WDM8yHt/preview.jpg)
 Mobile
-![Web en movil](https://ibb.co/WV9Wvbh)
+![Web en movil](https://i.ibb.co/phDvjt7/preview-mobile.jpg)
