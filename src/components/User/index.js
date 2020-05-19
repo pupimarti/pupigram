@@ -17,18 +17,21 @@ export default function User() {
   const userPath = useLocation().pathname.substr(1);
   const [data, setData] = useState('loading');
 
-  const handleSetFollowers = val => {
-    if(data !== 'loading' && data !== null){
-      console.log(data);
-    }
+  const [loadingFollow, setLoadingFollow] = useState(false);
+  const handleSetFollowers = () => {
+      setLoadingFollow(true);
+
   }
 
   useEffect(() => {
-      var user = getUser(userPath, users);
-      const postsUser = getPosts(posts, user.user);
-      user.posts = postsUser;
-      setData(user);
-  }, [userPath, users, posts]);
+      if(data === 'loading' || loadingFollow === true){
+        var user = getUser(userPath, users);
+        const postsUser = getPosts(posts, user.user);
+        user.posts = postsUser;
+        setData(user);
+        setLoadingFollow(false);
+      }
+  }, [userPath, users, posts, data, loadingFollow]);
 
   
 
@@ -116,8 +119,8 @@ export default function User() {
           data.posts.map((post) => {
             return (
             <Link
-              key={post}
-              to={"/posts/" + post}
+              key={post.id}
+              to={"/posts/" + post.id}
               className="post-user"
             >
               <img src={post.img} alt="post" />
