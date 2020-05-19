@@ -23,6 +23,10 @@
     border-bottom: 1px solid #dbdbdb;
 }
 
+.content-header-add-post h5{
+    margin-left: 5%
+}
+
 .dark .content-header-add-post{
     border-bottom: #525151 1px solid;
 }
@@ -63,4 +67,8 @@
         left: 0;
         border: none !important;
     }
+    .content-header-add-post h5{
+        margin-left: 10%
+    }
+    
 }

@@ -5,10 +5,10 @@ import { useLocation, Link } from "react-router-dom";
 import NoPage from "../NoPage";
 import "./css.css";
 import getUser from "components/services/getUser";
-import getPost from "components/services/getPost";
 import Loading from "components/Loading";
 import UserContext from 'components/Context/AppContext';
 import ButtonFollow from 'components/ButtonFollow';
+import getPosts from "components/services/getPosts";
 
 export default function User() {
 
@@ -17,9 +17,18 @@ export default function User() {
   const userPath = useLocation().pathname.substr(1);
   const [data, setData] = useState('loading');
 
+  const handleSetFollowers = val => {
+    if(data !== 'loading' && data !== null){
+      console.log(data);
+    }
+  }
+
   useEffect(() => {
-      setData(getUser(userPath, users));
-  }, [userPath, users]);
+      var user = getUser(userPath, users);
+      const postsUser = getPosts(posts, user.user);
+      user.posts = postsUser;
+      setData(user);
+  }, [userPath, users, posts]);
 
   
 
@@ -64,7 +73,7 @@ export default function User() {
                 <div className="point"></div>
               </div>
             <div className="content-follow-points">
-            <ButtonFollow user="default" user_follow={data.user} />
+            <ButtonFollow user="default" user_follow={data.user} setFollowers={handleSetFollowers}/>
           </div>
             </div>
           <div className="info-user stats pc">{stats()}</div>
@@ -105,14 +114,13 @@ export default function User() {
         </div>
         {data.posts &&
           data.posts.map((post) => {
-            const img = getPost(post, posts).img;
             return (
             <Link
               key={post}
               to={"/posts/" + post}
               className="post-user"
             >
-              <img src={img} alt="post" />
+              <img src={post.img} alt="post" />
             </Link>
           )})}
       </section>

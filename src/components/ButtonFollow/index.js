@@ -48,8 +48,11 @@ export default function ButtonFollow(props) {
                 if ( i !== -1 ) 
                 user_follow.followers.splice( i, 1 );
             }
-            if(setUser(user, users, setUsers) && setUser(user_follow, users, setUsers))
+            if(setUser(user, users, setUsers) && setUser(user_follow, users, setUsers)){
+                if(props.setFollowers)
+                    props.setFollowers(!follow);
                 setFollow(!follow);
+            }
         }
     }
 

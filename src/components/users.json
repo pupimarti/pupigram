@@ -7,8 +7,7 @@
     "desc": "Cuenta por defecto para visitante de Pupigram",
     "web": "pupimarti.github.io/pupigram/#/",
     "followers": ["leomessi", "thisisbillgates", "pupi_marti"],
-    "follows": ["pupi_marti", "leomessi", "thisisbillgates"],
-    "posts": []
+    "follows": ["pupi_marti", "leomessi", "thisisbillgates"]
   },
   {
     "user": "leomessi",
@@ -18,8 +17,7 @@
     "desc": "Bienvenidos a la cuenta oficial de Instagram de Leo Messi / Welcome to the official Leo Messi Instagram account",
     "web": "messi.com",
     "followers": ["thisisbillgates", "default"],
-    "follows": ["thisisbillgates", "default", "pupi_marti"],
-    "posts": [0]
+    "follows": ["thisisbillgates", "default", "pupi_marti"]
   },
   {
     "user": "thisisbillgates",
@@ -29,8 +27,7 @@
     "desc": "Sharing things I'm learning through my foundation work and other interests.",
     "web": "gatesnot.es/instagram",
     "followers": ["leomessi", "default"],
-    "follows": ["leomessi", "default", "pupi_marti"],
-    "posts": [1]
+    "follows": ["leomessi", "default", "pupi_marti"]
   },
   {
     "user": "pupi_marti",
@@ -40,7 +37,6 @@
     "desc": "Desarrollador de Pupigram.",
     "web": "www.linkedin.com/in/pupimarti/",
     "followers": ["default", "leomessi", "thisisbillgates"],
-    "follows": ["default"],
-    "posts": [2]
+    "follows": ["default"]
   }
 ]

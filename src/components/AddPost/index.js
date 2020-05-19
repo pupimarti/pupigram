@@ -1,18 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import postsContext from 'components/Context/AppContext';
 
 import "./css.css";
+import addPost from "components/services/addPost";
+import getUltIdPost from "components/services/getUltIdPost";
 
 export default function AddPost(props) {
   const [page, setPage] = useState(0);
+  const [desc, setDesc] = useState('');
 
   const handleBack = () => {
     if (page === 0) props.setImg(null);
     else setPage(0);
   };
 
+  const {posts, setPosts} = useContext(postsContext);
+
   const handleSig = () => {
     if (page === 0) setPage(1);
+    else{
+        const id = getUltIdPost(posts) + 1;
+        addPost(id, props.img, "default", desc, posts, setPosts);
+        props.setImg(null);
+    }
   };
+
 
   return (
     <div className="content-add-post">
@@ -35,6 +47,8 @@ export default function AddPost(props) {
           <textarea
             className="text-add-post"
             placeholder="Escribe un pie de foto..."
+            onChange={e => setDesc(e.target.value)}
+            value={desc}
           />
           <img
             className="img-post-add-post"
