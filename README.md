@@ -1,10 +1,10 @@
 # Pupigram
 Pupigram es el frontend de una webapp basada en instagram, adaptable a todos los dispositivos. Los datos se guardan en un Context para almacenar los cambios que haga el usuario (follows, likes, new posts, comments).
 
-### Demo 
+## Demo 
 La demo del proyecto está alojada en Github Pages. [Click aqui para ver la Demo](https://pupimarti.github.io/pupigram/#/)
 
-### Install
+## Install
 Para instalarlo primero se debe clonar en su repositorio.
 
 ```javascript
@@ -23,8 +23,10 @@ Iniciar
 npm start
 ```
 
-### Preview
-PC
+## Preview
+
+### PC
 ![Web en PC](https://i.ibb.co/WDM8yHt/preview.jpg)
-Mobile
+
+### Mobile
 ![Web en movil](https://i.ibb.co/phDvjt7/preview-mobile.jpg)
