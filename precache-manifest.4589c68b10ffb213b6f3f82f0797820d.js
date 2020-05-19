@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2de81daafd6ddc83f509ba7c70d2e826",
+    "revision": "42317fc771b99c30eacf1f71c350f770",
     "url": "/pupigram/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pupigram/static/css/2.f50f06fd.chunk.css"
   },
   {
-    "revision": "a7f15eaeaea02211e8d5",
-    "url": "/pupigram/static/css/main.9a69bb04.chunk.css"
+    "revision": "667d32d334afcc18518e",
+    "url": "/pupigram/static/css/main.edd77b99.chunk.css"
   },
   {
     "revision": "abbea524b4d47482f246",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pupigram/static/js/2.f1dfc4cf.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a7f15eaeaea02211e8d5",
-    "url": "/pupigram/static/js/main.8fa3e719.chunk.js"
+    "revision": "667d32d334afcc18518e",
+    "url": "/pupigram/static/js/main.719e5306.chunk.js"
   },
   {
     "revision": "abf3d0833c4634d33f39",
