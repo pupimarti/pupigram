@@ -28,11 +28,20 @@
     ]
   },
   {
+    "id": 3,
+    "user": "samantha",
+    "img": ["https://cdn.pixabay.com/photo/2014/12/16/22/25/youth-570881_960_720.jpg", "https://cdn.pixabay.com/photo/2017/07/31/21/04/people-2561053_960_720.jpg"],
+    "desc": "😀😀",
+    "likes": ["pupi_marti"],
+    "time": "Sun May 17 2020 23:02:41 GMT-0300",
+    "comments": []
+  },
+  {
     "id": 2,
     "user": "default",
     "img": ["https://i.ibb.co/p1ftX9s/logo.jpg"],
     "desc": "Hola pupigram!",
-    "likes": ["leomessi", "thisisbillgates", "pupi_marti"],
+    "likes": ["leomessi", "thisisbillgates", "pupi_marti", "samantha"],
     "time": "Sun May 17 2020 23:02:41 GMT-0300",
     "comments": [
       {

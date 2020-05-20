@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import users_json from 'components/users.json';
-import notif_json from 'components/notif.json';
-import posts_json from 'components/posts.json';
-import directs_json from 'components/directs.json';
+import users_json from 'DB/users.json';
+import notif_json from 'DB/notif.json';
+import posts_json from 'DB/posts.json';
+import directs_json from 'DB/directs.json';
 
 const Context = React.createContext ({});
 

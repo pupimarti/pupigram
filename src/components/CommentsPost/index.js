@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import users from "../users-min.json";
 import { useLocation } from "react-router-dom";
 import NoPage from "../NoPage";
 import Comment from "../Post/Comment";
@@ -38,10 +37,6 @@ export default function CommentsPost() {
     }
   }, [postId, posts]);
 
-  const getUser = (name) => {
-    for (var u of users) if (u.user === name) return u;
-    return null;
-  };
 
   const [commentsUser, setCommentsUser] = useState([]);
   const handleChangeCommentsUser = (c) => {
@@ -61,7 +56,7 @@ export default function CommentsPost() {
       />
       {data.comments &&
         data.comments.map((c, i) => {
-          var userComment = getUser(c.user);
+          var userComment = getUserMin(c.user);
           if (userComment !== null)
             return (
               <CommentsUser

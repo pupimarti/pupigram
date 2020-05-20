@@ -6,8 +6,8 @@
     "name": "Anónimo",
     "desc": "Cuenta por defecto para visitante de Pupigram",
     "web": "pupimarti.github.io/pupigram/#/",
-    "followers": ["leomessi", "thisisbillgates", "pupi_marti"],
-    "follows": ["pupi_marti", "leomessi", "thisisbillgates"]
+    "followers": ["leomessi", "thisisbillgates", "pupi_marti", "samantha"],
+    "follows": ["pupi_marti", "leomessi", "thisisbillgates", "samantha"]
   },
   {
     "user": "leomessi",
@@ -37,6 +37,16 @@
     "desc": "Desarrollador de Pupigram.",
     "web": "www.linkedin.com/in/pupimarti/",
     "followers": ["default", "leomessi", "thisisbillgates"],
+    "follows": ["default"]
+  },
+  {
+    "user": "samantha",
+    "verify": false,
+    "picture": "https://cdn.pixabay.com/photo/2018/01/06/09/25/hijab-3064633_960_720.jpg",
+    "name": "Samantha Juarez",
+    "desc": "Me gustan los animales",
+    "web": "",
+    "followers": ["default"],
     "follows": ["default"]
   }
 ]
