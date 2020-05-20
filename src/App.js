@@ -79,7 +79,7 @@ function App() {
                   </Switch>
                   <p className="footer">
                     © 2020 PUPIGRAM DESARROLLADO POR{" "}
-                    <a href="www.google.com">JUAN A. MARTÍ</a>
+                    <a href="https://www.linkedin.com/in/pupimarti/" target="_blank" rel="noopener noreferrer">JUAN A. MARTÍ</a>
                   </p>
                 </div>
               </div>
