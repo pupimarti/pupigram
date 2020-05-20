@@ -56,14 +56,17 @@ export default function Notif(props) {
       {notif && !notif.visualized &&
             <div className="notif-alert pc"></div>
           }
+      {open &&
+      <div className="notif-triangulo"></div>}
 
       <div className={open ? "content-notif pc" : "invisible"}>
         {notif &&
           notif.notif.map((n, i) => {
             var img = "";
-            if(n.type === "like"){
+            if(n.type === "like" || n.type === "comment"){
               img = getImgPost(n.post, posts);
             }
+            
             return (
               <React.Fragment key={i}>
                 {i > 0 && <div className="divisor-notif"></div>}
@@ -71,6 +74,7 @@ export default function Notif(props) {
                   type={n.type}
                   time={n.time}
                   post={n.post}
+                  comment={n.comment}
                   img={img}
                   user={getUserMin(n.user)}
                 />

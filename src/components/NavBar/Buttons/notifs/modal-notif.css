@@ -5,7 +5,10 @@
 .notif-select{
     filter: brightness(0) !important;
     transition: 0s !important;
+    position: relative;
 }
+
+
 
 .dark .notif-select{
     filter:  brightness(0) invert(1) !important;
@@ -21,12 +24,10 @@
     bottom: 0;
 }
 
-
-.content-notif::before{
-    content: "";
+.notif-triangulo{
     position: absolute;
-    top:-7px;
-    right: 12px;
+    bottom:-10px;
+    right: 15px;
     width: 15px;
     height: 15px;
     -webkit-transform: rotate(45deg);
@@ -37,12 +38,14 @@
     box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.1);
     background-color: #FFF;
     transition: all .3s ease;
+    z-index: 1;
 }
+
 
 .content-notif{
     position: absolute;
     top:40px;
-    right:0;
+    right:-10px;
     width: 500px;
     height: 362px;
     border-radius: 5px 0 0 5px;
@@ -50,13 +53,14 @@
     background-color: #FFF;
     border: #dbdbdb 1px solid;
     transition: all .3s ease;
+    overflow-y: auto;
 }
 
-.dark .content-notif, .dark .content-notif::before{
+.dark .content-notif, .dark .notif-triangulo{
     background-color: #262626;
 }
 
-.dark .content-notif::before{
+.dark .notif-triangulo{
     box-shadow: -2px -2px 2px rgba(255, 255, 255, 0.1);
 }
 .dark .content-notif{

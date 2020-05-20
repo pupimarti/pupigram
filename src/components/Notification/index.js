@@ -14,6 +14,8 @@ export default function Notification(props) {
           return "ha comenzado a seguirte."
       case "like":
           return "le ha gustado tu foto."
+      case "comment":
+          return "ha comentado: " + props.comment
       case "name":
         return ""
       default:
@@ -36,6 +38,8 @@ export default function Notification(props) {
           )}
         </Link>
         <p className="user-account">
+          {props.type === "like" && 
+        <span className="msj-notif">A </span>}
           <Link to={"/" + props.user.user}>{props.user.user}</Link>
           {props.user.verify && " " && (
             <img className="verify" src={verify} alt="Verificado" />
@@ -52,7 +56,7 @@ export default function Notification(props) {
           </span>
         </p>
       </div>
-      {props.type === "like"
+      {props.type === "like" || props.type === "comment"
       ?<Link to={"/posts/" + props.post}><img src={props.img} className="img-notification" alt="imagen de la publicacion" /></Link>
       :<ButtonFollow user="default" user_follow={props.user.user} />
       }

@@ -27,3 +27,10 @@
     height: 40px;
     margin-right: 20px;
 }
+
+@media screen and (max-width:800px){
+    .img-notification{
+        margin-right: 0;
+        margin-left: 5px;
+    }
+}

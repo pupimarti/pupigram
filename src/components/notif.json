@@ -4,9 +4,23 @@
     "visualized": false,
     "notif": [
       {
+        "user": "thisisbillgates",
+        "type": "comment",
+        "post": 2,
+        "comment": "You are the best.",
+        "time": "Sun May 19 2020 20:52:41 GMT-0300"
+      },
+      {
         "user": "pupi_marti",
         "type": "like",
         "post": 2,
+        "time": "Sun May 19 2020 20:52:41 GMT-0300"
+      },
+      {
+        "user": "leomessi",
+        "type": "comment",
+        "post": 2,
+        "comment": "Que habilidad!",
         "time": "Sun May 19 2020 20:52:41 GMT-0300"
       },
         {
