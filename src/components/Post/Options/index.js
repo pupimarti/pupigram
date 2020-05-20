@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import ReactModal from "react-modal";
 import { Link } from "react-router-dom";
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 import "./css.css";
 
 export default function Options(props) {
   const [open, setOpen] = useState(false);
   const handleCloseModal = () => setOpen(false);
   const handleOpenModal = () => setOpen(true);
+
+  const handleCopyTextOk = () => {
+    handleCloseModal();
+    alert('Enlace copiado en el portapapeles.');
+  }
 
   ReactModal.setAppElement("#root");
   return (
@@ -25,21 +31,28 @@ export default function Options(props) {
         <div className="modal">
           <a
             href={
-              "whatsapp://send?text=%20https://pupimarti.github.io/pupigram#/posts/" +
+              "https://twitter.com/intent/tweet?text=https%3A%2F%2Fpupimarti.github.io%2Fpupigram%23%2Fposts%2F" +
               props.id
             }
-            data-action="share/whatsapp/share"
+            target="_blank"
+            rel="noopener noreferrer"
             className="action-modal"
           >
             Compartir
           </a>
-          <div className="action-modal action-modal-bt">Copiar enlace</div>
+
+          <CopyToClipboard text={"https://pupimarti.github.io/pupigram/#/posts/"+props.id}
+            onCopy={handleCopyTextOk}>
+            <div className="action-modal action-modal-bt">Copiar enlace</div>
+          </CopyToClipboard>
+
           <Link
             to={"/posts/" + props.id}
             className="action-modal action-modal-bt"
           >
             Ir a la publicación
           </Link>
+
           <div
             className="action-modal action-modal-bt"
             onClick={handleCloseModal}
