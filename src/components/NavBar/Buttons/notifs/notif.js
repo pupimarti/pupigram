@@ -75,7 +75,7 @@ export default function Notif(props) {
                   time={n.time}
                   post={n.post}
                   comment={n.comment}
-                  img={img}
+                  img={img[0]}
                   user={getUserMin(n.user)}
                 />
               </React.Fragment>
