@@ -7,12 +7,13 @@ import directs_json from 'DB/directs.json';
 const Context = React.createContext ({});
 
 export function AppContextProvider({children}){
+    const [user, setUser] = useState(null);
     const [users, setUsers] = useState(users_json);
     const [notifs, setNotifs] = useState(notif_json);
     const [posts, setPosts] = useState(posts_json);
     const [directs, setDirects] = useState(directs_json);
     return (
-    <Context.Provider value={{users, setUsers, notifs, setNotifs, posts, setPosts, directs, setDirects}}>
+    <Context.Provider value={{user, setUser, users, setUsers, notifs, setNotifs, posts, setPosts, directs, setDirects}}>
         {children}
     </Context.Provider>
     );

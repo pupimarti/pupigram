@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "firebase": "^7.14.6",
     "react": "^16.13.1",
     "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "^16.13.1",
@@ -14,7 +15,8 @@
     "react-responsive-carousel": "^3.2.7",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
-    "react-time-ago": "^5.0.8"
+    "react-time-ago": "^5.0.8",
+    "reactfire": "^2.0.3"
   },
   "scripts": {
     "start": "react-scripts start",

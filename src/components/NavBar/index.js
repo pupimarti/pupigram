@@ -35,6 +35,7 @@ export default function NavBar(props) {
         pathExplore={pathExplore}
         pathAccount={pathAccount}
         setImg={props.setImg}
+        handleLogoutUser={props.handleLogoutUser}
         />
       </div>
     </div>

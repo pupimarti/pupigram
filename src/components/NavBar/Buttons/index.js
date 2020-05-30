@@ -35,6 +35,7 @@ export default function Buttons(props) {
 
   return (
     <div className="content-buttons">
+      <img onClick={() => props.handleLogoutUser()} className="icon" alt="logit" src={home}></img>
       {path === pathHome ? (
         <img className="icon" src={homeSelect} alt="Home" />
       ) : (

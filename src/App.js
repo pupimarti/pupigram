@@ -14,6 +14,9 @@ import { AppContextProvider } from "components/Context/AppContext";
 import ViewFollows from "components/ViewFollows";
 import Directs from "components/Directs/index";
 import AddPost from "components/AddPost";
+import Login from 'components/Login';
+import { useUser } from "reactfire";
+import firebase from 'firebase/app';
 
 JavascriptTimeAgo.locale(es);
 
@@ -28,6 +31,16 @@ function App() {
   const [newPost, setNewPost] = useState(null);
   const handleSetImgNewPost = (img) => setNewPost(img);
 
+  const [user, setUser] = useState(useUser());
+  
+  const handleLogoutUser = () => {
+    firebase.auth().signOut();
+    setUser(null);
+  }
+
+  if(!user)
+      return(<Login user={user} setUser={setUser} />);
+
   return (
     <div className={mode ? "dark" : "light"}>
       <AppContextProvider>
@@ -40,7 +53,7 @@ function App() {
             </div>
           ) : (
             <React.Fragment>
-              <NavBar setImg={handleSetImgNewPost} setMode={handleChangeMode} />
+              <NavBar user={user} handleLogoutUser={handleLogoutUser} setImg={handleSetImgNewPost} setMode={handleChangeMode} />
               <div className="content-app">
                 <div className="app">
                   <Switch>
@@ -90,5 +103,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
