@@ -25,10 +25,14 @@ export default function User() {
 
   useEffect(() => {
         var user = getUser(userPath, users);
-        const postsUser = getPosts(posts, user.user);
-        user.posts = postsUser.reverse();
-        setData(user);
-        setLoadingFollow(false);
+        if(user !== null){
+          const postsUser = getPosts(posts, user.user);
+          user.posts = postsUser.reverse();
+          setData(user);
+          setLoadingFollow(false);
+        }else{
+          setData(null);
+        }
       
   }, [userPath, users, posts, data, loadingFollow]);
 

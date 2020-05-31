@@ -18,9 +18,8 @@ import Login from 'components/Login';
 import { useUser } from "reactfire";
 import firebase from 'firebase/app';
 import getUserMail from "components/services/getUserMail";
-import createUser from "components/services/createUser";
-import Loading from "components/Loading";
 import SignUp from 'components/SignUp';
+import Loading from "components/Loading";
 
 JavascriptTimeAgo.locale(es);
 
@@ -45,10 +44,13 @@ function App() {
   }
 
   const getAccount = async () => {
+    setLoading(true);
     const account = await getUserMail(user.email);
     if(!account){
-      createUser({user:"pupi_marti", mail: user.email, name: user.displayName, picture:user.photoURL, password:"salamon"});
+      setLoading(false);
+        return null;
     }else{
+      setLoading(false);
       setProfile({
         user: account.user,
         mail: account.data.mail,
@@ -58,9 +60,13 @@ function App() {
     }
   }
 
+    const [loading, setLoading] = useState(false);
 
+    if(loading) return <Loading />
 
-  if(!user){
+    if(!user || !profile){
+      if(user && !profile)
+        getAccount();
     return(
       <AppContextProvider>
         <HashRouter basename="/">
@@ -68,20 +74,16 @@ function App() {
             <Route exact path="/login">
               <Login user={user} setUser={setUser} />
             </Route>
-            <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/signup">
+              <SignUp user={user} setUser={setProfile} />
+            </Route>
             <Redirect to="/login" />
           </Switch>
         </HashRouter>
       </AppContextProvider>
     )
   }
-
   
-  if(user && !profile){
-        getAccount();
-        return(<Loading />)
-    }
-      
   return (
     <div className={mode ? "dark" : "light"}>
       <AppContextProvider>
@@ -127,6 +129,12 @@ function App() {
                     </Route>
                     <Route exact path="/followers/:user">
                       <ViewFollows followers />
+                    </Route>
+                    <Route exact path="/login">
+                      <Redirect to="/"/>
+                    </Route>
+                    <Route exact path="/signup">
+                      <Redirect to="/"/>
                     </Route>
                     <Route exact path="/:user" component={User} />
                     <Route exact path="/" component={List} />

@@ -9,3 +9,9 @@
   font-size: 0.7em;
   margin: 10px 0;
 }
+
+.form .img-user{
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}

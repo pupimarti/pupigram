@@ -5,10 +5,8 @@ import './css.css';
 import Loading from 'components/Loading';
 import { useHistory } from "react-router-dom";
 
-export default function Sesion(props) {
-
+export default function LogIn(props) {
     
-
     const [loading, setLoading] = useState(false);
     const handleSetLoading = (value) =>{
         setLoading(value);
