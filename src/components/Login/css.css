@@ -1,10 +1,14 @@
 .login-page {
-    padding: 8% 0 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    align-content: center;
     text-align: center;
+    color: #262626;
+    background-color: #FAFAFA;
+    width: 100vw;
+    height: 100vh;
   }
 
   .title-form{
@@ -15,52 +19,85 @@
       text-align: center;
   }
 
-  .errors{
-    width: 100%;
-  }
-
-  .errors > p{
-    background-color: #a34a4a;
-    color: #fff;
-    width: 80%;
-    margin: 10px auto;
-    padding:10px;
-  }
-
   .form {
-    width: 90vw;
-    max-width: 300px;
+    width: 100vw;
+    max-width: 380px;
     margin: auto;
-    padding: 45px;
+    padding-right: 45px;
+    padding-left: 45px;
     text-align: center;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    background-color: #FFF;
+    border: 1px solid rgba(219,219,219,1);
+    box-sizing: border-box;
+  }
+
+  .form .logo-login{
+    width: 175px;
+    margin: 22px 0;
   }
 
   .form input {
     outline: 0;
-    background: #f2f2f2;
+    background: #FAFAFA;
     width: 100%;
-    border: 0;
+    border: 1px solid rgba(219,219,219,1);
     margin: 0 0 15px;
-    padding: 15px;
+    padding: 9px 8px 7px 9px;
     box-sizing: border-box;
     font-size: 14px;
   }
 
-  .form button {
-    text-transform: uppercase;
-    outline: 0;
-    background: #000;
+  .form .button{
     width: 100%;
-    border: 0;
-    padding: 15px;
-    color: #FFFFFF;
-    font-size: 16px;
-    -webkit-transition: all 0.3 ease;
-    transition: all 0.3 ease;
-    cursor: pointer;
   }
 
-  .form button:hover,.form button:active,.form button:focus {
-    background: #ccc;
+  .form .divisor-login{
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    color: rgba(0, 0, 0, .5);
+    margin: 16px 0;
+  }
+
+  .form .divisor-login hr{
+    width: 30%;
+    background-color: none;
+    border: 0.1px solid rgba(0, 0, 0, .1)
+  }
+
+  .form .login-google{
+    font-size: 0.8em;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 16px 0;
+  }
+
+  
+  .form .error{
+    font-size: 0.7em;
+    color: #ED4956;
+    margin-bottom: 16px;
+  }
+
+  .form .forget-password{
+    font-size: 0.7em;
+    color: #00376B;
+    margin-bottom: 16px;
+  }
+
+  .w100{
+    width: 100%;
+  }
+
+  .login-no-account{
+    margin: 10px auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 0.7em;
+    color: #262626;
+  }
+  
+  .login-no-account span{
+    color: #0095F6;
+    font-weight: 500;
   }

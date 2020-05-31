@@ -1,5 +1,5 @@
 import React from "react";
-import pupigram from "./pupigram.png";
+import pupigram from "img/pupigram.png";
 import Buttons from "./Buttons";
 import SwitchMode from "./SwitchMode";
 import Direct from "./Buttons/directsIcon";
