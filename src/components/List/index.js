@@ -1,7 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react';
 import Post from 'components/Post';
 import getPosts from 'components/services/getPosts';
-import getUserMin from 'components/services/getUserMin';
 import Loading from 'components/Loading';
 import PostsContext from 'components/Context/AppContext';
 
@@ -49,18 +48,11 @@ export default function List() {
     return (
         <React.Fragment>
             {data && data.map((post) => {
-                var picture_user = "";
-                var verify = false;
-                const user = getUserMin(post.user);
-                picture_user = user.picture;
-                verify = user.verify;
                 return(
                     <Post 
                     key={post.id}
                     id={post.id}
-                    user_img={picture_user}
                     user={post.user}
-                    verify={verify}
                     img={post.img}
                     desc={post.desc}
                     likes={post.likes}

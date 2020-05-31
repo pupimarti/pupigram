@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./css.css";
 import account from "img/account.svg";
 import comment from "img/chat.svg";
@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import ReactTimeAgo from "react-time-ago";
 import Options from "./Options";
 import Img from './Img';
+import getUserMin from "components/services/getUserMin";
 
 export default function Post(props) {
   const [likes, setLikes] = useState(props.likes.length);
@@ -40,17 +41,29 @@ export default function Post(props) {
     props.addComment(c, "default", props.id);
   };
 
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    if(!user){
+      const get_user = async () => {
+        const u = await getUserMin(props.user);
+        setUser(u);
+      }
+      get_user();
+    }
+  }, [props.user, user, setUser]);
+
   return (
     <div className="content-post">
       <div className="center-post header-post">
         <Link to={"/" + props.user} className="user-post">
-          {props.user_img ? (
-            <img className="img-account" src={props.user_img} alt="account" />
+          {(user && user.picture) ? (
+            <img className="img-account" src={user.picture} alt="account" />
           ) : (
             <img className="default-img" src={account} alt="account" />
           )}
           <p className="user-account">{props.user}</p>
-          {props.verify && (
+          {user && user.verify && (
             <img className="verify" src={verify} alt="Verificado" />
           )}
         </Link>
