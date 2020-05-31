@@ -9,13 +9,10 @@ import add from "./add.svg";
 import { Link } from "react-router-dom";
 import Directs from './directsIcon';
 import "./css.css";
-import getUserMin from "components/services/getUserMin";
 
 
 export default function Buttons(props) {
   const path = props.path;
-
-  const user = getUserMin("default");
 
   
   const handleChangeImage = (e) => {
@@ -59,7 +56,7 @@ export default function Buttons(props) {
       </Link> */}
       <Notif user="default" path={path} />
       <Link to={pathAccount}>
-        <img className="icon-account" src={user.picture} alt="Cuenta" />
+        <img className="icon-account" src={props.user.picture} alt="Cuenta" />
       </Link>
     </div>
   );

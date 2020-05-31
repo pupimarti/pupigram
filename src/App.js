@@ -17,6 +17,9 @@ import AddPost from "components/AddPost";
 import Login from 'components/Login';
 import { useUser } from "reactfire";
 import firebase from 'firebase/app';
+import getUserMail from "components/services/getUserMail";
+import createUser from "components/services/createUser";
+import Loading from "components/Loading";
 
 JavascriptTimeAgo.locale(es);
 
@@ -32,15 +35,37 @@ function App() {
   const handleSetImgNewPost = (img) => setNewPost(img);
 
   const [user, setUser] = useState(useUser());
+
+  const [profile, setProfile] = useState(null);
   
   const handleLogoutUser = () => {
     firebase.auth().signOut();
     setUser(null);
   }
 
+  const getAccount = async () => {
+    const account = await getUserMail(user.email);
+    if(!account){
+      createUser({user:"pupi_marti", mail: user.email, name: user.displayName, picture:user.photoURL});
+    }else{
+      setProfile({
+        user: account.user,
+        mail: account.data.mail,
+        name: account.data.name,
+        picture: account.data.picture
+      });
+    }
+  }
+
+
   if(!user)
       return(<Login user={user} setUser={setUser} />);
 
+  if(user && !profile){
+        getAccount();
+        return(<Loading />)
+    }
+      
   return (
     <div className={mode ? "dark" : "light"}>
       <AppContextProvider>
@@ -53,7 +78,7 @@ function App() {
             </div>
           ) : (
             <React.Fragment>
-              <NavBar user={user} handleLogoutUser={handleLogoutUser} setImg={handleSetImgNewPost} setMode={handleChangeMode} />
+              <NavBar user={profile} handleLogoutUser={handleLogoutUser} setImg={handleSetImgNewPost} setMode={handleChangeMode} />
               <div className="content-app">
                 <div className="app">
                   <Switch>
