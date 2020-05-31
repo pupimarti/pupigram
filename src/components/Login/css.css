@@ -100,4 +100,5 @@
   .login-no-account span{
     color: #0095F6;
     font-weight: 500;
+    cursor: pointer;
   }

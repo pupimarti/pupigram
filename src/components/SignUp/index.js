@@ -3,18 +3,16 @@ import firebase from 'firebase/app';
 import pupigram from 'img/pupigram.png';
 import './css.css';
 import Loading from 'components/Loading';
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 
 export default function Sesion(props) {
-
-    
 
     const [loading, setLoading] = useState(false);
     const handleSetLoading = (value) =>{
         setLoading(value);
     }
 
-    const [data, setData] = useState({user: '', password: ''});
+    const [data, setData] = useState({mail: '', name: '', user: '', password: ''});
     const handleSetData = (d) =>{
         setData(d);
     }
@@ -71,9 +69,10 @@ export default function Sesion(props) {
         return "";
     }
 
+    
     let history = useHistory();
-    const signUp = () => {
-        history.push('/signup');
+    const logIn = () => {
+        history.push('/login');
     }
 
     return(
@@ -81,9 +80,30 @@ export default function Sesion(props) {
             <div className="form">
                 <form className="login-form" onSubmit={handleOnClick}>
                     <img src={pupigram} alt="logo" className="logo-login" />
+                    <h4 className="text-register">Regístrate para ver fotos y videos de tus amigos.</h4>
+                    <button onClick={handleOnClickGoogle} className="button follow">Iniciar sesión con Google</button>
+                    <div className="divisor-login">
+                        <hr/>
+                        o
+                        <hr/>
+                    </div>
                     <input 
                     type="text" 
-                    placeholder="Usuario"
+                    placeholder="Correo electrónico"
+                    name="mail"
+                    onChange={handleInputChange}
+                    value={data.mail}
+                    />
+                    <input 
+                    type="text" 
+                    placeholder="Nombre completo"
+                    name="name"
+                    onChange={handleInputChange}
+                    value={data.name}
+                    />
+                    <input 
+                    type="text" 
+                    placeholder="Nombre de usuario"
                     name="user"
                     onChange={handleInputChange}
                     value={data.user}
@@ -95,21 +115,15 @@ export default function Sesion(props) {
                     onChange={handleInputChange}
                     value={data.password}
                     />
-                    <button className="button follow" onClick={handleOnClick}>{loading ? <Loading /> : "Iniciar sesión"}</button>
-                    <div className="divisor-login">
-                        <hr/>
-                        o
-                        <hr/>
-                    </div>
-                    <p onClick={handleOnClickGoogle} className="login-google">Iniciar sesión con Google</p>
+                    <button className="button follow" onClick={handleOnClick}>{loading ? <Loading /> : "Registrarte"}</button>
                     {error && 
                     <p className="error">{getError()}</p>}
-                    <p className="forget-password">¿Has olvidado la contraseña?</p>
+                    <p className="conditions">Al registrarte, aceptas nuestras Condiciones, la Política de datos y la Política de cookies.</p>
                 </form>
             </div>
             <div className="w100">
                 <div className="form login-no-account">
-                    <p className="no-account">¿No tienes una cuenta? <span onClick={() => signUp()}>Regístrate</span></p>
+                    <p className="no-account">¿Tienes una cuenta? <span onClick={() => logIn()}>Entrar</span></p>
                 </div>
             </div>
         </div>

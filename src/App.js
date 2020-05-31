@@ -3,7 +3,7 @@ import NavBar from "./components/NavBar";
 import List from "./components/List";
 import User from "./components/User";
 import PostId from "./components/PostId";
-import { HashRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
 import "./App.css";
 import JavascriptTimeAgo from "javascript-time-ago";
 import es from "javascript-time-ago/locale/es";
@@ -20,6 +20,7 @@ import firebase from 'firebase/app';
 import getUserMail from "components/services/getUserMail";
 import createUser from "components/services/createUser";
 import Loading from "components/Loading";
+import SignUp from 'components/SignUp';
 
 JavascriptTimeAgo.locale(es);
 
@@ -46,7 +47,7 @@ function App() {
   const getAccount = async () => {
     const account = await getUserMail(user.email);
     if(!account){
-      createUser({user:"pupi_marti", mail: user.email, name: user.displayName, picture:user.photoURL});
+      createUser({user:"pupi_marti", mail: user.email, name: user.displayName, picture:user.photoURL, password:"salamon"});
     }else{
       setProfile({
         user: account.user,
@@ -58,9 +59,24 @@ function App() {
   }
 
 
-  if(!user)
-      return(<Login user={user} setUser={setUser} />);
 
+  if(!user){
+    return(
+      <AppContextProvider>
+        <HashRouter basename="/">
+          <Switch>
+            <Route exact path="/login">
+              <Login user={user} setUser={setUser} />
+            </Route>
+            <Route exact path="/signup" component={SignUp} />
+            <Redirect to="/login" />
+          </Switch>
+        </HashRouter>
+      </AppContextProvider>
+    )
+  }
+
+  
   if(user && !profile){
         getAccount();
         return(<Loading />)
