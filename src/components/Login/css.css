@@ -67,9 +67,8 @@
 
   .form .login-google{
     font-size: 0.8em;
-    font-weight: 500;
-    cursor: pointer;
-    margin: 16px 0;
+    margin-bottom: 10px;
+    box-sizing: border-box;
   }
 
   

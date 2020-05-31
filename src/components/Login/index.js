@@ -6,7 +6,7 @@ import Loading from 'components/Loading';
 import { useHistory } from "react-router-dom";
 
 export default function LogIn(props) {
-    
+
     const [loading, setLoading] = useState(false);
     const handleSetLoading = (value) =>{
         setLoading(value);
@@ -22,14 +22,25 @@ export default function LogIn(props) {
         const name = target.name;
         handleSetData({...data, [name]: target.value})
     }
+    
+    const handleOnClickAnonymus = async (e) =>{
+        e.preventDefault();
+        handleSetLoading(true);
 
+        await firebase.auth().signInAnonymously()
+        .then(r => props.setUser({email: "default@gmail.com"}))
+        .catch(e => {
+            handleSetLoading(false);
+            setError(e);
+        }
+        );
+    }
 
     const handleOnClick = async (e) => {
         e.preventDefault();
         handleSetLoading(true);
 
         await firebase.auth().signInWithEmailAndPassword(data.user, data.password)
-        
         .then(r => props.setUser(r.user))
         .catch(e => {
             handleSetLoading(false);
@@ -81,10 +92,11 @@ export default function LogIn(props) {
                     <img src={pupigram} alt="logo" className="logo-login" />
                     <input 
                     type="text" 
-                    placeholder="Usuario"
+                    placeholder="E-mail"
                     name="user"
                     onChange={handleInputChange}
                     value={data.user}
+                    disabled
                     />
                     <input 
                     type="password" 
@@ -92,14 +104,15 @@ export default function LogIn(props) {
                     name="password"
                     onChange={handleInputChange}
                     value={data.password}
+                    disabled
                     />
-                    <button className="button follow" onClick={handleOnClick}>{loading ? <Loading /> : "Iniciar sesión"}</button>
+                    <button className="button follow" onClick={handleOnClickAnonymus}>{loading ? <Loading /> : "Ingresar como anónimo"}</button>
                     <div className="divisor-login">
                         <hr/>
                         o
                         <hr/>
                     </div>
-                    <p onClick={handleOnClickGoogle} className="login-google">Iniciar sesión con Google</p>
+                    <p onClick={handleOnClickGoogle} className="login-google button follow">Iniciar sesión con Google</p>
                     {error && 
                     <p className="error">{getError()}</p>}
                     <p className="forget-password">¿Has olvidado la contraseña?</p>
