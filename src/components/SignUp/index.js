@@ -33,8 +33,9 @@ export default function SignUp(props) {
     e.preventDefault();
     handleSetLoading(true);
     if (props.user) {
-      if (createUser(data.user, data.mail, data.name, props.user.photoURL))
-        props.setUser(null);
+      const create = await createUser(data.user, data.mail, data.name, props.user.photoURL);
+      if(create)
+        props.setProfile(null);
     } else {
       await firebase
         .auth()
@@ -63,20 +64,6 @@ export default function SignUp(props) {
   };
 
   const [error, setError] = useState(null);
-
-  const getError = () => {
-    if (error) {
-      switch (error.code) {
-        case "auth/user-not-found":
-          return "El nombre de usuario que has introducido no pertenece a ninguna cuenta. Comprueba tu nombre de usuario y vuelve a intentarlo.";
-        case "auth/wrong-password":
-          return "Tu contraseña no es correcta. Vuelve a comprobarla.";
-        default:
-          return "Usuario o contraseña incorrectos.";
-      }
-    }
-    return "";
-  };
 
   let history = useHistory();
   const logIn = () => {
@@ -109,6 +96,7 @@ export default function SignUp(props) {
             name="mail"
             onChange={handleInputChange}
             value={data.mail}
+            disabled={props.user}
           />
           <input
             type="text"
@@ -116,6 +104,7 @@ export default function SignUp(props) {
             name="name"
             onChange={handleInputChange}
             value={data.name}
+            disabled={props.user}
           />
           <input
             type="text"
@@ -130,11 +119,12 @@ export default function SignUp(props) {
             name="password"
             onChange={handleInputChange}
             value={data.password}
+            disabled={props.user}
           />
           <button className="button follow" onClick={handleOnClick}>
             {loading ? <Loading /> : "Registrarte"}
           </button>
-          {error && <p className="error">{getError()}</p>}
+          {error && <p className="error">{error.message}</p>}
           <p className="conditions">
             Al registrarte, aceptas nuestras Condiciones, la Política de datos y
             la Política de cookies.

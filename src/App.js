@@ -73,7 +73,6 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   if (loading) return <Loading />;
-
   if (!user || !profile || profile === "none") {
      if (user && !profile) getAccount();  
     return (

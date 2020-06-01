@@ -1,13 +1,13 @@
 import firebase from 'firebase';
 import 'firebase/firestore';
 
-export default async function createUser(user, mail, name, picture) {
+export default async function createUser(user, email, name, picture) {
     const db = firebase.firestore();
     let result = null;
     await db.collection('users').doc(user)
         .set({
             name,
-            mail,
+            email,
             picture,
             verify:false,
             web: "",
@@ -15,9 +15,20 @@ export default async function createUser(user, mail, name, picture) {
             follows: [],
             desc: "Usuario pupigram",
         })
-        .then(() => {
-            result = true;
-            console.log('creado')
+        .then(async () => {
+            await db.collection('users-min').doc(user)
+            .set({
+                picture,
+                verify:false
+            })
+            .then(() => {
+                result = true;
+                console.log('creado')
+            })
+            .catch((e) => {
+                result = false;
+                console.log("Error getting documents: ", e);
+        });
         })
         .catch((e) => {
             result = false;
