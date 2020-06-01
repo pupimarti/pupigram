@@ -14,12 +14,13 @@ import { AppContextProvider } from "components/Context/AppContext";
 import ViewFollows from "components/ViewFollows";
 import Directs from "components/Directs/index";
 import AddPost from "components/AddPost";
-import Login from 'components/Login';
+import Login from "components/Login";
 import { useUser } from "reactfire";
-import firebase from 'firebase/app';
+import firebase from "firebase/app";
 import getUserMail from "components/services/getUserMail";
-import SignUp from 'components/SignUp';
+import SignUp from "components/SignUp";
 import Loading from "components/Loading";
+/*  import syncronicUsers from "components/services/syncronicUsers";  */
 
 JavascriptTimeAgo.locale(es);
 
@@ -31,59 +32,66 @@ function App() {
   );
   const handleChangeMode = () => setMode(!mode);
 
+  /*  syncronicUsers();  */
+
   const [newPost, setNewPost] = useState(null);
   const handleSetImgNewPost = (img) => setNewPost(img);
 
   const [user, setUser] = useState(useUser());
 
+  const handleSetUser = (u) => {
+    setProfile(null);
+    setUser(u);
+  }
+
   const [profile, setProfile] = useState(null);
-  
+
   const handleLogoutUser = () => {
     firebase.auth().signOut();
     setUser(null);
-  }
+  };
 
   const getAccount = async () => {
     setLoading(true);
     const account = await getUserMail(user.email);
-    if(!account){
+    if (!account) {
       setLoading(false);
-        return null;
-    }else{
+      setProfile("none");
+    } else {
       setLoading(false);
       setProfile({
         user: account.user,
         mail: account.data.mail,
         name: account.data.name,
-        picture: account.data.picture
+        picture: account.data.picture,
       });
     }
-  }
+  };
 
-    const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-    if(loading) return <Loading />
+  if (loading) return <Loading />;
 
-    if(!user || !profile){
-      if(user && !profile)
-        getAccount();
-    return(
+  if (!user || !profile || profile === "none") {
+    if (user && !profile) getAccount();
+
+    return (
       <AppContextProvider>
         <HashRouter basename="/">
           <Switch>
             <Route exact path="/login">
-              <Login user={user} setUser={setUser} />
+              <Login user={user} setUser={handleSetUser} setProfile={setProfile} />
             </Route>
             <Route exact path="/signup">
-              <SignUp user={user} setUser={setProfile} />
+              <SignUp user={user} setUser={handleSetUser} setProfile={setProfile} />
             </Route>
             <Redirect to="/login" />
           </Switch>
         </HashRouter>
       </AppContextProvider>
-    )
+    );
   }
-  
+
   return (
     <div className={mode ? "dark" : "light"}>
       <AppContextProvider>
@@ -96,7 +104,12 @@ function App() {
             </div>
           ) : (
             <React.Fragment>
-              <NavBar user={profile} handleLogoutUser={handleLogoutUser} setImg={handleSetImgNewPost} setMode={handleChangeMode} />
+              <NavBar
+                user={profile}
+                handleLogoutUser={handleLogoutUser}
+                setImg={handleSetImgNewPost}
+                setMode={handleChangeMode}
+              />
               <div className="content-app">
                 <div className="app">
                   <Switch>
@@ -131,17 +144,23 @@ function App() {
                       <ViewFollows followers />
                     </Route>
                     <Route exact path="/login">
-                      <Redirect to="/"/>
+                      <Redirect to="/" />
                     </Route>
                     <Route exact path="/signup">
-                      <Redirect to="/"/>
+                      <Redirect to="/" />
                     </Route>
                     <Route exact path="/:user" component={User} />
                     <Route exact path="/" component={List} />
                   </Switch>
                   <p className="footer">
                     © 2020 PUPIGRAM DESARROLLADO POR{" "}
-                    <a href="https://www.linkedin.com/in/pupimarti/" target="_blank" rel="noopener noreferrer">JUAN A. MARTÍ</a>
+                    <a
+                      href="https://www.linkedin.com/in/pupimarti/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      JUAN A. MARTÍ
+                    </a>
                   </p>
                 </div>
               </div>
@@ -152,6 +171,5 @@ function App() {
     </div>
   );
 }
-
 
 export default App;

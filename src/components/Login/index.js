@@ -22,6 +22,7 @@ export default function LogIn(props) {
         const name = target.name;
         handleSetData({...data, [name]: target.value})
     }
+
     
     const handleOnClickAnonymus = async (e) =>{
         e.preventDefault();
@@ -81,9 +82,14 @@ export default function LogIn(props) {
     }
 
     let history = useHistory();
+
     const signUp = () => {
         history.push('/signup');
     }
+
+    
+    if(props.user)
+        signUp();
 
     return(
         <div className="login-page">

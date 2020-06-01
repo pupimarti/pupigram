@@ -8,7 +8,12 @@ export default async function createUser(user, mail, name, picture) {
         .set({
             name,
             mail,
-            picture
+            picture,
+            verify:false,
+            web: "",
+            followers: [],
+            follows: [],
+            desc: "Usuario pupigram",
         })
         .then(() => {
             result = true;

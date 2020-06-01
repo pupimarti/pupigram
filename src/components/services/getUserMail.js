@@ -6,11 +6,11 @@ export default async function getUserMail(mail) {
     let email = mail;
     if(!mail)
         email = "default@gmail.com";
-    
     var result = null;
-    await db.collection('users').where("mail", "==", email)
+    await db.collection('users').where("email", "==", email)
     .get()
     .then(function(querySnapshot) {
+        console.log(querySnapshot)
         querySnapshot.forEach(function(doc) {
             result = {user: doc.id, data:doc.data()};
         });
