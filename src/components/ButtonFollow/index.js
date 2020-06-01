@@ -1,64 +1,50 @@
-import React, {useState, useContext, useEffect} from 'react';
-import UserContext from 'components/Context/AppContext';
+import React, {useState, useEffect} from 'react';
 import './css.css'
-import getUser from 'components/services/getUser';
-import setUser from 'components/services/setUser';
 import Loading from 'components/Loading';
+import addFollow from 'components/services/addFollow';
+import unfollow from 'components/services/unfollow';
+import getUser from 'components/services/getUser';
 
 export default function ButtonFollow(props) {
-
-    const {users, setUsers} = useContext(UserContext);
-
     const [follow, setFollow] = useState(null);
 
     useEffect(() => {
-        const isFollowing = () => {
-            for(let u of users){
-                if(u.user === props.user){
-                    if(u.follows.length > 0){
-                        for(let i = 0; i < u.follows.length; i++){
-                            if(u.follows[i] === props.user_follow)
-                                return true;
-                        }
-                        return false;
-                    }else{
-                        return false;
-                    }
-                };
+        const isFollowing = async () => {
+            const user = await getUser(props.user);
+            let isfollow = false;
+            if(user.follows.length > 0){
+                for(let i = 0; i < user.follows.length; i++){
+                    if(user.follows[i] === props.user_follow)
+                     isfollow = true;
+                }
             }
-            return false;
+            setFollow(isfollow);
         }
     
-        setFollow(isFollowing);
-    }, [props, users])
+        if(follow === null)
+            isFollowing();
+
+    }, [props, follow])
 
     
-    const handleSetFollow = () => {
-        const user = getUser(props.user, users);
-        const user_follow = getUser(props.user_follow, users);
-        if(user !== null && user_follow !== null){
-            if(!follow){
-                user.follows.push(props.user_follow);
-                user_follow.followers.push(props.user);
-            }else{
-                var i = user.follows.indexOf(props.user_follow);
-                if ( i !== -1 ) 
-                    user.follows.splice( i, 1 );
-                i = user_follow.followers.indexOf(props.user);
-                if ( i !== -1 ) 
-                user_follow.followers.splice( i, 1 );
-            }
-            if(setUser(user, users, setUsers) && setUser(user_follow, users, setUsers)){
-                if(props.setFollowers)
-                    props.setFollowers(!follow);
-                setFollow(!follow);
-            }
+    const handleSetFollow = async () => {
+        let result = null;
+        let actual = follow;
+        setFollow('loading');
+        if(!actual)
+            result = await addFollow(props.user, props.user_follow);
+        else
+            result = await unfollow(props.user, props.user_follow);
+
+        if(result){
+            props.setFollowers(!actual);
+            setFollow(!actual);
         }
     }
-    
+
     if(props.user_follow === props.user) return null;
 
-    if(follow === null)
+    if(follow === null || follow === 'loading')
         return <button className="button unfollow"><Loading /></button>
   
     if(follow === true)

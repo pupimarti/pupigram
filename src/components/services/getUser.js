@@ -1,9 +1,25 @@
-/* import users from 'components/users.json'; */
+import firebase from 'firebase';
+import 'firebase/firestore';
 
-export default function getUser(user, usersContext){
-    for(var u of usersContext)
-        if(u.user === user){
-            return u;
+export default async function getUser(user) {
+    const db = firebase.firestore();
+    let return_user = null;
+    await db.collection('users').doc(user)
+    .get()
+    .then(function(doc) {
+        if(doc.exists){
+            let user_min = doc.data();
+            user_min.user = doc.id;
+            return_user = user_min;
         }
-    return null;
+        else{
+            console.log('no existe el usuario');
+            return_user = null;
+        }
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+        return_user = null;
+    });
+    return return_user;
 }

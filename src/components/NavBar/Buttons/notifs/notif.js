@@ -16,11 +16,12 @@ export default function Notif(props) {
   const [open, setOpen] = useState(false);
   const handleSetModal = () => {
     setNotifV(notif, true, notifs, setNotifs);
+    setNotif('loading');
     setOpen(!open)
   };
 
 
-  const [notif, setNotif] = useState('loading');
+  const [notif, setNotif] = useState(null);
 
   const user = props.user;
 
@@ -28,8 +29,6 @@ export default function Notif(props) {
     if (notif === 'loading') setNotif(getNotif(user, notifs));
   }, [notif, user, notifs]);
 
-  if(notif === 'loading') return <Loading />
-  if(notif !== null)
     return (
     <div className="content-heart">
       {props.path === "/notifications" ? (
@@ -58,8 +57,9 @@ export default function Notif(props) {
       {open &&
       <div className="notif-triangulo"></div>}
 
-      <div className={open ? "content-notif pc" : "invisible"}>
-        {notif &&
+      {open && <div className="content-notif pc">
+        {notif === 'loading' ? <Loading />
+        : (notif &&
           notif.notif.map((n, i) => {
             var img = "";
             if(n.type === "like" || n.type === "comment"){
@@ -79,8 +79,8 @@ export default function Notif(props) {
                 />
               </React.Fragment>
             );
-          })}
-      </div>
+          }))}
+      </div>}
     </div>
   );
 }

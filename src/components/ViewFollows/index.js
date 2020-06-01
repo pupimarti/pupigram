@@ -25,24 +25,32 @@ export default function ViewFollows(props) {
     
 
     useEffect(() => {
-        if(followers === 'loading'){
+        const get_user_follows = async () => {
+            const user = await getUser(userPath);
+                if(props.follows)
+                    return user.follows;
+                else
+                    return user.followers;
+        }
+
+        const get_users = async () => {
             var users_follws = [];
             if(props.likes){
                 const post = getPost(parseInt(userPath), posts);
                 users_follws = post.likes;
-            }else{
-                const user = getUser(userPath, users);
-                if(props.follows)
-                    users_follws = user.follows;
-                else
-                    users_follws = user.followers;
-            }
+            }else
+                users_follws = await get_user_follows();
+            
             var arr_followers = [];
             for(var u of users_follws){
                 arr_followers.push(u);
             };
             setFollowers(arr_followers);
         }
+
+        if(followers === 'loading')
+            get_users();
+
     }, [followers, userPath, users, setFollowers, props, posts])
     return(
     <div className="content-viewfollows">

@@ -12,29 +12,35 @@ import getPosts from "components/services/getPosts";
 
 export default function User(props) {
 
-  const {users, posts, profile} = useContext(UserContext);
+  const {posts, profile} = useContext(UserContext);
 
   const userPath = useLocation().pathname.substr(1);
   const [data, setData] = useState('loading');
 
-  const [loadingFollow, setLoadingFollow] = useState(false);
-  const handleSetFollowers = () => {
-      setLoadingFollow(true);
-
+  const [sumFollowers, setSumFollowers] = useState(0);
+  const handleSetFollowers = (value) => {
+      const prevState = sumFollowers;
+      if(value)
+        setSumFollowers(prevState + 1);
+      else  
+        setSumFollowers(prevState + -1);
   }
 
   useEffect(() => {
-        var user = getUser(userPath, users);
-        if(user !== null){
-          const postsUser = getPosts(posts, user.user);
-          user.posts = postsUser.reverse();
-          setData(user);
-          setLoadingFollow(false);
-        }else{
-          setData(null);
+        const getData = async () => {
+          var user = await getUser(userPath);
+          if(user !== null){
+            const postsUser = getPosts(posts, user.user);
+            user.posts = postsUser.reverse();
+            setData(user);
+          }else{
+            setData(null);
+          }
         }
-      
-  }, [userPath, users, posts, data, loadingFollow]);
+
+      if(data === 'loading')
+        getData();
+  }, [userPath, posts, data]);
 
   
 
@@ -48,8 +54,8 @@ export default function User(props) {
             {data.posts.length !== 1 && "es"}
           </p>
           <Link to={"/followers/"+data.user} className="stats-user no-select">
-            <b>{data.followers.length}</b> seguidor
-            {data.followers.length !== 1 && "es"}
+            <b>{data.followers.length + sumFollowers}</b> seguidor
+            {(data.followers.length + sumFollowers) !== 1 && "es"}
           </Link>
           <Link to={"/follows/"+data.user} className="stats-user no-select">
             <b>{data.follows.length}</b> seguido
