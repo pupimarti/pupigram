@@ -38,8 +38,12 @@ export default function User(props) {
           }
         }
 
+      if(data && data.user !== userPath)
+        setData('loading');
+
       if(data === 'loading')
         getData();
+      
   }, [userPath, posts, data]);
 
   
