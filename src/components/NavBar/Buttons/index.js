@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import home from "./home.svg";
 import homeSelect from "./home-select.svg";
 import Notif from "./notifs/notif";
@@ -9,11 +9,13 @@ import add from "./add.svg";
 import { Link } from "react-router-dom";
 import Directs from './directsIcon';
 import "./css.css";
+import Context from 'components/Context/AppContext';
 
 
 export default function Buttons(props) {
   const path = props.path;
 
+  const {profile} = useContext(Context);
   
   const handleChangeImage = (e) => {
     var file = []
@@ -28,11 +30,10 @@ export default function Buttons(props) {
   const pathDirect = props.pathDirect;
   const pathSearch = props.pathSearch;
   /* const pathExplore = props.pathExplore; */
-  const pathAccount = props.pathAccount;
+  const pathAccount = "/" + profile.user;
 
   return (
     <div className="content-buttons">
-      <img onClick={() => props.handleLogoutUser()} className="icon" alt="logit" src={home}></img>
       {path === pathHome ? (
         <img className="icon" src={homeSelect} alt="Home" />
       ) : (
@@ -56,7 +57,7 @@ export default function Buttons(props) {
       </Link> */}
       <Notif user="default" path={path} />
       <Link to={pathAccount}>
-        <img className="icon-account" src={props.user.picture} alt="Cuenta" />
+        <img className="icon-account" src={profile.picture} alt="Cuenta" />
       </Link>
     </div>
   );

@@ -5,6 +5,9 @@ import firebase from "firebase";
 import { FirebaseAppProvider } from "reactfire";
 import configFb from "firebase-config";
 
+
+import { AppContextProvider } from "components/Context/AppContext";
+
 import "./index.css";
 import App from "./App";
 
@@ -16,7 +19,9 @@ ReactDOM.render(
   <React.StrictMode>
     <FirebaseAppProvider firebaseConfig={configFb}>
       <Suspense fallback={<Loading />}>
+      <AppContextProvider>
         <App />
+        </AppContextProvider>
       </Suspense>
     </FirebaseAppProvider>
   </React.StrictMode>,

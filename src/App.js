@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import NavBar from "./components/NavBar";
 import List from "./components/List";
 import User from "./components/User";
@@ -10,7 +10,6 @@ import es from "javascript-time-ago/locale/es";
 import NoPage from "./components/NoPage";
 import CommentsPost from "./components/CommentsPost";
 import MobileNotif from "./components/MobileNotif";
-import { AppContextProvider } from "components/Context/AppContext";
 import ViewFollows from "components/ViewFollows";
 import Directs from "components/Directs/index";
 import AddPost from "components/AddPost";
@@ -20,6 +19,7 @@ import firebase from "firebase/app";
 import getUserMail from "components/services/getUserMail";
 import SignUp from "components/SignUp";
 import Loading from "components/Loading";
+import Context from 'components/Context/AppContext';
 /*  import syncronicUsers from "components/services/syncronicUsers";  */
 
 JavascriptTimeAgo.locale(es);
@@ -31,6 +31,9 @@ function App() {
       false
   );
   const handleChangeMode = () => setMode(!mode);
+
+  
+  const {profile, setProfile} = useContext(Context);
 
   /*  syncronicUsers();  */
 
@@ -44,7 +47,6 @@ function App() {
     setUser(u);
   }
 
-  const [profile, setProfile] = useState(null);
 
   const handleLogoutUser = () => {
     firebase.auth().signOut();
@@ -73,10 +75,8 @@ function App() {
   if (loading) return <Loading />;
 
   if (!user || !profile || profile === "none") {
-    if (user && !profile) getAccount();
-
+     if (user && !profile) getAccount();  
     return (
-      <AppContextProvider>
         <HashRouter basename="/">
           <Switch>
             <Route exact path="/login">
@@ -88,13 +88,11 @@ function App() {
             <Redirect to="/login" />
           </Switch>
         </HashRouter>
-      </AppContextProvider>
     );
   }
 
   return (
     <div className={mode ? "dark" : "light"}>
-      <AppContextProvider>
         <HashRouter basename="/">
           {newPost !== null ? (
             <div className="content-app">
@@ -105,8 +103,6 @@ function App() {
           ) : (
             <React.Fragment>
               <NavBar
-                user={profile}
-                handleLogoutUser={handleLogoutUser}
                 setImg={handleSetImgNewPost}
                 setMode={handleChangeMode}
               />
@@ -149,7 +145,9 @@ function App() {
                     <Route exact path="/signup">
                       <Redirect to="/" />
                     </Route>
-                    <Route exact path="/:user" component={User} />
+                    <Route exact path="/:user">
+                      <User handleLogoutUser={handleLogoutUser}/>  
+                    </Route>
                     <Route exact path="/" component={List} />
                   </Switch>
                   <p className="footer">
@@ -167,7 +165,6 @@ function App() {
             </React.Fragment>
           )}
         </HashRouter>
-      </AppContextProvider>
     </div>
   );
 }

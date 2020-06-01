@@ -10,9 +10,9 @@ import UserContext from 'components/Context/AppContext';
 import ButtonFollow from 'components/ButtonFollow';
 import getPosts from "components/services/getPosts";
 
-export default function User() {
+export default function User(props) {
 
-  const {users, posts} = useContext(UserContext);
+  const {users, posts, profile} = useContext(UserContext);
 
   const userPath = useLocation().pathname.substr(1);
   const [data, setData] = useState('loading');
@@ -79,7 +79,11 @@ export default function User() {
                 <div className="point"></div>
               </div>
             <div className="content-follow-points">
-            <ButtonFollow user="default" user_follow={data.user} setFollowers={handleSetFollowers}/>
+            {profile && profile.user === userPath &&
+            <button className="button follow" onClick={() => props.handleLogoutUser()}>Cerrar sesión</button>
+            }
+            <ButtonFollow user={profile.user} user_follow={data.user} setFollowers={handleSetFollowers}/>
+
           </div>
             </div>
           <div className="info-user stats pc">{stats()}</div>

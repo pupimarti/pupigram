@@ -55,8 +55,8 @@ export default function ButtonFollow(props) {
             }
         }
     }
-
-    if(props.user_follow === "default") return null;
+    
+    if(props.user_follow === props.user) return null;
 
     if(follow === null)
         return <button className="button unfollow"><Loading /></button>

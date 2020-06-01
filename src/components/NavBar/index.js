@@ -17,7 +17,6 @@ export default function NavBar(props) {
   const pathDirect = "/directs";
   const pathSearch = "/search";
   const pathExplore = "/explore";
-  const pathAccount = "/default";
 
   return (
     <div className="content-navBar">
@@ -33,10 +32,7 @@ export default function NavBar(props) {
         pathDirect={pathDirect}
         pathSearch={pathSearch}
         pathExplore={pathExplore}
-        pathAccount={pathAccount}
-        user={props.user}
         setImg={props.setImg}
-        handleLogoutUser={props.handleLogoutUser}
         />
       </div>
     </div>
