@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import heart from "img/heart.svg";
 import heartSelect from "img/heart-selected.svg";
 import Notification from "components/Notification";
-import getUserMin from "components/services/getUserMin";
 import getNotif from "components/services/getNotif";
 import { Link } from "react-router-dom";
 import NotifContext from 'components/Context/AppContext';
@@ -76,7 +75,7 @@ export default function Notif(props) {
                   post={n.post}
                   comment={n.comment}
                   img={img[0]}
-                  user={getUserMin(n.user)}
+                  user={n.user}
                 />
               </React.Fragment>
             );

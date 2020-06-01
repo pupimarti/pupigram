@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import account from "img/account.svg";
 import verify from "img/verify.svg";
 import ReactTimeAgo from "react-time-ago";
 import ButtonFollow from 'components/ButtonFollow';
 import "./css.css";
+import getUserMin from "components/services/getUserMin";
 
 export default function Notification(props) {
 
@@ -23,14 +24,27 @@ export default function Notification(props) {
     }
   }
 
+
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    if(!user){
+      const get_user = async () => {
+        const u = await getUserMin(props.user);
+        setUser(u);
+      }
+      get_user();
+    }
+  }, [props.user, user, setUser]);
+
   return (
     <div className="content-notification">
       <div className="notif">
         <Link to={"/" + props.user.user} className="content-img-username">
-          {props.user.picture ? (
+          {user && user.picture ? (
             <img
               className="img-account"
-              src={props.user.picture}
+              src={user.picture}
               alt="profile_picture"
             />
           ) : (

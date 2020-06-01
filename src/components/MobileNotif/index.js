@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import Notification from "components/Notification";
-import getUserMin from "components/services/getUserMin";
 import getNotif from "components/services/getNotif";
 import Loading from "components/Loading";
 import NotifContext from 'components/Context/AppContext';
@@ -37,7 +36,7 @@ export default function MobileNotif() {
                   post={n.post}
                   comment={n.comment}
                   img={img[0]}
-                  user={getUserMin(n.user)}
+                  user={n.user}
                 />
             )}) }
         </div>
