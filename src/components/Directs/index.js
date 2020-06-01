@@ -10,8 +10,6 @@ import New from "./New";
 
 import "./css.css";
 
-import getUserMin from "components/services/getUserMin";
-
 import Context from "components/Context/AppContext";
 import setDirectsRead from "components/services/setDirectsUnread";
 import addDirectChat from "components/services/addDirectChat";
@@ -79,21 +77,16 @@ export default function Directs() {
         <div className="content-directs-messages">
           {data &&
             data.map((d, i) => {
-              const user = getUserMin(d.user);
-              if (user !== null)
                 return (
                   <Direct
                     key={i}
-                    user={user.user}
-                    picture={user.picture}
-                    verify={user.verify}
+                    user={d.user}
                     message={d.messages[d.messages.length - 1].message}
                     time={d.messages[d.messages.length - 1].time}
                     read={d.read}
                     onClick={handleSetViewDirect}
                   />
                 );
-              return null;
             })}
         </div>
       </div>

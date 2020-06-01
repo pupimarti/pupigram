@@ -28,8 +28,8 @@ export default function LogIn(props) {
         e.preventDefault();
         handleSetLoading(true);
 
-        await firebase.auth().signInAnonymously()
-        .then(r => props.setUser({email: "default@gmail.com"}))
+        await firebase.auth().signInWithEmailAndPassword('default@gmail.com', 'default')
+        .then(r => props.setUser(r.user))
         .catch(e => {
             handleSetLoading(false);
             setError(e);

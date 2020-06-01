@@ -37,7 +37,8 @@ export default function ButtonFollow(props) {
             result = await unfollow(props.user, props.user_follow);
 
         if(result){
-            props.setFollowers(!actual);
+            if(props.setFollowers)
+                props.setFollowers(!actual);
             setFollow(!actual);
         }
     }
