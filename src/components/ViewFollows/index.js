@@ -4,7 +4,6 @@ import './css.css';
 import { useLocation } from 'react-router-dom';
 import getUser from 'components/services/getUser';
 import Notification from 'components/Notification';
-import getUserMin from 'components/services/getUserMin';
 import getPost from 'components/services/getPost';
 
 export default function ViewFollows(props) {
@@ -40,8 +39,7 @@ export default function ViewFollows(props) {
             }
             var arr_followers = [];
             for(var u of users_follws){
-                var user_u = getUserMin(u);
-                arr_followers.push(user_u);
+                arr_followers.push(u);
             };
             setFollowers(arr_followers);
         }

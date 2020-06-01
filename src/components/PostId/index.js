@@ -57,17 +57,23 @@ export default function PostId() {
 
   useEffect(() => {
     const post = getPost(parseInt(postId), posts);
-
-    if (post !== null) {
-      const u = getUserMin(post.user);
-      if (u != null) {
-        post.picture_user = u.picture;
-        post.verify = u.verify;
+    
+    const get_stats_post = async (post) => {
+      if (post !== null) {
+        const u = await getUserMin(post.user);
+        if (u != null) {
+          post.picture_user = u.picture;
+          post.verify = u.verify;
+        }
+        setData(post);
+        setLike(post.likes.indexOf("default") !== -1 ? 'true' : 'false');
+        setLikes(post.likes.length);
       }
-      setData(post);
-      setLike(post.likes.indexOf("default") !== -1 ? 'true' : 'false');
-      setLikes(post.likes.length);
     }
+
+    if(!post.picture_user)
+      get_stats_post(post);
+
   }, [postId, posts, setLike]);
 
   const handleClickLikeImg = () => {
@@ -180,19 +186,14 @@ export default function PostId() {
           />
           {data.comments &&
             data.comments.map((c, i) => {
-              var userComment = getUserMin(c.user);
-              if (userComment !== null)
                 return (
                   <CommentUser
                     key={i}
-                    user={userComment.user}
+                    user={c.user}
                     comment={c.comment}
-                    picture_user={userComment.picture}
                     time={c.time}
-                    verify={userComment.verify}
                   />
                 );
-              return null;
             })}
         </div>
         <div className="content-likes-comment-post-id">

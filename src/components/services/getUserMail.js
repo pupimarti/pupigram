@@ -10,7 +10,6 @@ export default async function getUserMail(mail) {
     await db.collection('users').where("email", "==", email)
     .get()
     .then(function(querySnapshot) {
-        console.log(querySnapshot)
         querySnapshot.forEach(function(doc) {
             result = {user: doc.id, data:doc.data()};
         });

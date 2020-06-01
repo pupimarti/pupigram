@@ -40,7 +40,7 @@ export default function Notification(props) {
   return (
     <div className="content-notification">
       <div className="notif">
-        <Link to={"/" + props.user.user} className="content-img-username">
+        <Link to={"/" + props.user} className="content-img-username">
           {user && user.picture ? (
             <img
               className="img-account"
@@ -54,8 +54,8 @@ export default function Notification(props) {
         <p className="user-account">
           {props.type === "like" && 
         <span className="msj-notif">A </span>}
-          <Link to={"/" + props.user.user}>{props.user.user}</Link>
-          {props.user.verify && " " && (
+          <Link to={"/" + props.user}>{props.user}</Link>
+          {user && user.verify && " " && (
             <img className="verify" src={verify} alt="Verificado" />
           )}{" "}
           <span className="msj-notif">{getMessageNotification()}</span>
@@ -72,7 +72,7 @@ export default function Notification(props) {
       </div>
       {props.type === "like" || props.type === "comment"
       ?<Link to={"/posts/" + props.post}><img src={props.img} className="img-notification" alt="imagen de la publicacion" /></Link>
-      :<ButtonFollow user="default" user_follow={props.user.user} />
+      :<ButtonFollow user="default" user_follow={props.user} />
       }
     </div>
   );

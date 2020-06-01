@@ -9,11 +9,12 @@ import './css.css'
 import getPost from "components/services/getPost";
 import setPost from "components/services/setPost";
 import getUserMin from "components/services/getUserMin";
+import Loading from "components/Loading";
 
 export default function CommentsPost() {
   const postId = useLocation().pathname.substr(10);
 
-  const [data, setData] = useState(null);
+  const [data, setData] = useState('loading');
 
   const {posts, setPosts} = useContext(PostsContext);
 
@@ -29,12 +30,20 @@ export default function CommentsPost() {
 
   useEffect(() => {
     var post = getPost(parseInt(postId), posts);
-    if (post !== null) {
-      const usermin = getUserMin(post.user);
-      post.verify = usermin.verify;
-      post.picture_user = usermin.picture;
-      setData(post);
+
+    const get_stats_post = async (post) => {
+      if (post !== null) {
+        const u = await getUserMin(post.user);
+        if (u != null) {
+          post.picture_user = u.picture;
+          post.verify = u.verify;
+        }
+        setData(post);
+      }
     }
+    
+    if(!post.picture_user)
+      get_stats_post(post);
   }, [postId, posts]);
 
 
@@ -44,31 +53,25 @@ export default function CommentsPost() {
     setCommentsUser([...commentsUser, c]);
   };
 
+  if(data === 'loading') return <Loading />
   if (data === null) return <NoPage />;
   return (
     <div className="content-comments-user">
       <CommentsUser
         user={data.user}
-        picture_user={data.picture_user}
         comment={data.desc}
         time={data.time}
-        verify={data.verify}
       />
       {data.comments &&
         data.comments.map((c, i) => {
-          var userComment = getUserMin(c.user);
-          if (userComment !== null)
             return (
               <CommentsUser
                 key={i}
-                user={userComment.user}
+                user={c.user}
                 comment={c.comment}
-                picture_user={userComment.picture}
                 time={c.time}
-                verify={userComment.verify}
               />
             );
-          return null;
         })}
       <div className="cont-comment-user"><Comment send={handleChangeCommentsUser} focus /></div>
     </div>
