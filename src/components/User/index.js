@@ -28,7 +28,11 @@ export default function User(props) {
 
   useEffect(() => {
         const getData = async () => {
-          var user = await getUser(userPath);
+          var user = null 
+          if(userPath === profile.user)
+          user = profile;
+          else
+          user = await getUser(userPath);
           if(user !== null){
             const postsUser = getPosts(posts, user.user);
             user.posts = postsUser.reverse();
@@ -44,7 +48,7 @@ export default function User(props) {
       if(data === 'loading')
         getData();
       
-  }, [userPath, posts, data]);
+  }, [userPath, posts, data, profile]);
 
   
 

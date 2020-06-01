@@ -60,13 +60,12 @@ function App() {
       setLoading(false);
       setProfile("none");
     } else {
-      setLoading(false);
+
       setProfile({
-        user: account.user,
-        mail: account.data.mail,
-        name: account.data.name,
-        picture: account.data.picture,
+        ...account.data,
+        user: account.user
       });
+      setLoading(false);
     }
   };
 
