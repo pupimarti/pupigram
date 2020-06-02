@@ -20,7 +20,6 @@ export default async function createUser(user, email, name, picture) {
             desc: "Usuario pupigram",
         })
         .then(async () => {
-            console.log('user cread');
             await db.collection('users-min').doc(user)
             .set({
                 picture: photo,

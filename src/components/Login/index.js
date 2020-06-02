@@ -3,7 +3,7 @@ import firebase from 'firebase/app';
 import pupigram from 'img/pupigram.png';
 import './css.css';
 import Loading from 'components/Loading';
-import { useHistory } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 export default function LogIn(props) {
 
@@ -24,7 +24,7 @@ export default function LogIn(props) {
     }
 
     
-    const handleOnClickAnonymus = async (e) =>{
+    const handleLogInAnonymus = async (e) =>{
         e.preventDefault();
         handleSetLoading(true);
 
@@ -37,7 +37,7 @@ export default function LogIn(props) {
         );
     }
 
-    const handleOnClick = async (e) => {
+    const handleLogIn = async (e) => {
         e.preventDefault();
         handleSetLoading(true);
 
@@ -51,7 +51,7 @@ export default function LogIn(props) {
         
     }
 
-    const handleOnClickGoogle = async (e) => {
+    const handleLogInGoogle = async (e) => {
         e.preventDefault();
         handleSetLoading(true);
         const provider = new firebase.auth.GoogleAuthProvider();
@@ -80,21 +80,13 @@ export default function LogIn(props) {
         }
         return "";
     }
-
-    let history = useHistory();
-
-    const signUp = () => {
-        history.push('/signup');
-    }
-
     
-    if(props.user)
-        signUp();
+    if(props.user) return <Redirect to="/signup" />
 
     return(
         <div className="login-page">
             <div className="form">
-                <form className="login-form" onSubmit={handleOnClick}>
+                <form className="login-form" onSubmit={handleLogIn}>
                     <img src={pupigram} alt="logo" className="logo-login" />
                     <input 
                     type="text" 
@@ -110,16 +102,16 @@ export default function LogIn(props) {
                     onChange={handleInputChange}
                     value={data.password}
                     />
-                    <button className="button follow" onClick={handleOnClick}>{loading ? <Loading /> : "Iniciar sesión"}</button>
+                    <button className="button follow" onClick={handleLogIn}>{loading ? <Loading /> : "Iniciar sesión"}</button>
                     
                     <div className="divisor-login">
                         <hr/>
                         o
                         <hr/>
                     </div>
-                    <button className="button follow" onClick={handleOnClickAnonymus}>{loading ? <Loading /> : "Ingresar como anónimo"}</button>
+                    <button className="button follow" onClick={handleLogInAnonymus}>{loading ? <Loading /> : "Ingresar como anónimo"}</button>
 
-                    <button onClick={handleOnClickGoogle} className="button follow">Iniciar sesión con Google</button>
+                    <button onClick={handleLogInGoogle} className="button follow">Iniciar sesión con Google</button>
                     {error && 
                     <p className="error">{getError()}</p>}
                     <p className="forget-password">¿Has olvidado la contraseña?</p>
@@ -127,7 +119,7 @@ export default function LogIn(props) {
             </div>
             <div className="w100">
                 <div className="form login-no-account">
-                    <p className="no-account">¿No tienes una cuenta? <span onClick={() => signUp()}>Regístrate</span></p>
+                    <p className="no-account">¿No tienes una cuenta? <Link to="/signup">Regístrate</Link></p>
                 </div>
             </div>
         </div>

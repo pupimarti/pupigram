@@ -96,7 +96,7 @@
     color: #262626;
   }
   
-  .login-no-account span{
+  .login-no-account a{
     color: #0095F6;
     font-weight: 500;
     cursor: pointer;

@@ -3,7 +3,7 @@ import firebase from "firebase/app";
 import pupigram from "img/pupigram.png";
 import "./css.css";
 import Loading from "components/Loading";
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import createUser from "components/services/createUser";
 
 export default function SignUp(props) {
@@ -46,8 +46,10 @@ export default function SignUp(props) {
         .createUserWithEmailAndPassword(data.email, data.password)
         .then(async (r) => {
           const create = await createUser(data.user, data.email, data.name, "");
+          console.log(create);
           if (create) {
             props.setProfile(null);
+            console.log(r.user);
             props.setUser(r.user);
             handleSetLoading(false);
           } else {
@@ -78,11 +80,6 @@ export default function SignUp(props) {
   };
 
   const [error, setError] = useState(null);
-
-  let history = useHistory();
-  const logIn = () => {
-    history.push("/login");
-  };
 
   return (
     <div className="login-page">
@@ -156,7 +153,7 @@ export default function SignUp(props) {
       <div className="w100">
         <div className="form login-no-account">
           <p className="no-account">
-            ¿Tienes una cuenta? <span onClick={() => logIn()}>Entrar</span>
+            ¿Tienes una cuenta? <Link to="/login">Entrar</Link>
           </p>
         </div>
       </div>
