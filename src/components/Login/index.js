@@ -102,7 +102,6 @@ export default function LogIn(props) {
                     name="user"
                     onChange={handleInputChange}
                     value={data.user}
-                    disabled
                     />
                     <input 
                     type="password" 
@@ -110,15 +109,17 @@ export default function LogIn(props) {
                     name="password"
                     onChange={handleInputChange}
                     value={data.password}
-                    disabled
                     />
-                    <button className="button follow" onClick={handleOnClickAnonymus}>{loading ? <Loading /> : "Ingresar como anónimo"}</button>
+                    <button className="button follow" onClick={handleOnClick}>{loading ? <Loading /> : "Iniciar sesión"}</button>
+                    
                     <div className="divisor-login">
                         <hr/>
                         o
                         <hr/>
                     </div>
-                    <p onClick={handleOnClickGoogle} className="login-google button follow">Iniciar sesión con Google</p>
+                    <button className="button follow" onClick={handleOnClickAnonymus}>{loading ? <Loading /> : "Ingresar como anónimo"}</button>
+
+                    <button onClick={handleOnClickGoogle} className="button follow">Iniciar sesión con Google</button>
                     {error && 
                     <p className="error">{getError()}</p>}
                     <p className="forget-password">¿Has olvidado la contraseña?</p>

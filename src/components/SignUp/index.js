@@ -13,8 +13,8 @@ export default function SignUp(props) {
   };
 
   const [data, setData] = useState({
-    mail: props.user ? props.user.email : "",
-    name: props.user ? props.user.displayName : "",
+    email: props.user ? props.user.email : "",
+    name: (props.user && props.user.displayName) ? props.user.displayName : "",
     user: "",
     password: "",
   });
@@ -33,14 +33,28 @@ export default function SignUp(props) {
     e.preventDefault();
     handleSetLoading(true);
     if (props.user) {
-      const create = await createUser(data.user, data.mail, data.name, props.user.photoURL);
-      if(create)
-        props.setProfile(null);
+      const create = await createUser(
+        data.user,
+        data.email,
+        data.name,
+        props.user.photoURL
+      );
+      if (create) props.setProfile(null);
     } else {
       await firebase
         .auth()
-        .createUserWithEmailAndPassword(data.user, data.password)
-        .then((r) => props.setUser(r.user))
+        .createUserWithEmailAndPassword(data.email, data.password)
+        .then(async (r) => {
+          const create = await createUser(data.user, data.email, data.name, "");
+          if (create) {
+            props.setProfile(null);
+            props.setUser(r.user);
+            handleSetLoading(false);
+          } else {
+            setError({ message: "Se ha producido un error al registrarse." });
+            handleSetLoading(false);
+          }
+        })
         .catch((e) => {
           handleSetLoading(false);
           setError(e);
@@ -79,7 +93,15 @@ export default function SignUp(props) {
             Regístrate para ver fotos y videos de tus amigos.
           </h4>
           {props.user ? (
-            <img className="img-user" src={props.user.photoURL} alt="tu-foto" />
+            <div className="profile-register">
+              {props.user.photoURL && 
+              <img
+                className="img-user"
+                src={props.user.photoURL}
+                alt="tu-foto"
+              />}
+              <button className="button follow" onClick={() => props.setUser(null)}>No registrarme con {data.email}</button>
+            </div>
           ) : (
             <button onClick={handleOnClickGoogle} className="button follow">
               Iniciar sesión con Google
@@ -93,9 +115,9 @@ export default function SignUp(props) {
           <input
             type="text"
             placeholder="Correo electrónico"
-            name="mail"
+            name="email"
             onChange={handleInputChange}
-            value={data.mail}
+            value={data.email}
             disabled={props.user}
           />
           <input
@@ -104,7 +126,6 @@ export default function SignUp(props) {
             name="name"
             onChange={handleInputChange}
             value={data.name}
-            disabled={props.user}
           />
           <input
             type="text"
@@ -113,14 +134,15 @@ export default function SignUp(props) {
             onChange={handleInputChange}
             value={data.user}
           />
-          <input
-            type="password"
-            placeholder="Contraseña"
-            name="password"
-            onChange={handleInputChange}
-            value={data.password}
-            disabled={props.user}
-          />
+          {!props.user && (
+            <input
+              type="password"
+              placeholder="Contraseña"
+              name="password"
+              onChange={handleInputChange}
+              value={data.password}
+            />
+          )}
           <button className="button follow" onClick={handleOnClick}>
             {loading ? <Loading /> : "Registrarte"}
           </button>
