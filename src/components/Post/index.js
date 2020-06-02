@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import ReactTimeAgo from "react-time-ago";
 import Options from "./Options";
 import Img from './Img';
-import getUserMin from "components/services/getUserMin";
+import getImgUser from "components/services/getImgUser";
 
 export default function Post(props) {
   const [likes, setLikes] = useState(props.likes.length);
@@ -46,8 +46,8 @@ export default function Post(props) {
   useEffect(() => {
     if(!user){
       const get_user = async () => {
-        const u = await getUserMin(props.user);
-        setUser(u);
+        const u = await getImgUser(props.user);
+        setUser({picture: u, verify: false, user: props.user});
       }
       get_user();
     }

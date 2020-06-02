@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import account from "img/account.svg";
-import verify from "img/verify.svg";
 import ReactTimeAgo from "react-time-ago";
 import ButtonFollow from 'components/ButtonFollow';
 import "./css.css";
-import getUserMin from "components/services/getUserMin";
+import getImgUser from "components/services/getImgUser";
 
 export default function Notification(props) {
 
@@ -30,7 +29,7 @@ export default function Notification(props) {
   useEffect(() => {
     if(!user){
       const get_user = async () => {
-        const u = await getUserMin(props.user);
+        const u = await getImgUser(props.user);
         setUser(u);
       }
       get_user();
@@ -41,10 +40,10 @@ export default function Notification(props) {
     <div className="content-notification">
       <div className="notif">
         <Link to={"/" + props.user} className="content-img-username">
-          {user && user.picture ? (
+          {user ? (
             <img
               className="img-account"
-              src={user.picture}
+              src={user}
               alt="profile_picture"
             />
           ) : (
@@ -55,9 +54,7 @@ export default function Notification(props) {
           {props.type === "like" && 
         <span className="msj-notif">A </span>}
           <Link to={"/" + props.user}>{props.user}</Link>
-          {user && user.verify && " " && (
-            <img className="verify" src={verify} alt="Verificado" />
-          )}{" "}
+          {" "}
           <span className="msj-notif">{getMessageNotification()}</span>
           <span className="time-notif">
             {" "}
