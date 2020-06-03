@@ -8,7 +8,7 @@ import getPost from 'components/services/getPost';
 
 export default function ViewFollows(props) {
 
-    const {users, posts} = useContext(UsersContext);
+    const {posts} = useContext(UsersContext);
 
     const [followers, setFollowers] = useState('loading');
 
@@ -51,7 +51,7 @@ export default function ViewFollows(props) {
         if(followers === 'loading')
             get_users();
 
-    }, [followers, userPath, users, setFollowers, props, posts])
+    }, [followers, userPath, setFollowers, props, posts])
     return(
     <div className="content-viewfollows">
         <h5 className="title-viewfollows">

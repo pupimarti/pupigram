@@ -1,10 +1,11 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import { Link } from "react-router-dom";
 import account from "img/account.svg";
 import ReactTimeAgo from "react-time-ago";
 import ButtonFollow from 'components/ButtonFollow';
 import "./css.css";
 import getImgUser from "components/services/getImgUser";
+import Context from 'components/Context/AppContext';
 
 export default function Notification(props) {
 
@@ -23,6 +24,7 @@ export default function Notification(props) {
     }
   }
 
+  const {profile} = useContext(Context);
 
   const [user, setUser] = useState(null);
 
@@ -69,7 +71,7 @@ export default function Notification(props) {
       </div>
       {props.type === "like" || props.type === "comment"
       ?<Link to={"/posts/" + props.post}><img src={props.img} className="img-notification" alt="imagen de la publicacion" /></Link>
-      :<ButtonFollow user="default" user_follow={props.user} />
+      :<ButtonFollow user={profile.user} user_follow={props.user} />
       }
     </div>
   );
