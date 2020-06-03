@@ -9,6 +9,7 @@ import Loading from "components/Loading";
 import UserContext from 'components/Context/AppContext';
 import ButtonFollow from 'components/ButtonFollow';
 import getPosts from "components/services/getPosts";
+import getImgUser from "components/services/getImgUser";
 
 export default function User(props) {
 
@@ -28,14 +29,12 @@ export default function User(props) {
 
   useEffect(() => {
         const getData = async () => {
-          var user = null 
-          if(userPath === profile.user)
-          user = profile;
-          else
-          user = await getUser(userPath);
+          var user = await getUser(userPath);
           if(user !== null){
+            const img_profile = await getImgUser(user.user);
             const postsUser = getPosts(posts, user.user);
             user.posts = postsUser.reverse();
+            user.picture = img_profile;
             setData(user);
           }else{
             setData(null);

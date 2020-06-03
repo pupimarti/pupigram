@@ -51,10 +51,7 @@ export default function SignUp(props) {
         .createUserWithEmailAndPassword(data.email, data.password)
         .then(async (r) => {
           const create = await createUser(data.user, data.email, data.name, "");
-          console.log(create);
           if (create) {
-            props.setProfile(null);
-            console.log(r.user);
             props.setUser(r.user);
             handleSetLoading(false);
           } else {
