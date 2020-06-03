@@ -14,12 +14,12 @@ import Post from "components/Post";
 import "./css.css";
 
 import getPost from "components/services/getPost";
-import getUserMin from "components/services/getUserMin";
 import Loading from "components/Loading";
 import PostsContext from "components/Context/AppContext";
 import setPost from "components/services/setPost";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import getImgUser from "components/services/getImgUser";
 
 export default function PostId() {
   const postId = useLocation().pathname.substr(7);
@@ -60,10 +60,10 @@ export default function PostId() {
     
     const get_stats_post = async (post) => {
       if (post !== null) {
-        const u = await getUserMin(post.user);
+        const u = await getImgUser(post.user);
         if (u != null) {
-          post.picture_user = u.picture;
-          post.verify = u.verify;
+          post.picture_user = u;
+          post.verify = false;
         }
         setData(post);
         setLike(post.likes.indexOf("default") !== -1 ? 'true' : 'false');

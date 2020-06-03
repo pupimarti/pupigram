@@ -4,7 +4,7 @@ import './css.css';
 import getUser from 'components/services/getUser';
 import userContext from 'components/Context/AppContext';
 import User from './User';
-import getUserMin from 'components/services/getUserMin';
+import getImgUser from 'components/services/getImgUser';
 
 export default function New(props) {
 
@@ -38,13 +38,13 @@ export default function New(props) {
           <button onClick={handleSelect} className="action-comment">Siguiente</button>
         </header>
         {follows && follows.map((u,i) => {
-            const user = getUserMin(u);
+            const user = getImgUser(u);
             return(
             <User 
                 key={i}
-                user={user.user}
-                picture={user.picture}
-                verify={user.verify}
+                user={u}
+                picture={user}
+                verify={false}
                 onClick={setSelect}
                 select={select}
             />)

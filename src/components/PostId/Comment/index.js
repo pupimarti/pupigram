@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import verify from "img/verify.svg";
 import account from "img/account.svg";
 import "./css.css";
-import getUserMin from "components/services/getUserMin";
+import getImgUser from "components/services/getImgUser";
 
 export default function Comment(props) {
 
@@ -13,8 +13,8 @@ export default function Comment(props) {
   useEffect(() => {
     if(!user){
       const get_user = async () => {
-        const u = await getUserMin(props.user);
-        setUser(u);
+        const u = await getImgUser(props.user);
+        setUser({user: props.user, picture: u, verify: false});
       }
       get_user();
     }

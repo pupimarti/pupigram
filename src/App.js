@@ -20,6 +20,7 @@ import getUserMail from "components/services/getUserMail";
 import SignUp from "components/SignUp";
 import Loading from "components/Loading";
 import Context from 'components/Context/AppContext';
+import getImgUser from "components/services/getImgUser";
 /*  import syncronicUsers from "components/services/syncronicUsers";  */
 
 JavascriptTimeAgo.locale(es);
@@ -51,6 +52,7 @@ function App() {
   const handleLogoutUser = () => {
     firebase.auth().signOut();
     setUser(null);
+    setProfile(null);
   };
 
   const getAccount = async () => {
@@ -60,10 +62,11 @@ function App() {
       setLoading(false);
       setProfile("none");
     } else {
-
+      const img = await getImgUser(account.user);
       setProfile({
         ...account.data,
-        user: account.user
+        user: account.user,
+        picture: img
       });
       setLoading(false);
     }

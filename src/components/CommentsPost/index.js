@@ -8,8 +8,8 @@ import PostsContext from "components/Context/AppContext";
 import './css.css'
 import getPost from "components/services/getPost";
 import setPost from "components/services/setPost";
-import getUserMin from "components/services/getUserMin";
 import Loading from "components/Loading";
+import getImgUser from "components/services/getImgUser";
 
 export default function CommentsPost() {
   const postId = useLocation().pathname.substr(10);
@@ -33,10 +33,10 @@ export default function CommentsPost() {
 
     const get_stats_post = async (post) => {
       if (post !== null) {
-        const u = await getUserMin(post.user);
+        const u = await getImgUser(post.user);
         if (u != null) {
-          post.picture_user = u.picture;
-          post.verify = u.verify;
+          post.picture_user = u;
+          post.verify = false;
         }
         setData(post);
       }

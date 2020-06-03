@@ -14,7 +14,7 @@ export default function SignUp(props) {
 
   const [data, setData] = useState({
     email: props.user ? props.user.email : "",
-    name: (props.user && props.user.displayName) ? props.user.displayName : "",
+    name: props.user && props.user.displayName ? props.user.displayName : "",
     user: "",
     password: "",
   });
@@ -39,7 +39,12 @@ export default function SignUp(props) {
         data.name,
         props.user.photoURL
       );
-      if (create) props.setProfile(null);
+      if (create) {
+        props.setProfile(null);
+      } else {
+        setError({ message: "Se ha producido un error al registrarse." });
+        handleSetLoading(false);
+      }
     } else {
       await firebase
         .auth()
@@ -91,13 +96,19 @@ export default function SignUp(props) {
           </h4>
           {props.user ? (
             <div className="profile-register">
-              {props.user.photoURL && 
-              <img
-                className="img-user"
-                src={props.user.photoURL}
-                alt="tu-foto"
-              />}
-              <button className="button follow" onClick={() => props.setUser(null)}>No registrarme con {data.email}</button>
+              {props.user.photoURL && (
+                <img
+                  className="img-user"
+                  src={props.user.photoURL}
+                  alt="tu-foto"
+                />
+              )}
+              <button
+                className="button follow"
+                onClick={() => props.setUser(null)}
+              >
+                No registrarme con {data.email}
+              </button>
             </div>
           ) : (
             <button onClick={handleOnClickGoogle} className="button follow">

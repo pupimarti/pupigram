@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from "react";
 
-import verify from "img/verify.svg";
 import account from "img/account.svg";
 import ReactTimeAgo from "react-time-ago";
 
 import "./css.css";
 import Loading from "components/Loading";
-import getUserMin from "components/services/getUserMin";
+import getImgUser from "components/services/getImgUser";
 
 export default function Direct(props) {
 
@@ -15,7 +14,7 @@ export default function Direct(props) {
   useEffect(() => {
     if(!user){
       const get_user = async () => {
-        const u = await getUserMin(props.user);
+        const u = await getImgUser(props.user);
         setUser(u);
       }
       get_user();
@@ -36,10 +35,10 @@ export default function Direct(props) {
       className={props.read ? "content-direct" : "content-direct unread"}
     >
       <div to={"/" + props.user} className="content-img-username">
-        {user.picture ? (
+        {user ? (
           <img
             className="img-account"
-            src={user.picture}
+            src={user}
             alt="profile_picture"
           />
         ) : (
@@ -49,9 +48,7 @@ export default function Direct(props) {
       <div className="direct-message-time">
         <div className="direct-user">
           <p>{props.user}</p>
-          {user.verify && " " && (
-            <img className="verify-directs" src={verify} alt="Verificado" />
-          )}{" "}
+          {" "}
         </div>
         <p className="direct-message">
           {props.message.length > 30
