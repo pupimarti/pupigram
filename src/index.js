@@ -15,6 +15,7 @@ import Loading from "components/Loading";
 
 firebase.initializeApp(configFb);
 
+
 ReactDOM.render(
   <React.StrictMode>
     <FirebaseAppProvider firebaseConfig={configFb}>

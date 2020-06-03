@@ -4,7 +4,7 @@ import 'firebase/storage';
 export default async function getImgUser(user) {
     const storage = firebase.storage();
     let return_img = null;
-    await storage.ref('users/'+user+'.jpg').getDownloadURL()
+    await storage.ref('users/'+user).getDownloadURL()
     .then(function(url) {
         return_img = url;
     })
