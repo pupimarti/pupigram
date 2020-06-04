@@ -32,11 +32,11 @@ export default function ViewFollows(props) {
                 else
                     return user.followers;
         }
-
+        
         const get_users = async () => {
             var users_follws = [];
             if(props.likes){
-                const post = getPost(parseInt(userPath), posts);
+                const post = await getPost(userPath);
                 users_follws = post.likes;
             }else
                 users_follws = await get_user_follows();

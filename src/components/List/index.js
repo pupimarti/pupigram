@@ -12,7 +12,7 @@ export default function List() {
 
     const [data, setData] = useState('loading');
 
-    const {posts, setPosts} = useContext(PostsContext);
+    const {posts, setPosts, profile} = useContext(PostsContext);
 
     const addComment = (comment, user, idPost) => {
         var _post = getPost(idPost, posts);
@@ -37,7 +37,7 @@ export default function List() {
 
     useEffect(() => {
         const get_posts = async () => {
-            var list_posts = await getPosts(posts);
+            var list_posts = await getPosts();
             if(list_posts){
                 const p = list_posts.reverse();
                 setData(p);
@@ -54,6 +54,7 @@ export default function List() {
             {data && data.map((post) => {
                 return(
                     <Post 
+                    profile={profile}
                     key={post.id}
                     id={post.id}
                     user={post.user}

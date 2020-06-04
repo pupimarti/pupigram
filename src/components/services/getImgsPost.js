@@ -15,8 +15,6 @@ export default async function getImgsPost (post){
         console.log(error);
         return_img = null;
     });
-
-    console.log(return_img);
     return return_img;
 }
 
@@ -28,7 +26,6 @@ const getUrls = async (items) => {
         // All the items under listRef.
         await itemRef.getDownloadURL()
         .then((e) => {
-            console.log(e);
             return_urls.push(e);
         })
         .catch((e) => console.log(e))

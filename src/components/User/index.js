@@ -8,8 +8,8 @@ import getUser from "components/services/getUser";
 import Loading from "components/Loading";
 import UserContext from 'components/Context/AppContext';
 import ButtonFollow from 'components/ButtonFollow';
-import getPosts from "components/services/getPosts";
 import getImgUser from "components/services/getImgUser";
+import getImgPost from "components/services/getImgPost";
 
 export default function User(props) {
 
@@ -27,13 +27,23 @@ export default function User(props) {
         setSumFollowers(prevState + -1);
   }
 
+  async function asyncForEach(array, callback) {
+    for (let index = 0; index < array.length; index++) {
+      await callback(array[index], index, array);
+    }
+  }
+
   useEffect(() => {
         const getData = async () => {
           var user = await getUser(userPath);
           if(user !== null){
             const img_profile = await getImgUser(user.user);
-            const postsUser = getPosts(posts, user.user);
-            user.posts = postsUser.reverse();
+            let post_imgs = [];
+            await asyncForEach(user.posts, async (p) => {
+              const img_post = await getImgPost(p);
+              post_imgs.push({id:p, url: img_post});
+            });
+            user.posts = post_imgs;
             user.picture = img_profile;
             setData(user);
           }else{
@@ -138,14 +148,15 @@ export default function User(props) {
         {data.posts &&
           data.posts.map((post) => {
             return (
-            <Link
-              key={post.id}
-              to={"/posts/" + post.id}
-              className="post-user"
-            >
-              <img src={post.img[0]} alt="post" />
-            </Link>
-          )})}
+              <Link
+                key={post.id}
+                to={"/posts/" + post.id}
+                className="post-user"
+              >
+                <img src={post.url} alt="post" />
+              </Link>
+            )
+          })}
       </section>
 
       {data.posts && data.posts.length === 0 && (

@@ -10,24 +10,34 @@ import ReactTimeAgo from "react-time-ago";
 import Options from "./Options";
 import Img from './Img';
 import getImgUser from "components/services/getImgUser";
+import likePost from "components/services/likePost";
 
 export default function Post(props) {
   const [likes, setLikes] = useState(props.likes.length);
   const [likeImg, setlikeImg] = useState(null);
   const [like, setlike] = useState(
-    props.likes.indexOf("default") !== -1 ? "true" : "false"
+    props.likes.indexOf(props.profile.user) !== -1 ? "true" : "false"
   );
+
+
+
   const handleClickLikeImg = () => {
     if (likeImg === null) setlikeImg(true);
     else setlikeImg(!likeImg);
     handleLikeImg(true);
   };
 
-  const handleLikeImg = (val) => {
-    if (val && (!like || like === "false")) setLikes(likes + 1);
-    if (!val && (like || like === "true")) setLikes(likes - 1);
-    props.setLike("default", val, props.id);
+  const handleLikeImg = async (val) => {
+    if (val && (!like || like === "false")) {
+      setLikes(likes + 1);
+    }
+    if (!val && (like || like === "true")) {
+      setLikes(likes - 1);
+    }
     setlike(val);
+    if(!await likePost(props.profile.user, props.id, val)){
+      console.log('no se pudo realizar el mg')
+    }
   };
 
   const [showMore, setShowMore] = useState(false);

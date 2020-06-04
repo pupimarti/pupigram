@@ -26,14 +26,14 @@ export default function PostId() {
 
   const [data, setData] = useState("loading");
 
-  const { posts, setPosts } = useContext(PostsContext);
+  const { profile, posts, setPosts } = useContext(PostsContext);
 
   const [likes, setLikes] = useState(0);
   const [likeImg, setlikeImg] = useState(null);
   const [like, setLike] = useState(null);
 
   const addComment = (comment, user, idPost) => {
-    var _post = getPost(parseInt(idPost), posts);
+    var _post = getPost(idPost);
     if (_post !== null) {
       _post.comments.push({
         user,
@@ -45,7 +45,7 @@ export default function PostId() {
   };
 
   const setLike_context = (user, value, idPost) => {
-    var _post = getPost(parseInt(idPost), posts);
+    var _post = getPost(idPost);
     if (_post !== null) {
       var i = _post.likes.indexOf(user);
       if (!value) {
@@ -56,9 +56,9 @@ export default function PostId() {
   };
 
   useEffect(() => {
-    const post = getPost(parseInt(postId), posts);
-    
-    const get_stats_post = async (post) => {
+
+    const get_post = async () => {
+      const post = await getPost(postId);
       if (post !== null) {
         const u = await getImgUser(post.user);
         if (u != null) {
@@ -66,15 +66,15 @@ export default function PostId() {
           post.verify = false;
         }
         setData(post);
-        setLike(post.likes.indexOf("default") !== -1 ? 'true' : 'false');
+        setLike(post.likes.indexOf(profile.user) !== -1 ? 'true' : 'false' || 'false');
         setLikes(post.likes.length);
-      }
+      }else setData(null);
     }
 
-    if(!post.picture_user)
-      get_stats_post(post);
+    if(data === 'loading')
+      get_post()
 
-  }, [postId, posts, setLike]);
+  }, [postId, data, setLike, profile]);
 
   const handleClickLikeImg = () => {
     if (likeImg === null) setlikeImg(true);
