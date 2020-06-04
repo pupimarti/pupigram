@@ -1,11 +1,10 @@
 import React, { useState, useContext } from "react";
-import postsContext from 'components/Context/AppContext';
+import Context from 'components/Context/AppContext';
 
 import "./css.css";
-import addPost from "components/services/addPost";
-import getUltIdPost from "components/services/getUltIdPost";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import newPost from "components/services/newPost";
 
 export default function AddPost(props) {
   const [page, setPage] = useState(0);
@@ -16,13 +15,12 @@ export default function AddPost(props) {
     else setPage(0);
   };
 
-  const {posts, setPosts} = useContext(postsContext);
+  const {profile} = useContext(Context);
 
   const handleSig = () => {
     if (page === 0) setPage(1);
     else{
-        const id = getUltIdPost(posts) + 1;
-        addPost(id, props.img, "default", desc, posts, setPosts);
+        newPost(profile.user, props.img[0], desc);
         props.setImg(null);
     }
   };
@@ -43,7 +41,7 @@ export default function AddPost(props) {
                   <div key={i} className="content-img">
                   <img
                     className="img-post"
-                    src={img}
+                    src={URL.createObjectURL(img)}
                     alt="Imagen de la publicación"
                   />
               </div>
@@ -64,7 +62,7 @@ export default function AddPost(props) {
           />
           <img
             className="img-post-add-post"
-            src={props.img[0]}
+            src={URL.createObjectURL(props.img[0])}
             alt="La imagen del post"
           />
         </div>

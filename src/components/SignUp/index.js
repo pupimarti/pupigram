@@ -4,7 +4,7 @@ import pupigram from "img/pupigram.png";
 import "./css.css";
 import Loading from "components/Loading";
 import { Link } from "react-router-dom";
-import createUser from "components/services/createUser";
+import createUser from "components/services/newUser";
 
 export default function SignUp(props) {
   const [loading, setLoading] = useState(false);

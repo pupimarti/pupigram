@@ -4,6 +4,11 @@
   justify-content: center;
   align-items: center;
 }
+
+.content-loading-allpage{
+  height: 100vh;
+}
+
 @keyframes ldio-wghgll2tit8 {
   0% { opacity: 1 }
   100% { opacity: 0 }

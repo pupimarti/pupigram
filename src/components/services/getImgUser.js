@@ -12,7 +12,6 @@ export default async function getImgUser(user) {
         }
     }));
     if(!return_img){
-        console.log('vine a buscar img');
         const storage = firebase.storage();
         await storage.ref('users/'+user).getDownloadURL()
         .then(function(url) {

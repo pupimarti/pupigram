@@ -69,7 +69,7 @@ export default function Post(props) {
         </Link>
         <Options id={props.id} />
       </div>
-      <Img likeImg={likeImg} img={props.img} handleClickLikeImg={handleClickLikeImg}/>
+      <Img likeImg={likeImg} post={props.id} handleClickLikeImg={handleClickLikeImg}/>
       <div className="center-post actions-post">
         <Like like={like} setlike={handleLikeImg} />
         <Link className="action pc" to={"/posts/" + props.id}>

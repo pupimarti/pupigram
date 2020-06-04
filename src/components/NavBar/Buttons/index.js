@@ -20,7 +20,7 @@ export default function Buttons(props) {
   const handleChangeImage = (e) => {
     var file = []
     for(var f = 0; f < e.target.files.length; f++) 
-      file.push(URL.createObjectURL(e.target.files[f]))
+      file.push(e.target.files[f])
     props.setImg(file);
   }
   

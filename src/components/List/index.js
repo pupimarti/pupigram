@@ -36,12 +36,16 @@ export default function List() {
     }
 
     useEffect(() => {
-        if(data === 'loading')
-            var list_posts = getPosts(posts);
+        const get_posts = async () => {
+            var list_posts = await getPosts(posts);
             if(list_posts){
                 const p = list_posts.reverse();
                 setData(p);
             }
+        }
+        if(data === 'loading')
+            get_posts();
+
     }, [setData, data, posts])
     
     if(data === 'loading') return <Loading />
