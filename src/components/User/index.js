@@ -39,10 +39,13 @@ export default function User(props) {
           if(user !== null){
             const img_profile = await getImgUser(user.user);
             let post_imgs = [];
-            await asyncForEach(user.posts, async (p) => {
-              const img_post = await getImgPost(p);
-              post_imgs.push({id:p, url: img_post});
-            });
+            if(user.posts)
+            {
+              await asyncForEach(user.posts, async (p) => {
+                const img_post = await getImgPost(p);
+                post_imgs.push({id:p, url: img_post});
+              });
+            }
             user.posts = post_imgs;
             user.picture = img_profile;
             setData(user);

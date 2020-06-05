@@ -32,6 +32,7 @@ const createProfileUser = async (user, name, email) => {
             email,
             verify:false,
             web: "",
+            posts: [],
             followers: [],
             follows: [],
             desc: "Usuario pupigram",
