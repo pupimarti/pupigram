@@ -5,35 +5,12 @@ import Loading from 'components/Loading';
 import PostsContext from 'components/Context/AppContext';
 
 import './css.css';
-import getPost from 'components/services/getPost';
-import setPost from 'components/services/setPost';
 
 export default function List() {
 
     const [data, setData] = useState('loading');
 
-    const {posts, setPosts, profile} = useContext(PostsContext);
-
-    const addComment = (comment, user, idPost) => {
-        var _post = getPost(idPost, posts);
-        _post.comments.push({
-            user,
-            comment,
-            time: new Date()
-        });
-        setPost(_post, posts, setPosts);
-    }
-
-    const setLike = (user, value, idPost) => {
-        var _post = getPost(parseInt(idPost), posts);
-        if (_post !== null) {
-          var i = _post.likes.indexOf(user);
-          if (!value) {
-            if (i !== -1) _post.likes.splice(i, 1);
-          } else if (i === -1) _post.likes.push(user);
-          setPost(_post, posts, setPosts);
-        }
-    }
+    const {profile} = useContext(PostsContext);
 
     useEffect(() => {
         const get_posts = async () => {
@@ -46,7 +23,7 @@ export default function List() {
         if(data === 'loading')
             get_posts();
 
-    }, [setData, data, posts])
+    }, [setData, data])
     
     if(data === 'loading') return <Loading />
     return (
@@ -63,8 +40,7 @@ export default function List() {
                     likes={post.likes}
                     time={post.time}
                     comments={post.comments}
-                    addComment={addComment}
-                    setLike={setLike}
+                    verify={post.verify}
                     />
                 )
                 })}

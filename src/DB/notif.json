@@ -4,50 +4,6 @@
     "visualized": false,
     "notif": [
       {
-        "user": "martin_senz",
-        "type": "like",
-        "post": 4,
-        "time": "Sun May 20 2020 06:52:41 GMT-0300"
-      },
-      {
-        "user": "samantha",
-        "type": "like",
-        "post": 4,
-        "time": "Sun May 20 2020 04:52:41 GMT-0300"
-      },
-      {
-        "user": "thisisbillgates",
-        "type": "comment",
-        "post": 4,
-        "comment": "Welcome.",
-        "time": "Sun May 19 2020 23:52:41 GMT-0300"
-      },
-      {
-        "user": "leomessi",
-        "type": "like",
-        "post": 4,
-        "time": "Sun May 19 2020 23:52:41 GMT-0300"
-      },
-      {
-        "user": "pupi_marti",
-        "type": "like",
-        "post": 4,
-        "time": "Sun May 19 2020 20:52:41 GMT-0300"
-      },
-      {
-        "user": "leomessi",
-        "type": "comment",
-        "post": 4,
-        "comment": "Bienvenido!",
-        "time": "Sun May 19 2020 20:52:41 GMT-0300"
-      },
-      {
-        "user": "thisisbillgates",
-        "type": "like",
-        "post": 4,
-        "time": "Sun May 19 2020 20:52:41 GMT-0300"
-      },
-      {
         "user": "pupi_marti",
         "type": "follow",
         "time": "Sun May 17 2020 20:52:41 GMT-0300"

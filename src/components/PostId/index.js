@@ -16,65 +16,46 @@ import "./css.css";
 import getPost from "components/services/getPost";
 import Loading from "components/Loading";
 import PostsContext from "components/Context/AppContext";
-import setPost from "components/services/setPost";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+import { Carousel } from "react-responsive-carousel";
 import getImgUser from "components/services/getImgUser";
+import likePost from "components/services/likePost";
+import getImgsPost from "components/services/getImgsPost";
+import commentPost from "components/services/commentPost";
 
 export default function PostId() {
   const postId = useLocation().pathname.substr(7);
 
   const [data, setData] = useState("loading");
 
-  const { profile, posts, setPosts } = useContext(PostsContext);
+  const { profile } = useContext(PostsContext);
 
   const [likes, setLikes] = useState(0);
   const [likeImg, setlikeImg] = useState(null);
   const [like, setLike] = useState(null);
 
-  const addComment = (comment, user, idPost) => {
-    var _post = getPost(idPost);
-    if (_post !== null) {
-      _post.comments.push({
-        user,
-        comment,
-        time: new Date(),
-      });
-    }
-    setPost(_post, posts, setPosts);
-  };
-
-  const setLike_context = (user, value, idPost) => {
-    var _post = getPost(idPost);
-    if (_post !== null) {
-      var i = _post.likes.indexOf(user);
-      if (!value) {
-        if (i !== -1) _post.likes.splice(i, 1);
-      } else if (i === -1) _post.likes.push(user);
-      setPost(_post, posts, setPosts);
-    }
+  const addComment = async (comment) => {
+    await commentPost(profile.user, data.id, comment);
   };
 
   useEffect(() => {
-
     const get_post = async () => {
       const post = await getPost(postId);
       if (post !== null) {
         const u = await getImgUser(post.user);
-        if (u != null) {
-          post.picture_user = u;
-          post.verify = false;
-        }
+        post.picture_user = u;
+        const imgs_post = await getImgsPost(postId);
+        post.img = imgs_post;
         setData(post);
-        setLike(post.likes.indexOf(profile.user) !== -1 ? 'true' : 'false' || 'false');
+        setLike(
+          post.likes.indexOf(profile.user) !== -1 ? "true" : "false" || "false"
+        );
         setLikes(post.likes.length);
-      }else setData(null);
-    }
+      } else setData(null);
+    };
 
-    if(data === 'loading')
-      get_post()
-
-  }, [postId, data, setLike, profile]);
+    if (data === "loading") get_post();
+  }, [postId, data, setLike, profile.user]);
 
   const handleClickLikeImg = () => {
     if (likeImg === null) setlikeImg(true);
@@ -82,16 +63,22 @@ export default function PostId() {
     handleLikeImg(true);
   };
 
-  const handleLikeImg = (val) => {
-    if (val && (!like || like === 'false')) setLikes(likes + 1);
-    if (!val && (like || like === 'true')) setLikes(likes - 1);
-    setLike_context("default", val, postId);
+  const handleLikeImg = async (val) => {
+    if (val && (!like || like === "false")) {
+      setLikes(likes + 1);
+    }
+    if (!val && (like || like === "true")) {
+      setLikes(likes - 1);
+    }
     setLike(val);
+    if (!(await likePost(profile.user, data.id, val))) {
+      console.log("no se pudo realizar el mg");
+    }
   };
-  
+
   const [commentsUser, setCommentsUser] = useState([]);
   const handleChangeCommentsUser = (c) => {
-    addComment(c, "default", postId);
+    addComment(c);
     setCommentsUser([...commentsUser, c]);
   };
 
@@ -114,8 +101,8 @@ export default function PostId() {
         likes={data.likes}
         time={data.time}
         comments={data.comments}
+        profile={profile}
         addComment={addComment}
-        setLike={setLike_context}
       />
     );
   return (
@@ -132,7 +119,7 @@ export default function PostId() {
             <img className="verify" src={verify} alt="Verificado" />
           )}
         </Link>
-        <Options id={data.id} />
+        <Options id={data.id} user={data.user} />
       </div>
       <div className="content-img-post-id" onDoubleClick={handleClickLikeImg}>
         {likeImg !== null &&
@@ -149,17 +136,24 @@ export default function PostId() {
               alt="corazon"
             />
           ))}
-      <Carousel showIndicators={data.img && data.img.length > 1} emulateTouch={true} swipeable={true} showThumbs={false} showStatus={false}>
-          {data.img && data.img.map((img, i) => (
+        <Carousel
+          showIndicators={data.img && data.img.length > 1}
+          emulateTouch={true}
+          swipeable={true}
+          showThumbs={false}
+          showStatus={false}
+        >
+          {data.img &&
+            data.img.map((img, i) => (
               <div key={i} className="content-img">
-              <img
-                className="img-post"
-                src={img}
-                alt="Imagen de la publicación"
-              />
-          </div>
-          ))}
-      </Carousel>
+                <img
+                  className="img-post"
+                  src={img}
+                  alt="Imagen de la publicación"
+                />
+              </div>
+            ))}
+        </Carousel>
       </div>
       <div className="content-info-post-id">
         <div className="content-user-post-id center-post-id pc">
@@ -186,14 +180,25 @@ export default function PostId() {
           />
           {data.comments &&
             data.comments.map((c, i) => {
-                return (
-                  <CommentUser
-                    key={i}
-                    user={c.user}
-                    comment={c.comment}
-                    time={c.time}
-                  />
-                );
+              return (
+                <CommentUser
+                  key={i}
+                  user={c.user}
+                  comment={c.comment}
+                  time={c.time.toDate()}
+                />
+              );
+            })}
+          {commentsUser &&
+            commentsUser.map((c, i) => {
+              return (
+                <CommentUser
+                  key={i}
+                  user={profile.user}
+                  comment={c}
+                  time={new Date()}
+                />
+              );
             })}
         </div>
         <div className="content-likes-comment-post-id">

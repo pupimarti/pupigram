@@ -1,17 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import ReactModal from "react-modal";
 import { Link } from "react-router-dom";
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import "./css.css";
+import Context from 'components/Context/AppContext';
+import deletePost from "components/services/deletePost";
 
 export default function Options(props) {
   const [open, setOpen] = useState(false);
   const handleCloseModal = () => setOpen(false);
   const handleOpenModal = () => setOpen(true);
 
+  const {profile} = useContext(Context);
+
   const handleCopyTextOk = () => {
     handleCloseModal();
     alert('Enlace copiado en el portapapeles.');
+  }
+
+  const delete_post = async () => {
+    if(window.confirm('Seguro que desea eliminar esta publicación?')){
+      if(await deletePost(props.id, profile.user))
+        alert('Publicación eliminada con éxito.');
+      else alert('Hubo un error al eliminar la publicación');
+      handleCloseModal();
+    }
   }
 
   ReactModal.setAppElement("#root");
@@ -45,6 +58,14 @@ export default function Options(props) {
             onCopy={handleCopyTextOk}>
             <div className="action-modal action-modal-bt">Copiar enlace</div>
           </CopyToClipboard>
+          
+          {props.user === profile.user &&
+          <div
+          className="action-modal action-modal-bt"
+          onClick={delete_post}
+        >
+          Eliminar publicación
+        </div>}
 
           <Link
             to={"/posts/" + props.id}

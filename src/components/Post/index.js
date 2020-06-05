@@ -73,11 +73,11 @@ export default function Post(props) {
             <img className="default-img" src={account} alt="account" />
           )}
           <p className="user-account">{props.user}</p>
-          {user && user.verify && (
+          {props.verify && (
             <img className="verify" src={verify} alt="Verificado" />
           )}
         </Link>
-        <Options id={props.id} />
+        <Options id={props.id} user={props.user} />
       </div>
       <Img likeImg={likeImg} post={props.id} handleClickLikeImg={handleClickLikeImg}/>
       <div className="center-post actions-post">

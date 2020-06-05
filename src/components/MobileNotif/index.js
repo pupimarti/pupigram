@@ -11,13 +11,13 @@ export default function MobileNotif() {
   const [notif, setNotif] = useState('loading');
 
   
-  const {notifs, setNotifs, posts} = useContext(NotifContext);
+  const {notifs, setNotifs, posts, profile} = useContext(NotifContext);
   useEffect(() => {
     if (notif === 'loading')
-        setNotif(getNotif("default", notifs));
+        setNotif(getNotif(profile.user, notifs));
     else
       setNotifV(notif, true, notifs, setNotifs);
-  }, [notif, notifs,setNotifs]);
+  }, [notif, notifs,setNotifs, profile.user]);
 
   if (notif === 'loading') return <Loading />
     return (

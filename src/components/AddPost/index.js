@@ -5,10 +5,12 @@ import "./css.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import newPost from "components/services/newPost";
+import Loading from "components/Loading";
 
 export default function AddPost(props) {
   const [page, setPage] = useState(0);
   const [desc, setDesc] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleBack = () => {
     if (page === 0) props.setImg(null);
@@ -17,14 +19,18 @@ export default function AddPost(props) {
 
   const {profile} = useContext(Context);
 
-  const handleSig = () => {
+  const handleSig = async () => {
     if (page === 0) setPage(1);
     else{
-        newPost(profile.user, props.img[0], desc);
+        setLoading(true);
+        await newPost(profile.user, profile.verify, props.img, desc);
+        setLoading(false);
         props.setImg(null);
     }
   };
 
+
+  if(loading) return <Loading allpage />
 
   return (
     <div className="content-add-post">
@@ -50,7 +56,7 @@ export default function AddPost(props) {
       ) : (
         <div className="content-desc-new-post">
           <img
-            src="https://scontent-mrs2-2.cdninstagram.com/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=scontent-mrs2-2.cdninstagram.com&_nc_ohc=Jf9Z_lzbyhIAX8Goisq&oh=a40f9aed80ddfc70f97243fbb84d4611&oe=5EE4368F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2"
+            src={profile.picture}
             className="img-user-add-post"
             alt="Tu imagen de perfil"
           />

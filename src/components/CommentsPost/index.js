@@ -7,31 +7,24 @@ import PostsContext from "components/Context/AppContext";
 
 import './css.css'
 import getPost from "components/services/getPost";
-import setPost from "components/services/setPost";
 import Loading from "components/Loading";
 import getImgUser from "components/services/getImgUser";
+import commentPost from "components/services/commentPost";
 
 export default function CommentsPost() {
   const postId = useLocation().pathname.substr(10);
 
   const [data, setData] = useState('loading');
 
-  const {posts, setPosts} = useContext(PostsContext);
+  const {profile} = useContext(PostsContext);
 
-  const addComment = (comment, user, idPost) => {
-    var _post = getPost(parseInt(idPost), posts);
-    _post.comments.push({
-        user,
-        comment,
-        time: new Date()
-    });
-    setPost(_post, posts, setPosts);
-}
+  const addComment = async (comment) => {
+    await commentPost(profile.user, data.id, comment);
+  };
 
   useEffect(() => {
-    var post = getPost(parseInt(postId), posts);
-
-    const get_stats_post = async (post) => {
+    const get_stats_post = async () => {
+      let post = await getPost(postId);
       if (post !== null) {
         const u = await getImgUser(post.user);
         if (u != null) {
@@ -42,14 +35,14 @@ export default function CommentsPost() {
       }
     }
     
-    if(!post.picture_user)
-      get_stats_post(post);
-  }, [postId, posts]);
+    if(data === 'loading')
+      get_stats_post();
+  }, [postId, data]);
 
 
   const [commentsUser, setCommentsUser] = useState([]);
   const handleChangeCommentsUser = (c) => {
-    addComment(c, "default", postId);
+    addComment(c);
     setCommentsUser([...commentsUser, c]);
   };
 
@@ -69,7 +62,18 @@ export default function CommentsPost() {
                 key={i}
                 user={c.user}
                 comment={c.comment}
-                time={c.time}
+                time={c.time.toDate()}
+              />
+            );
+        })}
+        {commentsUser &&
+        commentsUser.map((c, i) => {
+            return (
+              <CommentsUser
+                key={i}
+                user={profile.user}
+                comment={c}
+                time={new Date()}
               />
             );
         })}
