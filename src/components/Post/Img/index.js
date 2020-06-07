@@ -14,6 +14,7 @@ export default function Img(props) {
     useEffect(() => {
       const get_imgs = async () => {
           const the_imgs = await getImgsPost(props.post);
+          console.log(the_imgs);
           setImgs(the_imgs);
       }
 

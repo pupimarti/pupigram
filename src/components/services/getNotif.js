@@ -17,6 +17,7 @@ export default async function getNotif(user){
         .then((doc) => {
         if (doc.exists) {
             let notif = doc.data();
+            notif.notifs.reverse();
             notif.vizualized = true;
             notifs = notif;
             db.collection('notif').doc(user)
