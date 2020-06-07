@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/pupigram/static/css/main.0ff2246e.chunk.css",
-    "main.js": "/pupigram/static/js/main.e7de64f1.chunk.js",
-    "main.js.map": "/pupigram/static/js/main.e7de64f1.chunk.js.map",
+    "main.js": "/pupigram/static/js/main.3a29f32c.chunk.js",
+    "main.js.map": "/pupigram/static/js/main.3a29f32c.chunk.js.map",
     "runtime-main.js": "/pupigram/static/js/runtime-main.1b145aaa.js",
     "runtime-main.js.map": "/pupigram/static/js/runtime-main.1b145aaa.js.map",
     "static/css/2.f50f06fd.chunk.css": "/pupigram/static/css/2.f50f06fd.chunk.css",
-    "static/js/2.5cdb8c7e.chunk.js": "/pupigram/static/js/2.5cdb8c7e.chunk.js",
-    "static/js/2.5cdb8c7e.chunk.js.map": "/pupigram/static/js/2.5cdb8c7e.chunk.js.map",
+    "static/js/2.59af38f4.chunk.js": "/pupigram/static/js/2.59af38f4.chunk.js",
+    "static/js/2.59af38f4.chunk.js.map": "/pupigram/static/js/2.59af38f4.chunk.js.map",
     "static/js/3.6a47b8d1.chunk.js": "/pupigram/static/js/3.6a47b8d1.chunk.js",
     "static/js/3.6a47b8d1.chunk.js.map": "/pupigram/static/js/3.6a47b8d1.chunk.js.map",
     "static/js/4.c29ed289.chunk.js": "/pupigram/static/js/4.c29ed289.chunk.js",
@@ -23,11 +23,11 @@
     "static/js/9.c67c538b.chunk.js": "/pupigram/static/js/9.c67c538b.chunk.js",
     "static/js/9.c67c538b.chunk.js.map": "/pupigram/static/js/9.c67c538b.chunk.js.map",
     "index.html": "/pupigram/index.html",
-    "precache-manifest.0ebc1884e3f5cae283fceea0be2d51ab.js": "/pupigram/precache-manifest.0ebc1884e3f5cae283fceea0be2d51ab.js",
+    "precache-manifest.033c20eb84ddd6c301f8dd96e29cf107.js": "/pupigram/precache-manifest.033c20eb84ddd6c301f8dd96e29cf107.js",
     "service-worker.js": "/pupigram/service-worker.js",
     "static/css/2.f50f06fd.chunk.css.map": "/pupigram/static/css/2.f50f06fd.chunk.css.map",
     "static/css/main.0ff2246e.chunk.css.map": "/pupigram/static/css/main.0ff2246e.chunk.css.map",
-    "static/js/2.5cdb8c7e.chunk.js.LICENSE.txt": "/pupigram/static/js/2.5cdb8c7e.chunk.js.LICENSE.txt",
+    "static/js/2.59af38f4.chunk.js.LICENSE.txt": "/pupigram/static/js/2.59af38f4.chunk.js.LICENSE.txt",
     "static/media/account.svg": "/pupigram/static/media/account.71672f0b.svg",
     "static/media/add.svg": "/pupigram/static/media/add.c817e915.svg",
     "static/media/chat.svg": "/pupigram/static/media/chat.0ec68f32.svg",
@@ -46,8 +46,8 @@
   "entrypoints": [
     "static/js/runtime-main.1b145aaa.js",
     "static/css/2.f50f06fd.chunk.css",
-    "static/js/2.5cdb8c7e.chunk.js",
+    "static/js/2.59af38f4.chunk.js",
     "static/css/main.0ff2246e.chunk.css",
-    "static/js/main.e7de64f1.chunk.js"
+    "static/js/main.3a29f32c.chunk.js"
   ]
 }
