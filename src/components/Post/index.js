@@ -35,7 +35,7 @@ export default function Post(props) {
       setLikes(likes - 1);
     }
     setlike(val);
-    if(!await likePost(props.profile.user, props.id, val)){
+    if(!await likePost(props.profile.user, props.id, props.user, val)){
       console.log('no se pudo realizar el mg')
     }
   };

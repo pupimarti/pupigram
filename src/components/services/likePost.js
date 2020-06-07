@@ -1,7 +1,8 @@
 import firebase from "firebase";
 import "firebase/firestore";
+import addNotif from "./addNotif";
 
-export default async function likePost(user, post, value) {
+export default async function likePost(user, post, user_post, value) {
   const db = firebase.firestore();
   let result = null;
   try {
@@ -25,6 +26,8 @@ export default async function likePost(user, post, value) {
     result = false;
     console.log("Error getting documents: ", e);
   }
+
+  addNotif(user_post, "like", user, post);
 
   return result;
 }

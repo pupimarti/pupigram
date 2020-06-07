@@ -1,5 +1,6 @@
 import firebase from 'firebase';
 import 'firebase/firestore';
+import addNotif from './addNotif';
 
 export default async function addFollow(user, user_follow) {
     const db = firebase.firestore();
@@ -13,6 +14,7 @@ export default async function addFollow(user, user_follow) {
         .update({
             followers: firebase.firestore.FieldValue.arrayUnion(user)
         });
+        addNotif(user_follow, "follow", user);
         result = true;
     } catch (e) {
         result = false;

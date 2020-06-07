@@ -55,7 +55,7 @@ export default function Buttons(props) {
           alt="explore"
         />
       </Link> */}
-      <Notif user="default" path={path} />
+      <Notif user={profile.user} path={path} />
       <Link to={pathAccount}>
         <img className="icon-account" src={profile.picture} alt="Cuenta" />
       </Link>

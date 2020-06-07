@@ -11,7 +11,7 @@ import setNotifV from "components/services/setNotif";
 import getImgPost from "components/services/getImgPost";
 
 export default function Notif(props) {
-  const {notifs, setNotifs, posts} = useContext(NotifContext);
+  const {notifs, setNotifs} = useContext(NotifContext);
 
   const [open, setOpen] = useState(false);
   const handleSetModal = () => {
@@ -26,8 +26,26 @@ export default function Notif(props) {
   const user = props.user;
 
   useEffect(() => {
-    if (notif === 'loading') setNotif(getNotif(user, notifs));
-  }, [notif, user, notifs]);
+    const get_notifs = async () => {
+      const _notifs = await getNotif(user);
+      if(_notifs){
+        await asyncForEach(_notifs.notifs, async (n) => {
+          if (n.type === "like" || n.type === "comment") {
+            n.img = await getImgPost(n.post);
+          }
+        });
+      }
+      setNotif(_notifs);
+    };
+
+    async function asyncForEach(array, callback) {
+      for (let index = 0; index < array.length; index++) {
+        await callback(array[index], index, array);
+      }
+    }
+
+    if (notif === 'loading') get_notifs();
+  }, [notif, user]);
 
     return (
     <div className="content-heart">
@@ -60,22 +78,17 @@ export default function Notif(props) {
       {open && <div className="content-notif pc">
         {notif === 'loading' ? <Loading />
         : (notif &&
-          notif.notif.map((n, i) => {
-            var img = "";
-            if(n.type === "like" || n.type === "comment"){
-              img = getImgPost(n.post, posts);
-            }
-            
+          notif.notifs.map((n, i) => {
             return (
               <React.Fragment key={i}>
                 {i > 0 && <div className="divisor-notif"></div>}
                 <Notification
                   type={n.type}
-                  time={n.time}
+                  time={n.time.toDate()}
                   post={n.post}
                   comment={n.comment}
-                  img={img[0]}
-                  user={n.user}
+                  img={n.img}
+                  user={n.user_send}
                 />
               </React.Fragment>
             );
