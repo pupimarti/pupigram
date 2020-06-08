@@ -3,6 +3,7 @@ import verify from "img/verify.svg";
 import account from "img/account.svg";
 
 import "./css.css";
+import deleteImgUserStorage from "components/services/deleteImgUserStorage";
 
 export default function User(props) {
 
@@ -25,6 +26,7 @@ export default function User(props) {
             className="img-account"
             src={props.picture}
             alt="profile_picture"
+            onError={() => deleteImgUserStorage(props.user)}
           />
         ) : (
           <img className="default-img" src={account} alt="profile_picture" />
