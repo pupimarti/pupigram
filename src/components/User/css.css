@@ -30,7 +30,6 @@
 .content-follow-points .button{
     padding-left: 24px;
     padding-right: 24px;
-    
 }
 .username-user{
     font-weight: 300;
@@ -124,6 +123,15 @@
     text-align: center;
 }
 
+
+.content-follow-points{
+    margin-left: 10px;
+}
+
+.content-follow-points .button{
+    margin-right:10px;
+}
+
 @media screen and (max-width: 800px){        
     .header-user{
         align-items: center;
@@ -139,6 +147,9 @@
     .content-follow-points{
         width: 100%;
         margin-top: 5px;
+    }
+    .content-follow-points{
+        margin: 0;
     }
     .content-follow-points .button{
         padding-left: 12px;

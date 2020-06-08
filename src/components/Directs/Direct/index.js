@@ -29,7 +29,7 @@ export default function Direct(props) {
         props.onClick({
             user: props.user,
             verify: user.verify,
-            picture: user.picture
+            picture: user
         });
       }}
       className={props.read ? "content-direct" : "content-direct unread"}

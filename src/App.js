@@ -21,7 +21,9 @@ import SignUp from "components/SignUp";
 import Loading from "components/Loading";
 import Context from 'components/Context/AppContext';
 import getImgUser from "components/services/getImgUser";
+import EditProfile from "components/EditProfile";
 /*  import syncronicUsers from "components/services/syncronicUsers";  */
+import 'react-notifications/lib/notifications.css';
 
 JavascriptTimeAgo.locale(es);
 
@@ -147,6 +149,9 @@ function App() {
                     </Route>
                     <Route exact path="/signup">
                       <Redirect to="/" />
+                    </Route>
+                    <Route exact path="/account/edit">
+                      <EditProfile />
                     </Route>
                     <Route exact path="/:user">
                       <User handleLogoutUser={handleLogoutUser}/>  

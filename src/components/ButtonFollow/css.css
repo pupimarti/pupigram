@@ -2,9 +2,11 @@
 .button{
     border: none;
     padding: 7px 10px;
-    font-weight: 600;
+    font-weight: 600 !important;
     border-radius: 3px;
     cursor: pointer;
+    font-size: 14px !important;
+    
 }
 
 .button:focus {outline:0;}

@@ -10,7 +10,7 @@ import UserContext from 'components/Context/AppContext';
 import ButtonFollow from 'components/ButtonFollow';
 import getImgUser from "components/services/getImgUser";
 import getImgPost from "components/services/getImgPost";
-
+ 
 export default function User(props) {
 
   const {posts, profile} = useContext(UserContext);
@@ -62,8 +62,6 @@ export default function User(props) {
       
   }, [userPath, posts, data, profile]);
 
-  
-
   if (data === null) return <NoPage />;
   const stats = () => {
     if (data.posts) {
@@ -99,14 +97,17 @@ export default function User(props) {
             {data.verify && (
               <img className="verify" src={verify} alt="verify" />
             )}
-            <div className="points">
+            {/* <div className="points">
                 <div className="point"></div>
                 <div className="point"></div>
                 <div className="point"></div>
-              </div>
+              </div> */}
             <div className="content-follow-points">
             {profile && profile.user === userPath &&
-            <button className="button follow" onClick={() => props.handleLogoutUser()}>Cerrar sesión</button>
+            <Link to="/account/edit"><button className="button unfollow">Editar perfil</button></Link>
+            }
+            {profile && profile.user === userPath &&
+            <button className="button unfollow" onClick={() => props.handleLogoutUser()}>Cerrar sesión</button>
             }
             <ButtonFollow user={profile.user} user_follow={data.user} setFollowers={handleSetFollowers}/>
 
@@ -161,7 +162,6 @@ export default function User(props) {
             )
           })}
       </section>
-
       {data.posts && data.posts.length === 0 && (
         <p className="text-center">Aún no hay publicaciones subidas.</p>
       )}
