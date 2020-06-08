@@ -14,10 +14,11 @@
 
 .icon-account{
     width: 1.1em;
-    max-width: 25px;
-    max-height: 25px;
+    width: 25px;
+    height: 25px;
     margin: 5px 10px;
     border-radius: 50%;
+    object-fit: cover;
     border: 1px solid #dbdbdb;
 }
 

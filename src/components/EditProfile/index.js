@@ -6,34 +6,46 @@ import Profile from "components/Context/AppContext";
 import editProfile from "components/services/editProfile";
 import Loading from "components/Loading";
 
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
 
 export default function EditProfile() {
-  const { profile } = useContext(Profile);
+  const { profile, setProfile } = useContext(Profile);
 
-  const [data, setData] = useState({
-    name: profile.name,
-    desc: profile.desc,
-    picture: profile.picture,
-    web: profile.web,
-  });
+  const [data, setData] = useState(profile);
 
   const handleInputChange = (e) => {
-    if(profile.user !== "default"){
-        const target = e.target;
-        const name = target.name;
-        setData({ ...data, [name]: target.value });
+    if (profile.user !== "default") {
+      const target = e.target;
+      const name = target.name;
+      setData({ ...data, [name]: target.value });
     }
   };
 
   const [loading, setLoading] = useState(false);
   const handleChange = async () => {
     setLoading(true);
-    if(await editProfile(profile.user, data.name, data.web, data.desc))
-        NotificationManager.success('Usuario editado con éxito', 'Editado', 5000);
-    else
-        NotificationManager.error('No se ha podido editar el usuario, vuelva a intentarlo más tarde.', 'Error', 5000);
+    if (await editProfile(profile.user, data.name, data.web, data.desc, img)) {
+      NotificationManager.success("Usuario editado con éxito", "Editado", 5000);
+      setProfile(data);
+      setImg(null);
+    } else
+      NotificationManager.error(
+        "No se ha podido editar el usuario, vuelva a intentarlo más tarde.",
+        "Error",
+        5000
+      );
     setLoading(false);
+  };
+
+  const [img, setImg] = useState(null);
+
+  const handleChangeImage = (e) => {
+      const url_img = URL.createObjectURL(e.target.files[0]);
+      setImg(e.target.files[0]);
+      setData({...data, picture:url_img});
   }
 
   return (
@@ -51,6 +63,12 @@ export default function EditProfile() {
         <div className="content-indicator-input">
           <p className="indicator">Foto de perfil</p>
           <img src={data.picture} alt="pic-profile" className="perfil-img" />
+          <div>
+            <label htmlFor="upload-profile" className="button follow">
+                Editar foto de perfil
+            </label>
+            <input type="file" id="upload-profile" className="invisible" onChange={handleChangeImage}/>
+          </div>
         </div>
         <div className="content-indicator-input">
           <p className="indicator">Nombre</p>
@@ -86,7 +104,10 @@ export default function EditProfile() {
       {profile.user === "default" ? (
         <div className="no-edit-default">
           <div>
-            <p>El usuario por default no se puede editar, ingresa en otra cuenta para poder editar.</p>
+            <p>
+              El usuario por default no se puede editar, ingresa en otra cuenta
+              para poder editar.
+            </p>
           </div>
           <Link to={"/" + profile.user}>
             <button className="button unfollow">Volver</button>
@@ -94,13 +115,15 @@ export default function EditProfile() {
         </div>
       ) : (
         <div className="content-buttons-edit">
-            <button onClick={() => handleChange()} className="button follow">{loading ? <Loading/> : "Guardar"}</button>
+          <button onClick={() => handleChange()} className="button follow">
+            {loading ? <Loading /> : "Guardar"}
+          </button>
           <Link to={"/" + profile.user}>
             <button className="button unfollow">Volver</button>
           </Link>
         </div>
       )}
-      <NotificationContainer/>
+      <NotificationContainer />
     </div>
   );
 }
