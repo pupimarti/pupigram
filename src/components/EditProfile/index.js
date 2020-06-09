@@ -43,10 +43,10 @@ export default function EditProfile() {
   const [img, setImg] = useState(null);
 
   const handleChangeImage = (e) => {
-      const url_img = URL.createObjectURL(e.target.files[0]);
-      setImg(e.target.files[0]);
-      setData({...data, picture:url_img});
-  }
+    const url_img = URL.createObjectURL(e.target.files[0]);
+    setImg(e.target.files[0]);
+    setData({ ...data, picture: url_img });
+  };
 
   return (
     <div className="content-edit-profile">
@@ -65,9 +65,15 @@ export default function EditProfile() {
           <img src={data.picture} alt="pic-profile" className="perfil-img" />
           <div>
             <label htmlFor="upload-profile" className="button follow">
-                Editar foto de perfil
+              Editar foto de perfil
             </label>
-            <input type="file" id="upload-profile" className="invisible" onChange={handleChangeImage}/>
+            <input
+              type="file"
+              id="upload-profile"
+              className="invisible"
+              accept="image/x-png,image/gif,image/jpeg"
+              onChange={handleChangeImage}
+            />
           </div>
         </div>
         <div className="content-indicator-input">

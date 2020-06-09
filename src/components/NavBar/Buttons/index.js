@@ -54,6 +54,7 @@ export default function Buttons(props) {
         multiple
         className="invisible"
         onChange={handleChangeImage}
+        accept="image/x-png,image/gif,image/jpeg"
       />
 
       {/* <Link to={pathExplore} className="pc">
