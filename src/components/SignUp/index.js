@@ -26,8 +26,17 @@ export default function SignUp(props) {
   const handleInputChange = (e) => {
     const target = e.target;
     const name = target.name;
+    if(name === "user")
+    {
+        let max_length = target.value.slice(0, 20);
+        let remove_spaces = max_length.replace(/\s/g, '');
+        let remove_symbols = remove_spaces.replace(/[^a-zA-Z0-9_]/g, '');
+        handleSetData({...data, [name]: remove_symbols.toLowerCase()})
+    }
+    else
     handleSetData({ ...data, [name]: target.value });
   };
+  
 
   const handleOnClick = async (e) => {
     e.preventDefault();

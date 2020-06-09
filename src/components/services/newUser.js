@@ -37,8 +37,25 @@ const createProfileUser = async (user, name, email) => {
             follows: [],
             desc: "Usuario pupigram",
         })
+        .then(async () => {
+            result = await createNotifsUser(user);
+        })
+        .catch((e) => {
+            result = false;
+            console.log("Error getting documents: ", e);
+    });
+    return result;
+}
+
+const createNotifsUser = async user => {
+    const db = firebase.firestore();
+    let result = false;
+    await db.collection('notif').doc(user)
+        .set({
+            notifs: [],
+            visualized: true
+        })
         .then(() => {
-            console.log('se creo');
             result = true
         })
         .catch((e) => {
