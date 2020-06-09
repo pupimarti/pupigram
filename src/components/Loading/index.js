@@ -3,15 +3,16 @@ import './css.css'
 
 export default function Loading(props) {
 
-    if(props.allpage) return(
-        <div className="content-loading content-loading-allpage">
-            <div className="loadingio-spinner-spinner-0weqdade60oe"><div className="ldio-wghgll2tit8">
-            <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-            </div></div>
-        </div>
-    )
-    return (
-        <div className="content-loading">
+
+    const classname = () => {
+        let return_class = "content-loading";
+        if(props.allpage) return_class+= " content-loading-allpage"
+        if(props.dark) return_class+= " dark-loading"
+        return return_class;
+    }
+
+    return(
+        <div className={classname()}>
             <div className="loadingio-spinner-spinner-0weqdade60oe"><div className="ldio-wghgll2tit8">
             <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
             </div></div>

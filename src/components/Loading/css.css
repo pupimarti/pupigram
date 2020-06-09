@@ -5,6 +5,10 @@
   align-items: center;
 }
 
+.dark-loading{
+  background-color: #262626 !important;
+}
+
 .content-loading-allpage{
   height: 100vh;
 }

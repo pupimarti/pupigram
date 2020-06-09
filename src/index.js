@@ -20,7 +20,8 @@ newPost();
 ReactDOM.render(
   <React.StrictMode>
     <FirebaseAppProvider firebaseConfig={configFb}>
-      <Suspense fallback={<Loading allpage />}>
+      <Suspense fallback={<Loading allpage dark={(window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches) || false} />}>
         <AppContextProvider>
           <App />
         </AppContextProvider>

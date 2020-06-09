@@ -78,7 +78,7 @@ function App() {
   const [loading, setLoading] = useState(false);
 
 
-  if (loading) return <Loading allpage />;
+  if (loading) return <Loading allpage dark={mode} />;
   if (!user || !profile || profile === "none") {
      if (user && !profile) getAccount();  
     return (
