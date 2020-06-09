@@ -5,6 +5,7 @@ import "./css.css";
 import Loading from "components/Loading";
 import { Link } from "react-router-dom";
 import createUser from "components/services/newUser";
+import getUser from "components/services/getUser";
 
 export default function SignUp(props) {
   const [loading, setLoading] = useState(false);
@@ -41,6 +42,11 @@ export default function SignUp(props) {
   const handleOnClick = async (e) => {
     e.preventDefault();
     handleSetLoading(true);
+    if(await getUser(data.user)){
+      setError({message: "El nombre de usuario '" + data.user + "' ya está en uso."})
+      handleSetLoading(false);
+      return;
+    }
     if (props.user) {
       const create = await createUser(
         data.user,

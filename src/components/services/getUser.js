@@ -13,7 +13,6 @@ export default async function getUser(user) {
             return_user = user_min;
         }
         else{
-            console.log('no existe el usuario');
             return_user = null;
         }
     })

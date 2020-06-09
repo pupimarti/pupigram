@@ -8,7 +8,7 @@
     color: #262626;
     background-color: #FAFAFA;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
   }
 
   .title-form{
@@ -34,6 +34,7 @@
   .form .logo-login{
     width: 175px;
     margin: 22px 0;
+    max-width: 90%;
   }
 
   .form input {
