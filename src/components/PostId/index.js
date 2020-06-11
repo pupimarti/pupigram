@@ -35,7 +35,7 @@ export default function PostId() {
   const [like, setLike] = useState(null);
 
   const addComment = async (comment) => {
-    await commentPost(profile.user, data.id, comment);
+    await commentPost(profile.user, data.id, comment, data.user);
   };
 
   useEffect(() => {
@@ -102,7 +102,6 @@ export default function PostId() {
         time={data.time}
         comments={data.comments}
         profile={profile}
-        addComment={addComment}
       />
     );
   return (

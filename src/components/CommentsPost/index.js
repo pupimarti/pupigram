@@ -19,7 +19,7 @@ export default function CommentsPost() {
   const {profile} = useContext(PostsContext);
 
   const addComment = async (comment) => {
-    await commentPost(profile.user, data.id, comment);
+    await commentPost(profile.user, data.id, comment, data.user);
   };
 
   useEffect(() => {

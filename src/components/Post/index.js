@@ -12,6 +12,7 @@ import Img from "./Img";
 import getImgUser from "components/services/getImgUser";
 import likePost from "components/services/likePost";
 import deleteImgUserStorage from "components/services/deleteImgUserStorage";
+import commentPost from "components/services/commentPost";
 
 export default function Post(props) {
   const [likes, setLikes] = useState(props.likes.length);
@@ -47,7 +48,7 @@ export default function Post(props) {
   const [commentsUser, setCommentsUser] = useState([]);
   const handleChangeCommentsUser = (c) => {
     setCommentsUser([...commentsUser, c]);
-    props.addComment(c, "default", props.id);
+    commentPost(props.profile.user, props.id, c, props.user);
   };
 
   const [user, setUser] = useState(null);

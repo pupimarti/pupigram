@@ -1,7 +1,8 @@
 import firebase from "firebase";
 import "firebase/firestore";
+import addNotif from "./addNotif";
 
-export default async function commentPost(user, post, comment) {
+export default async function commentPost(user, post, comment, user_post) {
   const db = firebase.firestore();
   let result = null;
   let the_comment = {
@@ -21,6 +22,8 @@ export default async function commentPost(user, post, comment) {
     result = false;
     console.log("Error getting documents: ", e);
   }
+
+  addNotif(user_post, "comment", user, post, comment);
 
   return result;
 }
