@@ -2,6 +2,7 @@ import firebase from 'firebase';
 import 'firebase/firestore';
 
 export default function addNotif(user, type, user_send, post = null, comment = null) {
+    if(user === user_send) return;
     const db = firebase.firestore();
     let result = null;
     let notif = {
